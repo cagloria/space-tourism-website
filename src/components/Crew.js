@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Crew() {
+export default function Crew({ title, name, description }) {
     return (
         <section>
             <h1>
@@ -10,15 +10,17 @@ export default function Crew() {
             {/* TODO: Slider controls */}
 
             <h2>
-                <span>Commander</span>
-                <span>Douglas Hurley</span>
+                <span>{title}</span> <span>{name}</span>
             </h2>
 
-            <p>
-                Douglas Gerald Hurley is an American engineer, former Marine
-                Corps pilot and former NASA astronaut. He launched into space
-                for the third time as commander of Crew Dragon Demo-2.
-            </p>
+            <p>{description}</p>
         </section>
     );
 }
+
+Crew.defaultProps = {
+    title: "Commander",
+    name: "Douglas Hurley",
+    description:
+        "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
+};

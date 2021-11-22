@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
     return (
@@ -14,7 +15,7 @@ export default function Home() {
                 of this world experience!
             </p>
 
-            <a href=".">Explore</a>
+            <Link to="/destination">Explore</Link>
         </section>
     );
 }

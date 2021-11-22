@@ -1,5 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
+import styled from "styled-components";
+import iconHamburger from "../assets/icon-hamburger.svg";
+import iconClose from "../assets/icon-close.svg";
+
+const NavButton = styled.button`
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-image: url("${(props) =>
+        props.navIsOpen ? iconHamburger : iconClose}");
+`;
 
 export default function Header() {
     const navIsOpen = false;
@@ -8,32 +23,33 @@ export default function Header() {
         <header>
             <img src={logo} alt="Space tourism logo" />
             <nav>
-                <button
-                    className="header__nav-button"
+                <NavButton
+                    navIsOpen
+                    aria-label={navIsOpen ? "Close nav" : "Open nav"}
                     aria-haspopup="true"
                     aria-controls="IDREF"
                     aria-expanded={navIsOpen}
-                ></button>
+                />
                 <ol role="menu" aria-labelledby="IDREF">
                     <li role="none">
-                        <a href="." role="menuitem">
+                        <Link to="/" role="menuitem">
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li role="none">
-                        <a href="." role="menuitem">
+                        <Link to="/destination" role="menuitem">
                             Destination
-                        </a>
+                        </Link>
                     </li>
                     <li role="none">
-                        <a href="." role="menuitem">
+                        <Link to="/crew" role="menuitem">
                             Crew
-                        </a>
+                        </Link>
                     </li>
                     <li role="none">
-                        <a href="." role="menuitem">
+                        <Link to="/technology" role="menuitem">
                             Technology
-                        </a>
+                        </Link>
                     </li>
                 </ol>
             </nav>

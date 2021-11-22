@@ -1,8 +1,13 @@
 import React from "react";
 
-export default function Destination() {
+export default function Destination({
+    name,
+    description,
+    distance,
+    travelTime,
+}) {
     return (
-        <div>
+        <section>
             <h1>
                 <span>01</span> Pick your destination
             </h1>
@@ -13,22 +18,25 @@ export default function Destination() {
                 <li>Titan</li>
             </ul>
 
-            <h2>Moon</h2>
-            <p>
-                See our planet as you’ve never seen it before. A perfect
-                relaxing trip away to help regain perspective and come back
-                refreshed. While you’re there, take in some history by visiting
-                the Luna 2 and Apollo 11 landing sites.
-            </p>
+            <h2>{name}</h2>
+            <p>{description}</p>
 
             <div>
                 <h3>Avg. distance</h3>
-                <p>384,400 km</p>
+                <p>{distance}</p>
             </div>
             <div>
                 <h3>Est. travel time</h3>
-                <p>3 days</p>
+                <p>{travelTime}</p>
             </div>
-        </div>
+        </section>
     );
 }
+
+Destination.defaultProps = {
+    name: "Moon",
+    description:
+        "See our planet as you’ve never seen it before. A perfect relaxing trip away to help  regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+    distance: "384,400 km",
+    travelTime: "3 days",
+};
