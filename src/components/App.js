@@ -4,18 +4,44 @@ import Home from "./Home";
 import Destination from "./Destination";
 import Crew from "./Crew";
 import Technology from "./Technology";
+import { convertForURL } from "../utilities/strings";
+import data from "../data/data.json";
 // import { GlobalStyle } from "./Theme";
 
 export default function App() {
+    // Ensures that all data from data.json are given Routes
+    const { destinations, crew, technology } = data;
+    const destinationRoutes = destinations.map((element) => (
+        <Route
+            key={convertForURL(element.name)}
+            path={`destination-${convertForURL(element.name)}`}
+            element={<Destination destination={element} />}
+        />
+    ));
+    const crewRoutes = crew.map((element) => (
+        <Route
+            key={convertForURL(element.name)}
+            path={`crew-${convertForURL(element.name)}`}
+            element={<Crew crewMember={element} />}
+        />
+    ));
+    const techRoutes = technology.map((element) => (
+        <Route
+            key={convertForURL(element.name)}
+            path={`technology-${convertForURL(element.name)}`}
+            element={<Technology tech={element} />}
+        />
+    ));
+
     return (
         <>
             <Header />
             <main>
                 <Routes>
                     <Route exact path="/" element={<Home />} />
-                    <Route path="/destination" element={<Destination />} />
-                    <Route path="/crew" element={<Crew />} />
-                    <Route path="/technology" element={<Technology />} />
+                    {destinationRoutes}
+                    {crewRoutes}
+                    {techRoutes}
                 </Routes>
             </main>
         </>

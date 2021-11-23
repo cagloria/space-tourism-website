@@ -37,17 +37,17 @@ export default function Header() {
                         </Link>
                     </li>
                     <li role="none">
-                        <Link to="/destination" role="menuitem">
+                        <Link to="/destination-moon" role="menuitem">
                             Destination
                         </Link>
                     </li>
                     <li role="none">
-                        <Link to="/crew" role="menuitem">
+                        <Link to="/crew-douglas-hurley" role="menuitem">
                             Crew
                         </Link>
                     </li>
                     <li role="none">
-                        <Link to="/technology" role="menuitem">
+                        <Link to="/technology-launch-vehicle" role="menuitem">
                             Technology
                         </Link>
                     </li>

@@ -15,7 +15,7 @@ export default function Home() {
                 of this world experience!
             </p>
 
-            <Link to="/destination">Explore</Link>
+            <Link to="/destination-moon">Explore</Link>
         </section>
     );
 }
