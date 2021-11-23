@@ -18,13 +18,3 @@ export function createLinksListItems(arr, urlPrefix) {
 
     return links;
 }
-
-// export function createRoute(arr, urlPrefix) {
-//     const routes = arr.map((element) => (
-//         <Route
-//             key={convertForURL(element.name)}
-//             path={`${urlPrefix}-${convertForURL(element.name)}`}
-//             element={<Crew crewMember={element} />}
-//         />
-//     ));
-// }

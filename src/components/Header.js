@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
 import styled from "styled-components";
+import logo from "../assets/logo.svg";
 import iconHamburger from "../assets/icon-hamburger.svg";
 import iconClose from "../assets/icon-close.svg";
 
