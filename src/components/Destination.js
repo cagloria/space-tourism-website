@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createLinksListItems } from "../utilities/pages";
 
 /**
@@ -10,16 +10,18 @@ import { createLinksListItems } from "../utilities/pages";
 export default function Destination({ destination, allDestinations }) {
     const links = createLinksListItems(allDestinations, "destination");
 
+    useEffect(() => {
+        document.title = `Destination: ${destination.name} | Space Tourism`;
+    }, [destination.name]);
+
     return (
         <section>
             <h1>
                 <span>01</span> Pick your destination
             </h1>
             <ul>{links}</ul>
-
             <h2>{destination.name}</h2>
             <p>{destination.description}</p>
-
             <div>
                 <h3>Avg. distance</h3>
                 <p>{destination.distance}</p>

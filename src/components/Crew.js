@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createLinksListItems } from "../utilities/pages";
 
 /**
@@ -7,6 +7,10 @@ import { createLinksListItems } from "../utilities/pages";
  * @returns                     Crew member Route page
  */
 export default function Crew({ crewMember, allCrewMembers }) {
+    useEffect(() => {
+        document.title = `Crew: ${crewMember.name} | Space Tourism`;
+    }, [crewMember.name]);
+
     // Ensures that each crew member in data.json is listed as a link
     const links = createLinksListItems(allCrewMembers, "crew");
 

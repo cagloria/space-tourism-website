@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createLinksListItems } from "../utilities/pages";
 
 /**
@@ -7,6 +7,10 @@ import { createLinksListItems } from "../utilities/pages";
  * @returns             Technology Route page
  */
 export default function Technology({ tech, allTech }) {
+    useEffect(() => {
+        document.title = `Technology: ${tech.name} | Space Tourism`;
+    }, [tech.name]);
+
     const links = createLinksListItems(allTech, "technology");
 
     return (

@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Home from "./Home";
 import Destination from "./Destination";
@@ -40,7 +41,7 @@ export default function App() {
     ));
 
     return (
-        <>
+        <BrowserRouter>
             <Header />
             <main>
                 <Routes>
@@ -51,6 +52,6 @@ export default function App() {
                     <Route path="*" element={<MissingPage />} />
                 </Routes>
             </main>
-        </>
+        </BrowserRouter>
     );
 }
