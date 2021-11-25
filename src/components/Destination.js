@@ -1,16 +1,14 @@
 import React from "react";
 import { createLinksListItems } from "../utilities/pages";
-import data from "../data/data.json";
 
 /**
  * Takes a destination object and returns markup describing that destination.
- * @param {object} destination  Destination object
- * @returns                     Destination Route page
+ * @param {object} destination      Destination object
+ * @param {object} allDestinations  Array of destinations from data.json
+ * @returns                         Destination Route page
  */
-export default function Destination({ destination }) {
-    // Ensures that every destination in data.json is listed as a link
-    const { destinations } = data;
-    const links = createLinksListItems(destinations, "destination");
+export default function Destination({ destination, allDestinations }) {
+    const links = createLinksListItems(allDestinations, "destination");
 
     return (
         <section>
@@ -46,4 +44,10 @@ Destination.defaultProps = {
         distance: "384,400 km",
         travel: "3 days",
     },
+    allDestinations: [
+        { name: "Moon" },
+        { name: "Mars" },
+        { name: "Europa" },
+        { name: "Titan" },
+    ],
 };
