@@ -4,6 +4,7 @@ import Home from "./Home";
 import Destination from "./Destination";
 import Crew from "./Crew";
 import Technology from "./Technology";
+import MissingPage from "./MissingPage";
 import { convertForURL } from "../utilities/strings";
 import data from "../data/data.json";
 // import { GlobalStyle } from "./Theme";
@@ -47,6 +48,7 @@ export default function App() {
                     {destinationRoutes}
                     {crewRoutes}
                     {techRoutes}
+                    <Route path="*" element={<MissingPage />} />
                 </Routes>
             </main>
         </>
