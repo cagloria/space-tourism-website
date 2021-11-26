@@ -2,7 +2,15 @@
 
 ![The home page of the space tourism website](./preview.jpg)
 
+<p align="center">
+    <img alt="Repo size badge" src="https://img.shields.io/github/repo-size/cagloria/space-tourism-website" />
+    <img alt="Last commit badge" src="https://img.shields.io/github/last-commit/cagloria/space-tourism-website" />
+</p>
+
+<p align="center">⚠ This project is in development. ⚠</p>
+
 This is a solution to the [Space tourism website challenge provided by Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3).
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
