@@ -3,8 +3,8 @@
 ![The home page of the space tourism website](./preview.jpg)
 
 <p align="center">
+    <img alt="Build status badge" src="https://img.shields.io/github/workflow/status/cagloria/space-tourism-website/Node.js CI" />
     <img alt="Repo size badge" src="https://img.shields.io/github/repo-size/cagloria/space-tourism-website" />
-    <img alt="Last commit badge" src="https://img.shields.io/github/last-commit/cagloria/space-tourism-website" />
 </p>
 
 <p align="center">⚠ This project is in development. ⚠</p>
