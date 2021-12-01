@@ -1,18 +1,15 @@
 import React, { useEffect } from "react";
-import { createLinksListItems } from "../utilities/pages";
+import PageLinks from "./PageLinks";
 
 /**
  * Takes a crew member object and returns markup describing that crew member.
  * @param {object} crewMember   Crew member object
  * @returns                     Crew member Route page
  */
-export default function Crew({ crewMember, allCrewMembers }) {
+export default function Crew({ crewMember }) {
     useEffect(() => {
         document.title = `Crew: ${crewMember.name} | Space Tourism`;
     }, [crewMember.name]);
-
-    // Ensures that each crew member in data.json is listed as a link
-    const links = createLinksListItems(allCrewMembers, "crew");
 
     return (
         <section>
@@ -20,7 +17,9 @@ export default function Crew({ crewMember, allCrewMembers }) {
                 <span>02</span> Meet your crew
             </h1>
 
-            <ul>{links}</ul>
+            <ul>
+                <PageLinks category="crew" />
+            </ul>
 
             <h2>
                 <span>{crewMember.role}</span> <span>{crewMember.name}</span>

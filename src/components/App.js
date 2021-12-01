@@ -17,26 +17,21 @@ export default function App() {
         <Route
             key={convertForURL(element.name)}
             path={`destination-${convertForURL(element.name)}`}
-            element={
-                <Destination
-                    destination={element}
-                    allDestinations={data.destinations}
-                />
-            }
+            element={<Destination destination={element} />}
         />
     ));
     const crewRoutes = crew.map((element) => (
         <Route
             key={convertForURL(element.name)}
             path={`crew-${convertForURL(element.name)}`}
-            element={<Crew crewMember={element} allCrewMembers={data.crew} />}
+            element={<Crew crewMember={element} />}
         />
     ));
     const techRoutes = technology.map((element) => (
         <Route
             key={convertForURL(element.name)}
             path={`technology-${convertForURL(element.name)}`}
-            element={<Technology tech={element} allTech={data.technology} />}
+            element={<Technology tech={element} />}
         />
     ));
 

@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
-import { createLinksListItems } from "../utilities/pages";
+import PageLinks from "./PageLinks";
 
 /**
  * Takes a technology object and returns markup describing that technology.
  * @param {object} tech Technology object
  * @returns             Technology Route page
  */
-export default function Technology({ tech, allTech }) {
+export default function Technology({ tech }) {
     useEffect(() => {
         document.title = `Technology: ${tech.name} | Space Tourism`;
     }, [tech.name]);
-
-    const links = createLinksListItems(allTech, "technology");
 
     return (
         <section>
@@ -19,7 +17,9 @@ export default function Technology({ tech, allTech }) {
                 <span>03</span> Space launch 101
             </h1>
 
-            <ol>{links}</ol>
+            <ol>
+                <PageLinks category="technology" />
+            </ol>
 
             <h2>
                 <span>The terminology...</span> <span>{tech.name}</span>
@@ -36,9 +36,4 @@ Technology.defaultProps = {
         description:
             "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
     },
-    allTech: [
-        { name: "Launch vehicle" },
-        { name: "Spaceport" },
-        { name: "Space capsule" },
-    ],
 };
