@@ -3,10 +3,11 @@ import PageLinks from "./PageLinks";
 
 /**
  * Takes a crew member object and returns markup describing that crew member.
+ * @param {object} allCrew      An array of all crew objects
  * @param {object} crewMember   Crew member object
- * @returns                     Crew member Route page
+ * @returns                     Crew member page
  */
-export default function Crew({ crewMember }) {
+export default function Crew({ allCrew, crewMember }) {
     useEffect(() => {
         document.title = `Crew: ${crewMember.name} | Space Tourism`;
     }, [crewMember.name]);
@@ -18,7 +19,7 @@ export default function Crew({ crewMember }) {
             </h1>
 
             <ul>
-                <PageLinks category="crew" />
+                <PageLinks categoryArr={allCrew} urlPrefix="crew" />
             </ul>
 
             <h2>

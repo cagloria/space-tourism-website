@@ -13,25 +13,31 @@ import data from "../data/data.json";
 export default function App() {
     // Ensures that all data from data.json are given Routes
     const { destinations, crew, technology } = data;
+
     const destinationRoutes = destinations.map((element) => (
         <Route
             key={convertForURL(element.name)}
             path={`destination-${convertForURL(element.name)}`}
-            element={<Destination destination={element} />}
+            element={
+                <Destination
+                    allDestinations={destinations}
+                    destination={element}
+                />
+            }
         />
     ));
     const crewRoutes = crew.map((element) => (
         <Route
             key={convertForURL(element.name)}
             path={`crew-${convertForURL(element.name)}`}
-            element={<Crew crewMember={element} />}
+            element={<Crew allCrew={crew} crewMember={element} />}
         />
     ));
     const techRoutes = technology.map((element) => (
         <Route
             key={convertForURL(element.name)}
             path={`technology-${convertForURL(element.name)}`}
-            element={<Technology tech={element} />}
+            element={<Technology allTech={technology} tech={element} />}
         />
     ));
 

@@ -3,10 +3,11 @@ import PageLinks from "./PageLinks";
 
 /**
  * Takes a technology object and returns markup describing that technology.
- * @param {object} tech Technology object
- * @returns             Technology Route page
+ * @param {object} allTech  An array of all technology objects
+ * @param {object} tech     Technology object
+ * @returns                 Technology Route page
  */
-export default function Technology({ tech }) {
+export default function Technology({ allTech, tech }) {
     useEffect(() => {
         document.title = `Technology: ${tech.name} | Space Tourism`;
     }, [tech.name]);
@@ -18,7 +19,7 @@ export default function Technology({ tech }) {
             </h1>
 
             <ol>
-                <PageLinks category="technology" />
+                <PageLinks categoryArr={allTech} urlPrefix="technology" />
             </ol>
 
             <h2>

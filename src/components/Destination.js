@@ -3,10 +3,11 @@ import PageLinks from "./PageLinks";
 
 /**
  * Takes a destination object and returns markup describing that destination.
- * @param {object} destination      Destination object
- * @returns                         Destination Route page
+ * @param allDestinations       An array of all destination objects
+ * @param {object} destination  Destination object
+ * @returns                     Destination page
  */
-export default function Destination({ destination }) {
+export default function Destination({ allDestinations, destination }) {
     useEffect(() => {
         document.title = `Destination: ${destination.name} | Space Tourism`;
     }, [destination.name]);
@@ -17,7 +18,10 @@ export default function Destination({ destination }) {
                 <span>01</span> Pick your destination
             </h1>
             <ul>
-                <PageLinks category="destinations" />
+                <PageLinks
+                    categoryArr={allDestinations}
+                    urlPrefix="destination"
+                />
             </ul>
             <h2>{destination.name}</h2>
             <p>{destination.description}</p>
