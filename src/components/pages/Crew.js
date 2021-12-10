@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import PageLinks from "./PageLinks";
+import PageLinks from "../PageLinks";
 
 /**
  * Takes a crew member object and returns markup describing that crew member.

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import PageLinks from "./PageLinks";
+import PageLinks from "../PageLinks";
 
 /**
  * Takes a destination object and returns markup describing that destination.

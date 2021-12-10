@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GlobalStyle } from "./Theme";
 import Header from "./Header";
-import Home from "./Home";
-import Destination from "./Destination";
-import Crew from "./Crew";
-import Technology from "./Technology";
+import Home from "./pages/Home";
+import Destination from "./pages/Destination";
+import Crew from "./pages/Crew";
+import Technology from "./pages/Technology";
 import MissingPage from "./MissingPage";
 import { convertForURL } from "../utilities/strings";
 import data from "../data/data.json";
-// import { GlobalStyle } from "./Theme";
 
 export default function App() {
     // Ensures that all data from data.json are given Routes
@@ -42,17 +42,20 @@ export default function App() {
     ));
 
     return (
-        <BrowserRouter>
-            <Header />
-            <main>
-                <Routes>
-                    <Route exact path="/" element={<Home />} />
-                    {destinationRoutes}
-                    {crewRoutes}
-                    {techRoutes}
-                    <Route path="*" element={<MissingPage />} />
-                </Routes>
-            </main>
-        </BrowserRouter>
+        <>
+            <GlobalStyle />
+            <BrowserRouter>
+                <Header />
+                <main>
+                    <Routes>
+                        <Route exact path="/" element={<Home />} />
+                        {destinationRoutes}
+                        {crewRoutes}
+                        {techRoutes}
+                        <Route path="*" element={<MissingPage />} />
+                    </Routes>
+                </main>
+            </BrowserRouter>
+        </>
     );
 }

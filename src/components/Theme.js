@@ -1,5 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
+export const colors = {
+    black: "#0B0D17",
+    primary: "#D0D6F9",
+    white: "#FFFFFF",
+    gray: "#24262F",
+};
+
 export const GlobalStyle = createGlobalStyle`
     :root {
         --font-heading: 'Barlow Condensed', sans-serif;
@@ -7,8 +14,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: #0B0D17;
-        color: #FFFFFF;
+        background-color: ${colors.black};
+        color: ${colors.white};
         font-family: "Barlow", sans-serif;
         font-weight: 400;
     }
@@ -35,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
     }
     
-    .nav-text {
+    .nav-heading-small {
         font-family: "Barlow Condensed", sans-serif;
         font-weight: 400;
         font-size: 16px;
@@ -43,7 +50,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        font-size: 150px;
+        font-size: clamp(5rem, 16vw + 2rem, 9.375rem);
+        text-transform: uppercase;
+        text-align: center;
     }
 
     h2 {
@@ -64,11 +73,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p {
-        font-size: 18px;
-        line-height: 32px;
+        font-size: clamp(0.938rem, 1vw + 0.5rem, 1.125rem);
+        line-height: 167%;
     }
 
     a {
-        color: #FFFFFF;
+        color: ${colors.white};
     }
 `;
