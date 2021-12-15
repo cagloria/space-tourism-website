@@ -6,8 +6,8 @@ import bgMobile from "../../assets/background-home-mobile.jpg";
 const Container = styled.section`
     display: flex;
     flex-direction: column;
-    row-gap: 16px;
-    padding-top: 62px;
+    row-gap: 15px;
+    padding: 104px 0 30px;
 
     &::after {
         content: url(${bgMobile});
@@ -21,10 +21,14 @@ const Container = styled.section`
 `;
 
 const Heading = styled.h1`
+    display: flex;
+    flex-direction: column;
+    row-gap: 21px;
     margin: 0;
 `;
 
 const Body = styled.p`
+    margin: 6px 0 64px;
     text-align: center;
 `;
 

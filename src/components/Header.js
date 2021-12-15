@@ -15,10 +15,15 @@ const Container = styled.header`
     width: 100%;
 `;
 
+const LogoImg = styled.img`
+    width: 40px;
+    height: 40px;
+`;
+
 const NavButton = styled.button`
     position: fixed;
-    top: 28px;
-    right: 24px;
+    top: 24px;
+    right: 16px;
     z-index: 2;
     width: 40px;
     height: 40px;
@@ -74,7 +79,7 @@ export default function Header() {
 
     return (
         <Container>
-            <img src={logo} alt="Space tourism logo" />
+            <LogoImg src={logo} alt="Space tourism logo" />
             <nav>
                 <NavButton
                     navIsOpen={navIsOpen}

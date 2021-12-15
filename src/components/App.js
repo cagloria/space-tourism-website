@@ -12,7 +12,7 @@ import { convertForURL } from "../utilities/strings";
 import data from "../data/data.json";
 
 const Main = styled.main`
-    padding: 0 24px;
+    padding: 0 16px;
 `;
 
 export default function App() {

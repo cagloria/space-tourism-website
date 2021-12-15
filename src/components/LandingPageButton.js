@@ -23,7 +23,7 @@ const Button = styled.div`
         transition: box-shadow 0.4s ease-in-out;
 
         &:hover {
-            box-shadow: 0 0 0 38px ${colors.gray};
+            box-shadow: 0 0 0 44px ${colors.gray}b8;
         }
 
         @media screen and (min-width: 768px) {
