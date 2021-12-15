@@ -73,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p {
-        font-size: clamp(0.938rem, 1vw + 0.5rem, 1.125rem);
+        font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
         line-height: 167%;
     }
 

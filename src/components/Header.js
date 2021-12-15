@@ -47,7 +47,7 @@ const NavLinks = styled.ol`
     row-gap: 32px;
     list-style-type: none;
     counter-reset: nav-counter;
-    transition: right 0.4s ease-in-out;
+    transition: right 0.3s ease-in-out;
     li {
         counter-increment: nav-counter;
 
