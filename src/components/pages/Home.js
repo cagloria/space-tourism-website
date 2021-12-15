@@ -6,14 +6,14 @@ import bgMobile from "../../assets/background-home-mobile.jpg";
 const Container = styled.section`
     display: flex;
     flex-direction: column;
+    padding: 111px 0 30px;
     row-gap: 15px;
-    padding: 104px 0 30px;
 
     &::after {
         content: url(${bgMobile});
         width: 100vw;
         height: 100vw;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         z-index: -9;

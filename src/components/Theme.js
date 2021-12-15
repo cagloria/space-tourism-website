@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
         color: ${colors.white};
         font-family: "Barlow", sans-serif;
         font-weight: 400;
+        margin: 0;
     }
 
     h1, h2, h3, h4 {
@@ -79,5 +80,9 @@ export const GlobalStyle = createGlobalStyle`
 
     a {
         color: ${colors.white};
+    }
+
+    button {
+        cursor: pointer;
     }
 `;

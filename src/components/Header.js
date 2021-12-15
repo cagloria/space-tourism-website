@@ -4,12 +4,14 @@ import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import iconHamburger from "../assets/icon-hamburger.svg";
 import iconClose from "../assets/icon-close.svg";
+import { colors } from "./Theme";
 
 const Container = styled.header`
     display: flex;
     justify-content: space-between;
     padding: 24px;
     position: fixed;
+    box-sizing: border-box;
     top: 0;
     left: 0;
     width: 100%;
@@ -42,31 +44,41 @@ const NavLinks = styled.ol`
     right: ${(props) => (props.navIsOpen ? "0" : "-200vw")};
     margin: 0;
     box-sizing: border-box;
-    width: 70.5%;
+    width: 67.9%;
     height: 100%;
-    padding: 112px 32px 0 32px;
+    padding: 113px 0 0 32px;
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(81.5485px);
     display: flex;
     flex-direction: column;
-    row-gap: 32px;
+    row-gap: 20px;
     list-style-type: none;
-    counter-reset: nav-counter;
-    transition: right 0.3s ease-in-out;
+    counter-reset: nav-counter -1; /* Sets starting number to be 0 */
+    transition: right 0.4s ease-in-out;
+
     li {
         counter-increment: nav-counter;
 
-        &::before {
-            content: "0" counter(nav-counter) " ";
-            font-weight: bold;
-            letter-spacing: 2.7px;
-            margin-right: 6px;
-        }
-    }
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            column-gap: 13px;
+            flex-grow: 1;
+            padding: 6px 0;
+            border-right: 4px solid transparent;
+            transition: border-right-color 0.4s ease-out;
 
-    a {
-        text-decoration: none;
-        text-transform: uppercase;
+            &::before {
+                content: "0" counter(nav-counter) " ";
+                font-weight: bold;
+            }
+
+            &:hover {
+                border-right-color: ${colors.white};
+            }
+        }
     }
 `;
 
