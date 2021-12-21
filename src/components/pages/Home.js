@@ -2,21 +2,30 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import LandingPageButton from "../LandingPageButton";
 import bgMobile from "../../assets/background-home-mobile.jpg";
+import bgTablet from "../../assets/background-home-tablet.jpg";
+import bgDesktop from "../../assets/background-home-desktop.jpg";
 
 const Container = styled.section`
     display: flex;
     flex-direction: column;
-    padding: 111px 0 30px;
+    padding-top: 111px;
     row-gap: 15px;
 
     &::after {
         content: url(${bgMobile});
-        width: 100vw;
-        height: 100vw;
+        display: block;
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         z-index: -9;
+
+        @media screen and (min-width: 376px) {
+            content: url(${bgTablet});
+        }
+
+        @media screen and (min-width: 769px) {
+            content: url(${bgDesktop});
+        }
     }
 `;
 

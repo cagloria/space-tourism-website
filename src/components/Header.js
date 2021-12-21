@@ -7,11 +7,12 @@ import iconClose from "../assets/icon-close.svg";
 import { colors } from "./Theme";
 
 const Container = styled.header`
+    background-color: ${colors.black};
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     padding: 24px;
     position: fixed;
-    box-sizing: border-box;
     top: 0;
     left: 0;
     width: 100%;
@@ -41,20 +42,20 @@ const NavLinks = styled.ol`
     position: fixed;
     z-index: 1;
     top: 0;
-    right: ${(props) => (props.navIsOpen ? "0" : "-200vw")};
+    right: ${(props) => (props.navIsOpen ? "0" : "-100vw")};
     margin: 0;
     box-sizing: border-box;
     width: 67.9%;
     height: 100%;
     padding: 113px 0 0 32px;
     background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(81.5485px);
+    backdrop-filter: blur(45.5485px);
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     list-style-type: none;
     counter-reset: nav-counter -1; /* Sets starting number to be 0 */
-    transition: right 0.4s ease-in-out;
+    transition: right 0.3s ease-in-out;
 
     li {
         counter-increment: nav-counter;
