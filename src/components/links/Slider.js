@@ -36,10 +36,11 @@ const List = styled.ul`
 
 /**
  * Creates a slider of links.
- * @param {string} pathPrefix   String to prefix to all paths
- * @param {object} links        Array of objects, each object having a name
- *                              property
- * @returns                     Unordered list of links styled as a slider
+ * @param {string} pathPrefix       String to prefix to all paths
+ * @param {object} links            Array of objects, each object having a name
+ *                                  property
+ * @param {string} currentPageName  Current page's name
+ * @returns                         Unordered list of links styled as a slider
  */
 export default function Slider({ pathPrefix, links, currentPageName }) {
     const list = links.map((item) => {

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import PagesHeading from "../PagesHeading";
-import Slider from "./Slider";
+import Slider from "../links/Slider";
 import { colors } from "../Theme";
 import data from "../../data/data.json";
 

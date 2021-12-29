@@ -19,7 +19,11 @@ export default function Destination({ destination }) {
         <section>
             <PagesHeading number="01" text="Pick your destination" />
 
-            <Tabs pathPrefix="destination" links={destinations} />
+            <Tabs
+                pathPrefix="destination"
+                links={destinations}
+                currentPageName={destination.name}
+            />
 
             <h2>{destination.name}</h2>
             <p>{destination.description}</p>
