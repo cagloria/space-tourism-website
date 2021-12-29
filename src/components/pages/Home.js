@@ -8,7 +8,6 @@ import bgDesktop from "../../assets/background-home-desktop.jpg";
 const Container = styled.section`
     display: flex;
     flex-direction: column;
-    padding-top: 111px;
     row-gap: 15px;
 
     &::after {

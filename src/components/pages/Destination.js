@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
 import PagesHeading from "../PagesHeading";
 import Tabs from "../links/Tabs";
 import data from "../../data/data.json";
 
-const Container = styled.section`
-    padding-top: 111px;
-`;
-
 /**
  * Takes a destination object and returns markup describing that destination.
- * @param allDestinations       An array of all destination objects
  * @param {object} destination  Destination object
  * @returns                     Destination page
  */
-export default function Destination({ allDestinations, destination }) {
+export default function Destination({ destination }) {
     const { destinations } = data;
 
     useEffect(() => {
@@ -22,7 +16,7 @@ export default function Destination({ allDestinations, destination }) {
     }, [destination.name]);
 
     return (
-        <Container>
+        <section>
             <PagesHeading number="01" text="Pick your destination" />
 
             <Tabs pathPrefix="destination" links={destinations} />
@@ -37,7 +31,7 @@ export default function Destination({ allDestinations, destination }) {
                 <h3>Est. travel time</h3>
                 <p>{destination.travel}</p>
             </div>
-        </Container>
+        </section>
     );
 }
 

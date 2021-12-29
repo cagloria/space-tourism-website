@@ -3,7 +3,7 @@ import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
 import { colors } from "../Theme";
 
-const UnorderedListElement = styled.ul`
+const List = styled.ul`
     list-style-type: none;
     padding-left: 0;
     display: flex;
@@ -28,13 +28,13 @@ const UnorderedListElement = styled.ul`
 
         &:hover {
             &::after {
-                background-color: ${colors.gray};
+                background-color: ${colors.pageNav.hover};
             }
         }
 
         &:active {
             &::after {
-                background-color: ${colors.white};
+                background-color: ${colors.pageNav.active};
             }
         }
     }
@@ -42,19 +42,23 @@ const UnorderedListElement = styled.ul`
 
 /**
  * Creates tabs of links.
- * @param {object} links    Array of objects, each object having a name property
- * @returns                 Unordered list of links
+ * @param {string} pathPrefix   String to prefix to all paths
+ * @param {object} links        Array of objects, each object having a name
+ *                              property
+ * @returns                     Unordered list of links styled as a list of tabs
  */
 export default function Tabs({ pathPrefix, links }) {
-    const list = links.map((item) => (
-        <li key={item.name} className="nav-heading-small">
-            <Link to={`/${pathPrefix}-${convertForURL(item.name)}`}>
-                {item.name}
-            </Link>
-        </li>
-    ));
+    const list = links.map((item) => {
+        const path = `/${pathPrefix}-${convertForURL(item.name)}`;
 
-    return <UnorderedListElement>{list}</UnorderedListElement>;
+        return (
+            <li key={item.name} className="nav-heading-small">
+                <Link to={path}>{item.name}</Link>
+            </li>
+        );
+    });
+
+    return <List>{list}</List>;
 }
 
 Tabs.defaultProps = {

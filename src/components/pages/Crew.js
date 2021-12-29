@@ -1,30 +1,54 @@
 import React, { useEffect } from "react";
-import PageLinks from "../PageLinks";
+import styled from "styled-components";
+import PagesHeading from "../PagesHeading";
+import Slider from "./Slider";
+import { colors } from "../Theme";
+import data from "../../data/data.json";
+
+const CrewMemberTitle = styled.h2`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+`;
+
+const CrewMemberRole = styled.span`
+    font-size: 1rem;
+    color: ${colors.gray};
+    text-transform: uppercase;
+`;
+
+const CrewMemberName = styled.span`
+    font-size: 1.5rem;
+    text-transform: uppercase;
+`;
 
 /**
  * Takes a crew member object and returns markup describing that crew member.
- * @param {object} allCrew      An array of all crew objects
  * @param {object} crewMember   Crew member object
  * @returns                     Crew member page
  */
-export default function Crew({ allCrew, crewMember }) {
+export default function Crew({ crewMember }) {
+    const { crew } = data;
+
     useEffect(() => {
         document.title = `Crew: ${crewMember.name} | Space Tourism`;
     }, [crewMember.name]);
 
     return (
         <section>
-            <h1>
-                <span>02</span> Meet your crew
-            </h1>
+            <PagesHeading number="02" text="Meet your crew" />
 
-            <ul>
-                <PageLinks categoryArr={allCrew} urlPrefix="crew" />
-            </ul>
+            <Slider
+                pathPrefix="crew"
+                links={crew}
+                currentPageName={crewMember.name}
+            />
 
-            <h2>
-                <span>{crewMember.role}</span> <span>{crewMember.name}</span>
-            </h2>
+            <CrewMemberTitle>
+                <CrewMemberRole>{crewMember.role}</CrewMemberRole>{" "}
+                <CrewMemberName>{crewMember.name}</CrewMemberName>
+            </CrewMemberTitle>
 
             <p>{crewMember.bio}</p>
         </section>
