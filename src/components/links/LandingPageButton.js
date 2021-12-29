@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { colors } from "./Theme";
+import { colors } from "../Theme";
 
 const Button = styled.div`
     a {
@@ -38,6 +38,13 @@ const Button = styled.div`
     }
 `;
 
+/**
+ * Creates a circular link similar to a button. To be placed on the landing
+ * page.
+ * @param {string} text Link text
+ * @param {string} path Path
+ * @returns             Link
+ */
 export default function LandingPageButton({ text, path }) {
     return (
         <Button>

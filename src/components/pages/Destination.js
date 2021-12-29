@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import PageLinks from "../PageLinks";
+import styled from "styled-components";
+import PagesHeading from "../PagesHeading";
+import Tabs from "../links/Tabs";
+import data from "../../data/data.json";
+
+const Container = styled.section`
+    padding-top: 111px;
+`;
 
 /**
  * Takes a destination object and returns markup describing that destination.
@@ -8,21 +15,18 @@ import PageLinks from "../PageLinks";
  * @returns                     Destination page
  */
 export default function Destination({ allDestinations, destination }) {
+    const { destinations } = data;
+
     useEffect(() => {
         document.title = `Destination: ${destination.name} | Space Tourism`;
     }, [destination.name]);
 
     return (
-        <section>
-            <h1>
-                <span>01</span> Pick your destination
-            </h1>
-            <ul>
-                <PageLinks
-                    categoryArr={allDestinations}
-                    urlPrefix="destination"
-                />
-            </ul>
+        <Container>
+            <PagesHeading number="01" text="Pick your destination" />
+
+            <Tabs pathPrefix="destination" links={destinations} />
+
             <h2>{destination.name}</h2>
             <p>{destination.description}</p>
             <div>
@@ -33,7 +37,7 @@ export default function Destination({ allDestinations, destination }) {
                 <h3>Est. travel time</h3>
                 <p>{destination.travel}</p>
             </div>
-        </section>
+        </Container>
     );
 }
 
