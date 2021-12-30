@@ -34,8 +34,7 @@ const NavButton = styled.button`
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
-    background-image: url("${(props) =>
-        props.navIsOpen ? iconClose : iconHamburger}");
+    background-image: url("${(props) => props.navIsOpen ? iconClose : iconHamburger}");
 `;
 
 const NavLinks = styled.ol`

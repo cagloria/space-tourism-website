@@ -1,5 +1,27 @@
 import React, { useEffect } from "react";
-import PageLinks from "../PageLinks";
+import styled from "styled-components";
+import PagesHeading from "../PagesHeading";
+import NumberSlider from "../links/NumberSlider";
+import data from "../../data/data.json";
+
+const TechTitle = styled.h2`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+`;
+
+const TechTerminology = styled.span`
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.875rem;
+    color: #d0d6f9;
+    text-transform: uppercase;
+`;
+
+const TechName = styled.span`
+    font-size: 1.5rem;
+    text-transform: uppercase;
+`;
 
 /**
  * Takes a technology object and returns markup describing that technology.
@@ -8,23 +30,28 @@ import PageLinks from "../PageLinks";
  * @returns                 Technology Route page
  */
 export default function Technology({ allTech, tech }) {
+    const { technology } = data;
+
     useEffect(() => {
         document.title = `Technology: ${tech.name} | Space Tourism`;
     }, [tech.name]);
 
     return (
         <section>
-            <h1>
-                <span>03</span> Space launch 101
-            </h1>
+            <PagesHeading number="03" text="Space launch 101" />
 
-            <ol>
-                <PageLinks categoryArr={allTech} urlPrefix="technology" />
-            </ol>
+            <NumberSlider
+                pathPrefix="technology"
+                links={technology}
+                currentPageName={tech.name}
+            />
 
-            <h2>
-                <span>The terminology...</span> <span>{tech.name}</span>
-            </h2>
+            <TechTitle>
+                <TechTerminology className="nav-heading-small">
+                    The terminology...
+                </TechTerminology>{" "}
+                <TechName>{tech.name}</TechName>
+            </TechTitle>
 
             <p>{tech.description}</p>
         </section>
