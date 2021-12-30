@@ -7,7 +7,7 @@
     <img alt="Repo size badge" src="https://img.shields.io/github/repo-size/cagloria/space-tourism-website" />
 </p>
 
-<p align="center">⚠ This project is in development. ⚠</p>
+<p align="center">⚠ This project is in development ⚠</p>
 
 This is a solution to the [Space tourism website challenge provided by Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3).
 

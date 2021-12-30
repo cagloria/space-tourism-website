@@ -7,7 +7,6 @@ import iconClose from "../assets/icon-close.svg";
 import { colors } from "./Theme";
 
 const Container = styled.header`
-    background-color: ${colors.black};
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;

@@ -1,7 +1,30 @@
 import React, { useEffect } from "react";
+import styled from "styled-components";
 import PagesHeading from "../PagesHeading";
 import Tabs from "../links/Tabs";
+import bgMobile from "../../assets/background-destination-mobile.jpg";
+import bgTablet from "../../assets/background-destination-tablet.jpg";
+import bgDesktop from "../../assets/background-destination-desktop.jpg";
 import data from "../../data/data.json";
+
+const Container = styled.section`
+    &::after {
+        content: url(${bgMobile});
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: -9;
+
+        @media screen and (min-width: 376px) {
+            content: url(${bgTablet});
+        }
+
+        @media screen and (min-width: 769px) {
+            content: url(${bgDesktop});
+        }
+    }
+`;
 
 /**
  * Takes a destination object and returns markup describing that destination.
@@ -16,7 +39,7 @@ export default function Destination({ destination }) {
     }, [destination.name]);
 
     return (
-        <section>
+        <Container>
             <PagesHeading number="01" text="Pick your destination" />
 
             <Tabs
@@ -35,7 +58,7 @@ export default function Destination({ destination }) {
                 <h3>Est. travel time</h3>
                 <p>{destination.travel}</p>
             </div>
-        </section>
+        </Container>
     );
 }
 
