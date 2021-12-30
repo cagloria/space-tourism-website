@@ -15,8 +15,6 @@ describe("Tabs", () => {
     const linkNode2 = screen.getByText("Link 2");
     const linkNode3 = screen.getByText("Link 3");
 
-    screen.debug();
-
     test("renders a list of links for all items in the array", () => {
         expect(linkNode1).toBeInTheDocument();
         expect(linkNode2).toBeInTheDocument();
