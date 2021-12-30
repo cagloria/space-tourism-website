@@ -52,7 +52,7 @@ const List = styled.ol`
             border-color: ${colors.pageNav.active};
         }
 
-        &.slider__active-page,
+        &.number-slider__active-page,
         &:active {
             background-color: ${colors.pageNav.active};
             color: ${colors.black};
@@ -73,7 +73,7 @@ export default function NumberSlider({ pathPrefix, links, currentPageName }) {
     const list = links.map((item) => {
         const path = `/${pathPrefix}-${convertForURL(item.name)}`;
         const className =
-            currentPageName === item.name ? "slider__active-page" : null;
+            currentPageName === item.name ? "number-slider__active-page" : null;
 
         return (
             <li key={item.name}>

@@ -68,4 +68,5 @@ Slider.defaultProps = {
         { name: "Victor Glover" },
         { name: "Anousheh Ansari" },
     ],
+    currentPageName: "Douglas Hurley",
 };
