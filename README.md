@@ -11,7 +11,6 @@
 
 This is a solution to the [Space tourism website challenge provided by Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3).
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## The Challenge
@@ -26,6 +25,7 @@ Users should be able to:
 
 -   [React](https://reactjs.org/) - JavaScript library
 -   [styled-components](https://styled-components.com/) - CSS-in-JS tool
+-   [React Router](https://github.com/remix-run/react-router) - React JavaScript library
 
 ## Installation
 

@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
-import { createLinksListItems } from "../utilities/pages";
+import PagesHeading from "../PagesHeading";
+import Tabs from "../links/Tabs";
+import data from "../../data/data.json";
 
 /**
  * Takes a destination object and returns markup describing that destination.
- * @param {object} destination      Destination object
- * @param {object} allDestinations  Array of destinations from data.json
- * @returns                         Destination Route page
+ * @param {object} destination  Destination object
+ * @returns                     Destination page
  */
-export default function Destination({ destination, allDestinations }) {
-    const links = createLinksListItems(allDestinations, "destination");
+export default function Destination({ destination }) {
+    const { destinations } = data;
 
     useEffect(() => {
         document.title = `Destination: ${destination.name} | Space Tourism`;
@@ -16,10 +17,14 @@ export default function Destination({ destination, allDestinations }) {
 
     return (
         <section>
-            <h1>
-                <span>01</span> Pick your destination
-            </h1>
-            <ul>{links}</ul>
+            <PagesHeading number="01" text="Pick your destination" />
+
+            <Tabs
+                pathPrefix="destination"
+                links={destinations}
+                currentPageName={destination.name}
+            />
+
             <h2>{destination.name}</h2>
             <p>{destination.description}</p>
             <div>
@@ -46,10 +51,4 @@ Destination.defaultProps = {
         distance: "384,400 km",
         travel: "3 days",
     },
-    allDestinations: [
-        { name: "Moon" },
-        { name: "Mars" },
-        { name: "Europa" },
-        { name: "Titan" },
-    ],
 };
