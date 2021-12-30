@@ -25,11 +25,10 @@ const TechName = styled.span`
 
 /**
  * Takes a technology object and returns markup describing that technology.
- * @param {object} allTech  An array of all technology objects
  * @param {object} tech     Technology object
  * @returns                 Technology Route page
  */
-export default function Technology({ allTech, tech }) {
+export default function Technology({ tech }) {
     const { technology } = data;
 
     useEffect(() => {

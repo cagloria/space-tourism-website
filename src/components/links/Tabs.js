@@ -81,4 +81,5 @@ Tabs.defaultProps = {
         { name: "Europa" },
         { name: "Titan" },
     ],
+    currentPageName: "Moon",
 };
