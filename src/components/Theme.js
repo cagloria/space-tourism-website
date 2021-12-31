@@ -57,7 +57,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     section {
-        padding-top: 111px;
+        padding-top: 88px;
     }
 
     h1 {
@@ -67,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h2 {
-        font-size: 100px;
+        font-size: clamp(3.5rem, 5vw + 2.25rem, 6.25rem);
     }
 
     h3 {
@@ -84,6 +84,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p {
+        color: ${colors.primary};
         font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
         line-height: 167%;
     }
@@ -94,5 +95,15 @@ export const GlobalStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
+    }
+
+    hr {
+        border: 1px solid #383B4B;
+        width: 100%;
+        margin: 32px 0;
+    }
+
+    .color-primary {
+        color: ${colors.primary};
     }
 `;

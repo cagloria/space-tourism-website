@@ -9,6 +9,7 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+    padding: 111px 0 48px;
 
     &::after {
         content: url(${bgMobile});
@@ -48,7 +49,7 @@ export default function Home() {
     return (
         <Container>
             <Heading>
-                <span className="nav-heading-small">
+                <span className="nav-heading-small color-primary">
                     So, you want to travel to
                 </span>{" "}
                 <span>Space</span>
