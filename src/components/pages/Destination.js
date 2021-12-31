@@ -36,10 +36,27 @@ const Container = styled.section`
         }
     }
 
-    .destination__heading {
-        margin: 20px 0 1px;
-        text-align: center;
-        text-transform: uppercase;
+    @media screen and (min-width: 376px) {
+        padding-bottom: 62px;
+    }
+
+    h1 {
+        margin: 0 0 32px;
+        text-align: left;
+
+        @media screen and (min-width: 376px) {
+            margin-bottom: 60px;
+        }
+    }
+`;
+
+const NameHeading = styled.h2`
+    margin: 20px 0 1px;
+    text-align: center;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 376px) {
+        margin: 32px 0 8px;
     }
 `;
 
@@ -51,34 +68,52 @@ const Image = styled.picture`
 
     source,
     img {
-        width: clamp(170px, 43vw, 445px);
+        width: clamp(170px, 39.2vw, 445px);
+    }
+
+    @media screen and (min-width: 376px) {
+        margin: 60px 0 53px;
     }
 `;
 
 const Description = styled.p`
     text-align: center;
-    margin: 1px 0 32px;
+    margin: 1px auto 32px;
+    max-width: 64ch;
+
+    @media screen and (min-width: 376px) {
+        margin-top: 8px;
+        margin-bottom: 49px;
+    }
 `;
 
-const Stats = styled.p`
+const StatsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 12px;
+
+    @media screen and (min-width: 376px) {
+        flex-direction: row;
+        column-gap: 14.5vw;
+        justify-content: center;
+    }
+`;
+
+const Stats = styled.div`
     text-align: center;
     text-transform: uppercase;
-    margin: 32px 0;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
 
     h3 {
-        font-size: 14px;
-        margin: 0 0 12px;
         color: ${colors.primary};
+        font-size: 14px;
+        margin: 0;
     }
 
     p {
         font-family: var(--font-body);
         font-size: 28px;
-        margin: 12px 0 0;
+        margin: 0;
     }
 `;
 
@@ -138,21 +173,25 @@ export default function Destination({ destination }) {
                 currentPageName={destination.name}
             />
 
-            <h2 className="destination__heading">{destination.name}</h2>
+            <NameHeading className="destination__heading">
+                {destination.name}
+            </NameHeading>
 
             <Description>{destination.description}</Description>
 
             <hr />
 
-            <Stats>
-                <h3 className="nav-heading-small">Avg. distance</h3>
-                <p>{destination.distance}</p>
-            </Stats>
+            <StatsContainer>
+                <Stats>
+                    <h3 className="nav-heading-small">Avg. distance</h3>
+                    <p>{destination.distance}</p>
+                </Stats>
 
-            <Stats>
-                <h3 className="nav-heading-small">Est. travel time</h3>
-                <p>{destination.travel}</p>
-            </Stats>
+                <Stats>
+                    <h3 className="nav-heading-small">Est. travel time</h3>
+                    <p>{destination.travel}</p>
+                </Stats>
+            </StatsContainer>
         </Container>
     );
 }

@@ -27,6 +27,18 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
     }
 
+    main {
+        padding: 0 clamp(1.5rem, 21vw - 7.7rem, 10.313rem) 0;
+    }
+
+    section {
+        padding-top: 88px;
+
+        @media screen and (min-width: 376px) {
+            padding-top: 136px;
+        }
+    }
+
     h1, h2, h3, h4 {
         font-family: "Bellefair", sans-serif;
         font-weight: 400;
@@ -52,12 +64,8 @@ export const GlobalStyle = createGlobalStyle`
     .nav-heading-small {
         font-family: "Barlow Condensed", sans-serif;
         font-weight: 400;
-        font-size: 16px;
+        font-size: clamp(1rem, 2.6vw, 1.75rem);;
         letter-spacing: 2.7px;
-    }
-
-    section {
-        padding-top: 88px;
     }
 
     h1 {
