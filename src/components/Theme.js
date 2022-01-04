@@ -108,7 +108,7 @@ export const GlobalStyle = createGlobalStyle`
     hr {
         border: 1px solid #383B4B;
         width: 100%;
-        margin: 32px 0;
+        height: 1px;
     }
 
     .color-primary {

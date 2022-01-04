@@ -5,12 +5,16 @@ import { colors } from "../Theme";
 
 const List = styled.ul`
     list-style-type: none;
+    margin: 0;
     padding-left: 0;
     display: flex;
     column-gap: 35px;
     justify-content: center;
 
     a {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+        letter-spacing: 2.7px;
         text-decoration: none;
         text-transform: uppercase;
         display: flex;
@@ -62,7 +66,7 @@ export default function Tabs({ pathPrefix, links, currentPageName }) {
             currentPageName === item.name ? "tabs__active-page" : null;
 
         return (
-            <li key={item.name} className="nav-heading-small">
+            <li key={item.name}>
                 <Link to={path} className={className}>
                     {item.name}
                 </Link>
@@ -70,7 +74,7 @@ export default function Tabs({ pathPrefix, links, currentPageName }) {
         );
     });
 
-    return <List>{list}</List>;
+    return <List className="tabs">{list}</List>;
 }
 
 Tabs.defaultProps = {

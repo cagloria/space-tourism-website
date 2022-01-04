@@ -14,6 +14,8 @@ const Container = styled.section`
     &::after {
         content: url(${bgMobile});
         display: block;
+        width: 100vw;
+        height: 100vh;
         position: fixed;
         bottom: 0;
         left: 0;

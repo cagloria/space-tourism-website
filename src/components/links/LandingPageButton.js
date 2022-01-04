@@ -15,7 +15,7 @@ const Button = styled.div`
         color: ${colors.black};
         letter-spacing: 1.25px;
         font-family: "Bellefair", sans-serif;
-        font-size: clamp(1.25rem, 5vw, 2rem);
+        font-size: 1.25rem;
         font-weight: 400;
         text-transform: uppercase;
         text-decoration: none;
