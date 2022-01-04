@@ -95,7 +95,7 @@ const Image = styled.picture`
     grid-area: img;
 
     > * {
-        width: clamp(170px, 39.2vw, 445px);
+        width: clamp(10.625rem, 37vw + 1rem, 27.813rem);
     }
 
     @media screen and (min-width: 376px) {
