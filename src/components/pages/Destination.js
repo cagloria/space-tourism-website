@@ -22,7 +22,9 @@ const MEDIA = (() => {
 })();
 
 const Container = styled.section`
+    max-width: 1380px;
     padding-bottom: 58px;
+    margin: 0 auto;
 
     &::after {
         content: url(${bgMobile});
