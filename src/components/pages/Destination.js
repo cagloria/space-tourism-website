@@ -29,11 +29,10 @@ const Container = styled.section`
     &::after {
         content: url(${bgMobile});
         display: block;
-        width: 100vw;
-        height: 100vh;
         position: fixed;
-        bottom: 0;
-        left: 0;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: -9;
     }
 
@@ -128,8 +127,8 @@ const NameHeading = styled.h2`
 
 const Description = styled.p`
     text-align: center;
-    margin: 1px auto 32px;
     max-width: 64ch;
+    margin: 1px auto 32px;
     grid-area: body;
 
     @media screen and (min-width: 376px) {
