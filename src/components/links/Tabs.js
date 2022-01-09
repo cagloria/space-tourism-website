@@ -56,10 +56,20 @@ const List = styled.ul`
  * @param {object} links            Array of objects, each object having a name
  *                                  property
  * @param {string} currentPageName  Current page's name
+ * @param {function} onLinkClick            Function to activate upon clicking a link
  * @returns                         Unordered list of links styled as a list of
  *                                  tabs
  */
-export default function Tabs({ pathPrefix, links, currentPageName }) {
+export default function Tabs({
+    pathPrefix,
+    links,
+    currentPageName,
+    onLinkClick,
+}) {
+    function handleLinkClick() {
+        onLinkClick();
+    }
+
     const list = links.map((item) => {
         const path = `/${pathPrefix}-${convertForURL(item.name)}`;
         const className =
@@ -67,7 +77,7 @@ export default function Tabs({ pathPrefix, links, currentPageName }) {
 
         return (
             <li key={item.name}>
-                <Link to={path} className={className}>
+                <Link to={path} className={className} onClick={handleLinkClick}>
                     {item.name}
                 </Link>
             </li>

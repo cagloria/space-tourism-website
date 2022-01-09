@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../PagesHeading";
 import Tabs from "../links/Tabs";
 import { colors } from "../Theme";
@@ -20,6 +20,30 @@ const MEDIA = (() => {
     const desktopWidth = "1024px";
     return { desktopWidth };
 })();
+
+const GlobalDestinationStyle = createGlobalStyle`
+    .destination__animated-planet {
+        animation-duration: 0.75s;
+        animation-name: fadein;
+        animation-timing-function: ease-in-out;
+
+        @keyframes fadein {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (prefers-reduced-motion) {
+            animation-name: unset;
+        }
+    }
+
+`;
 
 const Container = styled.section`
     max-width: 1380px;
@@ -195,38 +219,6 @@ const Stats = styled.div`
 `;
 
 /**
- * Assigns image files based on the chosen destination.
- * @param {string} destination  Name of destination
- * @returns                     An object with file paths to a png file and webp
- *                              file
- */
-function getImages(destination) {
-    let png = undefined;
-    let webp = undefined;
-
-    switch (destination) {
-        case "Mars":
-            png = marsPng;
-            webp = marsWebp;
-            break;
-        case "Europa":
-            png = europaPng;
-            webp = europaWebp;
-            break;
-        case "Titan":
-            png = titanPng;
-            webp = titanWebp;
-            break;
-        default:
-            png = moonPng;
-            webp = moonWebp;
-            break;
-    }
-
-    return { png, webp };
-}
-
-/**
  * Takes a destination object and returns markup describing that destination.
  * @param {object} destination  Destination object
  * @returns                     Destination page
@@ -238,11 +230,54 @@ export default function Destination({ destination }) {
         document.title = `Destination: ${destination.name} | Space Tourism`;
     }, [destination.name]);
 
+    /**
+     * Assigns image files based on the chosen destination.
+     * @param {string} destination  Name of destination
+     * @returns                     An object with file paths to a png file and webp
+     *                              file
+     */
+    function getImages(destination) {
+        let png = undefined;
+        let webp = undefined;
+
+        switch (destination) {
+            case "Mars":
+                png = marsPng;
+                webp = marsWebp;
+                break;
+            case "Europa":
+                png = europaPng;
+                webp = europaWebp;
+                break;
+            case "Titan":
+                png = titanPng;
+                webp = titanWebp;
+                break;
+            default:
+                png = moonPng;
+                webp = moonWebp;
+                break;
+        }
+
+        return { png, webp };
+    }
+
+    /**
+     * Restarts the animation of the destination image.
+     */
+    function restartImageAnimation() {
+        const planetImg = document.getElementById("planet-image");
+        planetImg.classList.remove("destination__animated-planet");
+        void planetImg.offsetWidth;
+        planetImg.classList.add("destination__animated-planet");
+    }
+
     return (
         <Container>
+            <GlobalDestinationStyle />
             <PagesHeading number="01" text="Pick your destination" />
 
-            <Image>
+            <Image id="planet-image" className="destination__animated-planet">
                 <source
                     srcSet={getImages(destination.name).png}
                     type="image/webp"
@@ -257,6 +292,7 @@ export default function Destination({ destination }) {
                 pathPrefix="destination"
                 links={destinations}
                 currentPageName={destination.name}
+                onLinkClick={restartImageAnimation}
             />
 
             <NameHeading className="destination__heading">
