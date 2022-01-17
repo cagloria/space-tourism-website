@@ -15,7 +15,7 @@ const Button = styled.div`
         color: ${colors.black};
         letter-spacing: 1.25px;
         font-family: "Bellefair", sans-serif;
-        font-size: 1.25rem;
+        font-size: clamp(1.25rem, 8vw - 1rem, 2rem);
         font-weight: 400;
         text-transform: uppercase;
         text-decoration: none;
@@ -23,7 +23,7 @@ const Button = styled.div`
         transition: box-shadow 0.4s ease-in-out;
 
         &:hover {
-            box-shadow: 0 0 0 44px ${colors.gray}b8;
+            box-shadow: 0 0 0 44px ${colors.gray}75;
         }
 
         @media screen and (min-width: 768px) {

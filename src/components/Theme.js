@@ -73,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        font-size: clamp(5rem, 16vw, 9.375rem);
+        font-size: clamp(5rem, 22vw - 1rem, 9.375rem);
         text-transform: uppercase;
         text-align: center;
     }

@@ -23,7 +23,11 @@ const Container = styled.section`
     display: flex;
     flex-direction: column;
     row-gap: 15px;
-    padding: 111px 0 48px;
+    padding: 111px 0 0;
+
+    @media screen and (min-width: 376px) {
+        padding-top: 202px;
+    }
 `;
 
 const Heading = styled.h1`
@@ -31,11 +35,21 @@ const Heading = styled.h1`
     flex-direction: column;
     row-gap: 21px;
     margin: 0;
+
+    @media screen and (min-width: 376px) {
+        row-gap: 24px;
+    }
 `;
 
 const Body = styled.p`
-    margin: 6px 0 64px;
+    margin: 6px auto 64px;
     text-align: center;
+    max-width: 50ch;
+
+    @media screen and (min-width: 376px) {
+        margin-top: 24px;
+        margin-bottom: 156px;
+    }
 `;
 
 export default function Home() {
