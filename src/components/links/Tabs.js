@@ -67,7 +67,8 @@ export default function Tabs({
     onLinkClick,
 }) {
     function handleLinkClick() {
-        onLinkClick();
+        onLinkClick("destination__animated--slidein");
+        onLinkClick("destination__animated--fadein");
     }
 
     const list = links.map((item) => {

@@ -22,27 +22,48 @@ const MEDIA = (() => {
 })();
 
 const GlobalDestinationStyle = createGlobalStyle`
-    .destination__animated-planet {
+    .destination__animated {
         animation-duration: 0.75s;
-        animation-name: fadein;
         animation-timing-function: ease-in-out;
-
-        @keyframes fadein {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
 
         @media (prefers-reduced-motion) {
             animation-name: unset;
         }
-    }
 
+        &--slidein {
+            animation-name: slidein;
+
+            @keyframes slidein {
+                from {
+                    transform: translateY(-20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            
+        }
+
+        &--fadein {
+            animation-name: expand;
+            animation-duration: 2s;
+            
+            @keyframes expand {
+                0% {
+                    opacity: 0;
+                }
+                75% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 `;
 
 const Container = styled.section`
@@ -133,7 +154,7 @@ const Image = styled.picture`
 `;
 
 const NameHeading = styled.h2`
-    margin: 20px 0 1px;
+    margin: 20px auto 1px;
     text-align: center;
     text-transform: uppercase;
     grid-area: name;
@@ -264,12 +285,15 @@ export default function Destination({ destination }) {
 
     /**
      * Restarts the animation of the destination image.
+     * @param animatedClass Name of class to restart animation
      */
-    function restartImageAnimation() {
-        const planetImg = document.getElementById("planet-image");
-        planetImg.classList.remove("destination__animated-planet");
-        void planetImg.offsetWidth;
-        planetImg.classList.add("destination__animated-planet");
+    function restartAnimation(animatedClass) {
+        const animatedElements = document.querySelectorAll("." + animatedClass);
+        animatedElements.forEach((element) => {
+            element.classList.remove(animatedClass);
+            void element.offsetWidth;
+            element.classList.add(animatedClass);
+        });
     }
 
     return (
@@ -277,7 +301,10 @@ export default function Destination({ destination }) {
             <GlobalDestinationStyle />
             <PagesHeading number="01" text="Pick your destination" />
 
-            <Image id="planet-image" className="destination__animated-planet">
+            <Image
+                id="planet-image"
+                className="destination__animated destination__animated--slidein"
+            >
                 <source
                     srcSet={getImages(destination.name).png}
                     type="image/webp"
@@ -292,10 +319,10 @@ export default function Destination({ destination }) {
                 pathPrefix="destination"
                 links={destinations}
                 currentPageName={destination.name}
-                onLinkClick={restartImageAnimation}
+                onLinkClick={restartAnimation}
             />
 
-            <NameHeading className="destination__heading">
+            <NameHeading className="destination__heading destination__animated destination__animated--fadein">
                 {destination.name}
             </NameHeading>
 
