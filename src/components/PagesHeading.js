@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const HeadingNumber = styled.span`
     color: #808491;
+    font-weight: 700;
     margin-right: 16px;
 `;
 

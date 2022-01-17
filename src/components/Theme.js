@@ -20,11 +20,27 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        background-attachment: fixed;
         background-color: ${colors.black};
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: ${colors.white};
         font-family: "Barlow", sans-serif;
         font-weight: 400;
         margin: 0;
+    }
+
+    main {
+        padding: 0 clamp(1.5rem, 21vw - 7.7rem, 10.313rem) 0;
+    }
+
+    section {
+        padding-top: 88px;
+
+        @media screen and (min-width: 376px) {
+            padding-top: 136px;
+        }
     }
 
     h1, h2, h3, h4 {
@@ -52,12 +68,8 @@ export const GlobalStyle = createGlobalStyle`
     .nav-heading-small {
         font-family: "Barlow Condensed", sans-serif;
         font-weight: 400;
-        font-size: 16px;
+        font-size: clamp(1rem, 2.6vw, 1.75rem);;
         letter-spacing: 2.7px;
-    }
-
-    section {
-        padding-top: 111px;
     }
 
     h1 {
@@ -67,7 +79,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h2 {
-        font-size: 100px;
+        font-size: clamp(3.5rem, 5vw + 2.25rem, 6.25rem);
     }
 
     h3 {
@@ -84,6 +96,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p {
+        color: ${colors.primary};
         font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
         line-height: 167%;
     }
@@ -94,5 +107,15 @@ export const GlobalStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
+    }
+
+    hr {
+        border: 1px solid #383B4B;
+        width: 100%;
+        height: 1px;
+    }
+
+    .color-primary {
+        color: ${colors.primary};
     }
 `;

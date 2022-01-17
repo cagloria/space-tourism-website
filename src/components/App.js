@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import styled from "styled-components";
 import { GlobalStyle } from "./Theme";
 import Header from "./Header";
 import Home from "./pages/Home";
@@ -10,10 +9,6 @@ import Technology from "./pages/Technology";
 import MissingPage from "./MissingPage";
 import { convertForURL } from "../utilities/strings";
 import data from "../data/data.json";
-
-const Main = styled.main`
-    padding: 0 24px 30px;
-`;
 
 export default function App() {
     // Ensures that all data from data.json are given Routes
@@ -51,7 +46,7 @@ export default function App() {
             <GlobalStyle />
             <BrowserRouter>
                 <Header />
-                <Main>
+                <main>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         {destinationRoutes}
@@ -59,7 +54,7 @@ export default function App() {
                         {techRoutes}
                         <Route path="*" element={<MissingPage />} />
                     </Routes>
-                </Main>
+                </main>
             </BrowserRouter>
         </>
     );

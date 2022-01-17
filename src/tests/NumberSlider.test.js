@@ -17,8 +17,6 @@ describe("NumberSlider", () => {
 
     const linkNode1 = screen.getByText("Link 1");
 
-    screen.debug();
-
     test("renders a list of links for all items in the array", () => {
         expect(linkNode1).toBeInTheDocument();
     });
