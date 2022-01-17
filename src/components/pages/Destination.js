@@ -22,6 +22,18 @@ const MEDIA = (() => {
 })();
 
 const GlobalDestinationStyle = createGlobalStyle`
+    body {
+        background-image: url(${bgMobile});
+        
+        @media screen and (min-width: 376px) {
+            background-image: url(${bgTablet});
+        }
+
+        @media screen and (min-width: 769px) {
+            background-image: url(${bgDesktop});
+        }
+    }
+
     .destination__animated {
         animation-duration: 0.75s;
         animation-timing-function: ease-in-out;
@@ -49,7 +61,7 @@ const GlobalDestinationStyle = createGlobalStyle`
 
         &--fadein {
             animation-name: expand;
-            animation-duration: 2s;
+            animation-duration: 1.25s;
             
             @keyframes expand {
                 0% {
@@ -71,16 +83,6 @@ const Container = styled.section`
     padding-bottom: 58px;
     margin: 0 auto;
 
-    &::after {
-        content: url(${bgMobile});
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -9;
-    }
-
     h1 {
         margin: 0 0 32px;
         text-align: left;
@@ -94,18 +96,8 @@ const Container = styled.section`
     @media screen and (min-width: 376px) {
         padding-bottom: 62px;
 
-        &::after {
-            content: url(${bgTablet});
-        }
-
         h1 {
             margin-bottom: 60px;
-        }
-    }
-
-    @media screen and (min-width: 769px) {
-        &::after {
-            content: url(${bgDesktop});
         }
     }
 

@@ -20,7 +20,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        background-attachment: fixed;
         background-color: ${colors.black};
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
         color: ${colors.white};
         font-family: "Barlow", sans-serif;
         font-weight: 400;
