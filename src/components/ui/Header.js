@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/logo.svg";
@@ -85,6 +85,20 @@ const NavLinks = styled.ol`
 
 export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (navIsOpen) {
+            console.log("open");
+            window.addEventListener("scroll", closeNav);
+        } else {
+            console.log("closed");
+            window.removeEventListener("scroll", closeNav);
+        }
+    }, [navIsOpen]);
+
+    function closeNav() {
+        setNavIsOpen(false);
+    }
 
     function toggleNav() {
         setNavIsOpen(!navIsOpen);
