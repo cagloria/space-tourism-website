@@ -5,6 +5,12 @@ import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
 
+const MEDIA = (() => {
+    const desktopWidth = "1024px";
+
+    return { desktopWidth };
+})();
+
 const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
@@ -22,11 +28,33 @@ const GlobalHomeStyle = createGlobalStyle`
 const Container = styled.section`
     display: flex;
     flex-direction: column;
+    align-items: center;
     row-gap: 15px;
+    max-width: 1380px;
     padding: 111px 0 0;
+    margin: 0 auto;
+
+    .landing-page-button {
+        grid-area: l;
+    }
 
     @media screen and (min-width: 376px) {
         padding-top: 202px;
+    }
+
+    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+        padding-top: 387px;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "h l"
+            "p l";
+
+        .landing-page-button {
+            margin-left: auto;
+            margin-top: 123px;
+        }
     }
 `;
 
@@ -35,9 +63,14 @@ const Heading = styled.h1`
     flex-direction: column;
     row-gap: 21px;
     margin: 0;
+    grid-area: h;
 
     @media screen and (min-width: 376px) {
         row-gap: 24px;
+    }
+
+    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+        text-align: left;
     }
 `;
 
@@ -45,10 +78,17 @@ const Body = styled.p`
     margin: 6px auto 64px;
     text-align: center;
     max-width: 50ch;
+    grid-area: p;
 
     @media screen and (min-width: 376px) {
         margin-top: 24px;
-        margin-bottom: 156px;
+        margin-bottom: 112px;
+    }
+
+    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+        max-width: 46ch;
+        text-align: left;
+        margin: 0;
     }
 `;
 

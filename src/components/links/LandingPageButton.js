@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { colors } from "../Theme";
 
 const Button = styled.div`
+    width: fit-content;
+    height: fit-content;
     a {
         width: 150px;
         height: 150px;
@@ -11,11 +13,10 @@ const Button = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
         color: ${colors.black};
         letter-spacing: 1.25px;
         font-family: "Bellefair", sans-serif;
-        font-size: clamp(1.25rem, 8vw - 1rem, 2rem);
+        font-size: 1.25rem;
         font-weight: 400;
         text-transform: uppercase;
         text-decoration: none;
@@ -26,7 +27,8 @@ const Button = styled.div`
             box-shadow: 0 0 0 44px ${colors.gray}75;
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: 376px) {
+            font-size: 2rem;
             width: 242px;
             height: 242px;
         }
@@ -47,7 +49,7 @@ const Button = styled.div`
  */
 export default function LandingPageButton({ text, path }) {
     return (
-        <Button>
+        <Button className="landing-page-button">
             <Link to={path}>{text}</Link>
         </Button>
     );
