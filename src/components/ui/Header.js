@@ -33,8 +33,7 @@ const NavButton = styled.button`
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
-    background-image: url("${(props) =>
-        props.navIsOpen ? iconClose : iconHamburger}");
+    background-image: url("${(props) => props.navIsOpen ? iconClose : iconHamburger}");
 `;
 
 const NavLinks = styled.ol`
@@ -81,17 +80,22 @@ const NavLinks = styled.ol`
             }
         }
     }
+
+    @media (prefers-reduced-motion) {
+        transition: unset;
+    }
 `;
 
 export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
 
     useEffect(() => {
+        const mainElement = document.querySelector("main");
         if (navIsOpen) {
-            console.log("open");
+            mainElement.addEventListener("click", closeNav, true);
             window.addEventListener("scroll", closeNav);
         } else {
-            console.log("closed");
+            mainElement.removeEventListener("click", closeNav, true);
             window.removeEventListener("scroll", closeNav);
         }
     }, [navIsOpen]);
@@ -127,6 +131,7 @@ export default function Header() {
                             to="/"
                             role="menuitem"
                             tabIndex={navIsOpen ? "0" : "-1"}
+                            onClick={closeNav}
                         >
                             Home
                         </Link>
@@ -136,6 +141,7 @@ export default function Header() {
                             to="/destination-moon"
                             role="menuitem"
                             tabIndex={navIsOpen ? "0" : "-1"}
+                            onClick={closeNav}
                         >
                             Destination
                         </Link>
@@ -145,6 +151,7 @@ export default function Header() {
                             to="/crew-douglas-hurley"
                             role="menuitem"
                             tabIndex={navIsOpen ? "0" : "-1"}
+                            onClick={closeNav}
                         >
                             Crew
                         </Link>
@@ -154,6 +161,7 @@ export default function Header() {
                             to="/technology-launch-vehicle"
                             role="menuitem"
                             tabIndex={navIsOpen ? "0" : "-1"}
+                            onClick={closeNav}
                         >
                             Technology
                         </Link>
