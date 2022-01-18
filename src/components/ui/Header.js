@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../assets/logo.svg";
-import iconHamburger from "../assets/icon-hamburger.svg";
-import iconClose from "../assets/icon-close.svg";
-import { colors } from "./Theme";
+import logo from "../../assets/logo.svg";
+import iconHamburger from "../../assets/icon-hamburger.svg";
+import iconClose from "../../assets/icon-close.svg";
+import { colors } from "../Theme";
 
 const Container = styled.header`
     box-sizing: border-box;
@@ -33,14 +33,16 @@ const NavButton = styled.button`
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
-    background-image: url("${(props) => props.navIsOpen ? iconClose : iconHamburger}");
+    background-image: url("${(props) =>
+        props.navIsOpen ? iconClose : iconHamburger}");
 `;
 
 const NavLinks = styled.ol`
     position: fixed;
     z-index: 1;
     top: 0;
-    right: ${(props) => (props.navIsOpen ? "0" : "-100vw")};
+    transform: translateX(100vw);
+    right: ${(props) => (props.navIsOpen ? "100vw" : "0")};
     margin: 0;
     box-sizing: border-box;
     width: 67.9%;
