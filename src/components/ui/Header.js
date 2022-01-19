@@ -7,6 +7,8 @@ import iconClose from "../../assets/icon-close.svg";
 import { colors } from "../Theme";
 
 const Container = styled.header`
+    background: ${(props) =>
+        !props.navIsOpen && !props.atScrollTop ? "#37373761" : "unset"};
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
@@ -15,6 +17,11 @@ const Container = styled.header`
     top: 0;
     left: 0;
     width: 100%;
+    transition: background 0.2s ease-in;
+
+    @media (prefers-reduced-motion) {
+        transition: unset;
+    }
 `;
 
 const LogoImg = styled.img`
@@ -26,19 +33,20 @@ const NavButton = styled.button`
     position: fixed;
     top: 24px;
     right: 16px;
-    z-index: 2;
+    z-index: 11;
     width: 40px;
     height: 40px;
     border: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-color: transparent;
-    background-image: url("${(props) => props.navIsOpen ? iconClose : iconHamburger}");
+    background-image: ${(props) =>
+        props.navIsOpen ? `url(${iconClose})` : `url(${iconHamburger})`};
 `;
 
 const NavLinks = styled.ol`
     position: fixed;
-    z-index: 1;
+    z-index: 10;
     top: 0;
     transform: translateX(100vw);
     right: ${(props) => (props.navIsOpen ? "100vw" : "0")};
@@ -54,7 +62,7 @@ const NavLinks = styled.ol`
     row-gap: 20px;
     list-style-type: none;
     counter-reset: nav-counter -1; /* Sets starting number to be 0 */
-    transition: right 0.3s ease-in-out;
+    transition: right 0.4s ease-in-out;
 
     li {
         counter-increment: nav-counter;
@@ -88,6 +96,9 @@ const NavLinks = styled.ol`
 
 export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
+    const [atScrollTop, setAtScrollTop] = useState(true);
+
+    window.addEventListener("scroll", checkScrollHeight);
 
     useEffect(() => {
         const mainElement = document.querySelector("main");
@@ -100,6 +111,14 @@ export default function Header() {
         }
     }, [navIsOpen]);
 
+    function checkScrollHeight() {
+        if (window.scrollY > 0) {
+            setAtScrollTop(false);
+        } else {
+            setAtScrollTop(true);
+        }
+    }
+
     function closeNav() {
         setNavIsOpen(false);
     }
@@ -109,7 +128,7 @@ export default function Header() {
     }
 
     return (
-        <Container>
+        <Container atScrollTop={atScrollTop} navIsOpen={navIsOpen}>
             <LogoImg src={logo} alt="Space tourism logo" />
             <nav>
                 <NavButton
