@@ -79,7 +79,7 @@ const NavLinks = styled.ol`
             transition: border-right-color 0.4s ease-out;
 
             &::before {
-                content: "0" counter(nav-counter) " ";
+                content: "0" counter(nav-counter) " " / "";
                 font-weight: bold;
             }
 
@@ -133,7 +133,9 @@ export default function Header() {
             <nav>
                 <NavButton
                     navIsOpen={navIsOpen}
-                    aria-label={navIsOpen ? "Close nav" : "Open nav"}
+                    aria-label={
+                        navIsOpen ? "Close navigation" : "Open navigation"
+                    }
                     aria-haspopup="true"
                     aria-controls="IDREF"
                     aria-expanded={navIsOpen}
