@@ -1,5 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
+export const mediaQueryStrings = {
+    minTablet: "376px",
+    minLaptop: "769px",
+    minLargeLaptop: "1025px",
+};
+
 export const colors = {
     black: "#0B0D17",
     primary: "#D0D6F9",
@@ -38,7 +44,7 @@ export const GlobalStyle = createGlobalStyle`
     section {
         padding-top: 88px;
 
-        @media screen and (min-width: 376px) {
+        @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
             padding-top: 136px;
         }
     }
@@ -110,9 +116,10 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     hr {
-        border: 1px solid #383B4B;
+        border: none;
         width: 100%;
         height: 1px;
+        background-color: #383B4B;
     }
 
     .color-primary {

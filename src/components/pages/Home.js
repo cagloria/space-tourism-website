@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import LandingPageButton from "../links/LandingPageButton";
+import { mediaQueryStrings } from "../Theme";
 import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
@@ -15,11 +16,11 @@ const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: 376px) {
+        @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: 769px) {
+        @media screen and (min-width: ${mediaQueryStrings.minLaptop}) {
             background-image: url(${bgDesktop});
         }
     }
@@ -38,7 +39,7 @@ const Container = styled.section`
         grid-area: l;
     }
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
         padding-top: 202px;
     }
 
@@ -65,11 +66,11 @@ const Heading = styled.h1`
     margin: 0;
     grid-area: h;
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
         row-gap: 24px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${mediaQueryStrings.minLargeLaptop}) {
         text-align: left;
     }
 `;
@@ -80,12 +81,12 @@ const Body = styled.p`
     max-width: 50ch;
     grid-area: p;
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
         margin-top: 24px;
         margin-bottom: 112px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${mediaQueryStrings.minLargeLaptop}) {
         max-width: 46ch;
         text-align: left;
         margin: 0;
