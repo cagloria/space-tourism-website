@@ -1,9 +1,32 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../PagesHeading";
 import Slider from "../links/Slider";
-import { colors } from "../Theme";
+import { colors, deviceMediaQueries } from "../Theme";
+import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
+import bgTablet from "../../assets/crew/background-crew-tablet.jpg";
+import bgDesktop from "../../assets/crew/background-crew-desktop.jpg";
 import data from "../../data/data.json";
+
+const GlobalCrewStyle = createGlobalStyle`
+    body {
+        background-image: url(${bgMobile});
+
+        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+            background-image: url(${bgTablet});
+        }
+
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+            background-image: url(${bgDesktop});
+        }
+    }
+`;
+
+const Container = styled.section`
+    h1 {
+        margin: 0;
+    }
+`;
 
 const CrewMemberTitle = styled.h2`
     display: flex;
@@ -36,7 +59,8 @@ export default function Crew({ crewMember }) {
     }, [crewMember.name]);
 
     return (
-        <section>
+        <Container>
+            <GlobalCrewStyle />
             <PagesHeading number="02" text="Meet your crew" />
 
             <Slider
@@ -51,7 +75,7 @@ export default function Crew({ crewMember }) {
             </CrewMemberTitle>
 
             <p>{crewMember.bio}</p>
-        </section>
+        </Container>
     );
 }
 
