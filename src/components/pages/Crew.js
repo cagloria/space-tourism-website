@@ -32,14 +32,32 @@ const GlobalCrewStyle = createGlobalStyle`
 
 const Container = styled.section`
     padding-bottom: 79px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     h1 {
-        margin: 32px 0 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        padding-bottom: 0;
+
+        h1 {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .slider {
+            order: 5;
+            margin: 40px 0 0;
+        }
     }
 `;
 
 const Image = styled.picture`
-    margin: 32px 0;
+    margin: 32px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,28 +66,46 @@ const Image = styled.picture`
     > * {
         height: 100%;
     }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        height: clamp(13.875rem, 80vw - 5rem, 33.25rem);
+        margin-top: 40px;
+        order: 6;
+    }
+`;
+
+const HorizontalLine = styled.hr`
+    margin: 0 0 32px;
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        order: 7;
+        margin: 0;
+    }
 `;
 
 const CrewMemberTitle = styled.h2`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    row-gap: 8px;
     text-align: center;
+    margin: 32px 0 0;
 `;
 
 const CrewMemberRole = styled.span`
-    font-size: 1rem;
+    font-size: clamp(1rem, 8vw - 2.35rem, 2rem);
     color: ${colors.gray};
     text-transform: uppercase;
 `;
 
 const CrewMemberName = styled.span`
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 8.3vw - 1.5rem, 3.5rem);
     text-transform: uppercase;
 `;
 
 const Biography = styled.p`
     text-align: center;
+    max-width: 51ch;
     margin: 16px 0 0;
 `;
 
@@ -113,8 +149,6 @@ export default function Crew({ crewMember }) {
                 webp = crewDouglasHWebp;
         }
 
-        console.log(png);
-
         return { png, webp };
     }
 
@@ -133,6 +167,8 @@ export default function Crew({ crewMember }) {
                     alt={crewMember.name}
                 />
             </Image>
+
+            <HorizontalLine />
 
             <Slider
                 pathPrefix="crew"

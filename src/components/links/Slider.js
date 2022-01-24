@@ -8,6 +8,7 @@ const List = styled.ul`
     display: flex;
     column-gap: 24px;
     justify-content: center;
+    margin: 0;
 
     a {
         color: transparent;
@@ -56,7 +57,7 @@ export default function Slider({ pathPrefix, links, currentPageName }) {
         );
     });
 
-    return <List>{list}</List>;
+    return <List className="slider">{list}</List>;
 }
 
 Slider.defaultProps = {
