@@ -42,10 +42,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     section {
-        padding-top: 88px;
-
         @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
-            padding-top: 136px;
+            padding-top: 40px;
         }
     }
 

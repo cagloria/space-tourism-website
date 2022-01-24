@@ -4,29 +4,20 @@ import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
-import { colors } from "../Theme";
+import { colors, mediaQueryStrings } from "../Theme";
 
 const Container = styled.header`
-    background: ${(props) =>
-        !props.navIsOpen && !props.atScrollTop ? "#37373761" : "unset"};
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     padding: 24px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    transition: background 0.2s ease-in;
 
     @media (prefers-reduced-motion) {
         transition: unset;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
         padding-left: 39px;
-        padding-right: 39px;
-        background: unset;
+        padding-right: 48px;
     }
 `;
 
@@ -41,9 +32,9 @@ const LogoImg = styled.img`
 `;
 
 const NavButton = styled.button`
-    position: fixed;
+    position: absolute;
     top: 24px;
-    right: 16px;
+    right: 24px;
     z-index: 11;
     width: 40px;
     height: 40px;
@@ -108,7 +99,7 @@ const NavLinks = styled.ol`
         transition: unset;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
         width: 59%;
         height: unset;
         padding: 39px 48px 0;
@@ -134,7 +125,7 @@ const NavLinks = styled.ol`
         }
     }
 
-    @media screen and (min-width: 768px) and (max-width: 1440px) {
+    @media screen and (min-width: ${mediaQueryStrings.minTablet}) and (max-width: ${mediaQueryStrings.minLargeLaptop}) {
         li a {
             &::before {
                 content: none;

@@ -6,12 +6,6 @@ import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
 
-const MEDIA = (() => {
-    const desktopWidth = "1024px";
-
-    return { desktopWidth };
-})();
-
 const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
@@ -32,7 +26,7 @@ const Container = styled.section`
     align-items: center;
     row-gap: 15px;
     max-width: 1380px;
-    padding: 111px 0 0;
+    padding-top: 24px;
     margin: 0 auto;
 
     .landing-page-button {
@@ -40,10 +34,10 @@ const Container = styled.section`
     }
 
     @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
-        padding-top: 202px;
+        padding-top: 106px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${mediaQueryStrings.minLargeLaptop}) {
         padding-top: 387px;
         display: grid;
         grid-template-rows: 1fr;
