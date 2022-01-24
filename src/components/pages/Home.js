@@ -25,9 +25,7 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     row-gap: 15px;
-    max-width: 1380px;
     padding-top: 24px;
-    margin: 0 auto;
 
     .landing-page-button {
         grid-area: l;

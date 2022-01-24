@@ -29,12 +29,21 @@ const Container = styled.header`
         &::before {
             content: "";
             display: block;
-            width: 75%;
+            width: 50%;
             height: 1px;
             background-color: #51525a;
             position: absolute;
             top: 50%;
             left: 166px;
+        }
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+        padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+
+        &::before {
+            left: calc(clamp(10.313rem, 53vw - 40rem, 43.75rem) + 166px);
         }
     }
 `;
@@ -158,6 +167,10 @@ const NavLinks = styled.ol`
         padding-right: 165px;
         padding-left: 123px;
         top: 40px;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
     }
 `;
 

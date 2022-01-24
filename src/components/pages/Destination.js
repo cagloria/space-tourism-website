@@ -78,9 +78,7 @@ const GlobalDestinationStyle = createGlobalStyle`
 `;
 
 const Container = styled.section`
-    max-width: 1380px;
     padding-bottom: 58px;
-    margin: 0 auto;
 
     h1 {
         margin: 0 0 32px;
