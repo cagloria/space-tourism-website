@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../PagesHeading";
 import Tabs from "../links/Tabs";
-import { colors } from "../Theme";
+import { colors, deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/destinations/background-destination-mobile.jpg";
 import bgTablet from "../../assets/destinations/background-destination-tablet.jpg";
 import bgDesktop from "../../assets/destinations/background-destination-desktop.jpg";
@@ -16,20 +16,19 @@ import titanPng from "../../assets/destinations/image-titan.png";
 import titanWebp from "../../assets/destinations/image-titan.webp";
 import data from "../../data/data.json";
 
-const MEDIA = (() => {
-    const desktopWidth = "1024px";
-    return { desktopWidth };
-})();
+const destinationMediaQueries = {
+    twoColumn: deviceMediaQueries.minLargeLaptop,
+};
 
 const GlobalDestinationStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
         
-        @media screen and (min-width: 376px) {
+        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: 769px) {
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
             background-image: url(${bgDesktop});
         }
     }
@@ -79,13 +78,11 @@ const GlobalDestinationStyle = createGlobalStyle`
 `;
 
 const Container = styled.section`
-    max-width: 1380px;
     padding-bottom: 58px;
-    margin: 0 auto;
 
     h1 {
         margin: 0 0 32px;
-        text-align: left;
+        text-align: center;
         grid-area: heading;
     }
 
@@ -93,15 +90,14 @@ const Container = styled.section`
         grid-area: tabs;
     }
 
-    @media screen and (min-width: 376px) {
-        padding-bottom: 62px;
-
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         h1 {
-            margin-bottom: 60px;
+            text-align: left;
         }
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
+        padding-bottom: 62px;
         display: grid;
         grid-template-columns: auto 1fr;
         grid-template-rows: repeat(3, auto) 1fr repeat(2, auto);
@@ -136,11 +132,11 @@ const Image = styled.picture`
         width: clamp(10.625rem, 37vw + 1rem, 27.813rem);
     }
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         margin: 60px 0 53px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
         padding-left: 42px;
     }
 `;
@@ -151,14 +147,14 @@ const NameHeading = styled.h2`
     text-transform: uppercase;
     grid-area: name;
 
-    @media screen and (min-width: 376px) {
-        margin: 32px 0 8px;
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        margin-top: 32px;
+        margin-bottom: 8px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
         text-align: left;
-        margin-top: 37px;
-        margin-bottom: 14px;
+        margin: 37px 0 14px;
     }
 `;
 
@@ -168,13 +164,13 @@ const Description = styled.p`
     margin: 1px auto 32px;
     grid-area: body;
 
-    @media screen and (min-width: 376px) {
-        text-align: left;
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         margin-top: 8px;
         margin-bottom: 49px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
+        text-align: left;
         margin: 0;
     }
 `;
@@ -183,7 +179,12 @@ const HorizontalLine = styled.hr`
     margin: 32px 0;
     grid-area: line;
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        margin-top: 49px;
+        margin-bottom: 28px;
+    }
+
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
         margin-top: 54px;
         margin-bottom: 28px;
     }
@@ -192,16 +193,18 @@ const HorizontalLine = styled.hr`
 const StatsContainer = styled.div`
     display: flex;
     flex-direction: column;
-    row-gap: 12px;
+    row-gap: 32px;
     grid-area: stats;
+    margin: 32px 0 0;
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         flex-direction: row;
         column-gap: 14.5vw;
         justify-content: center;
+        margin-top: 28px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
         flex-direction: row;
         justify-content: flex-start;
         column-gap: 5.5vw;
@@ -210,6 +213,9 @@ const StatsContainer = styled.div`
 `;
 
 const Stats = styled.div`
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
     text-align: center;
     text-transform: uppercase;
 
@@ -226,7 +232,7 @@ const Stats = styled.div`
         line-height: 120%;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
         text-align: left;
     }
 `;

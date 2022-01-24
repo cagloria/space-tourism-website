@@ -1,25 +1,20 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import LandingPageButton from "../links/LandingPageButton";
+import { deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
-
-const MEDIA = (() => {
-    const desktopWidth = "1024px";
-
-    return { desktopWidth };
-})();
 
 const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: 376px) {
+        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: 769px) {
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
             background-image: url(${bgDesktop});
         }
     }
@@ -30,19 +25,17 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     row-gap: 15px;
-    max-width: 1380px;
-    padding: 111px 0 0;
-    margin: 0 auto;
+    padding-top: 24px;
 
     .landing-page-button {
         grid-area: l;
     }
 
-    @media screen and (min-width: 376px) {
-        padding-top: 202px;
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        padding-top: 106px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         padding-top: 387px;
         display: grid;
         grid-template-rows: 1fr;
@@ -65,11 +58,11 @@ const Heading = styled.h1`
     margin: 0;
     grid-area: h;
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         row-gap: 24px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         text-align: left;
     }
 `;
@@ -80,12 +73,12 @@ const Body = styled.p`
     max-width: 50ch;
     grid-area: p;
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         margin-top: 24px;
         margin-bottom: 112px;
     }
 
-    @media screen and (min-width: ${MEDIA.desktopWidth}) {
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         max-width: 46ch;
         text-align: left;
         margin: 0;
