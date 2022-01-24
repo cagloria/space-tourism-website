@@ -6,6 +6,8 @@ import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
 import { colors, mediaQueryStrings } from "../Theme";
 
+const headerMediaQueries = { desktopNav: "530px" };
+
 const Container = styled.header`
     display: flex;
     justify-content: space-between;
@@ -25,7 +27,7 @@ const LogoImg = styled.img`
     width: 40px;
     height: 40px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
         width: 48px;
         height: 48px;
     }
@@ -45,7 +47,7 @@ const NavButton = styled.button`
     background-image: ${(props) =>
         props.navIsOpen ? `url(${iconClose})` : `url(${iconHamburger})`};
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
         right: 200vw;
     }
 `;
@@ -99,15 +101,18 @@ const NavLinks = styled.ol`
         transition: unset;
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
-        width: 59%;
+    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
+        flex-direction: row;
+        justify-content: center;
+        column-gap: clamp(1.563rem, 7.2vw - 1rem, 3.125rem);
+        backdrop-filter: blur(81.5485px);
+        box-sizing: content-box;
+        width: fit-content;
         height: unset;
-        padding: 39px 48px 0;
+        padding: 39px 48px 0 48px;
+        position: absolute;
         right: 0;
         transform: unset;
-        flex-direction: row;
-        justify-content: space-between;
-        backdrop-filter: blur(81.5485px);
 
         li {
             a {
@@ -125,7 +130,7 @@ const NavLinks = styled.ol`
         }
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minTablet}) and (max-width: ${mediaQueryStrings.minLargeLaptop}) {
+    @media screen and (min-width: ${headerMediaQueries.desktopNav}) and (max-width: ${mediaQueryStrings.minLargeLaptop}) {
         li a {
             &::before {
                 content: none;
