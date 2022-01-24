@@ -6,6 +6,14 @@ import { colors, deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
 import bgTablet from "../../assets/crew/background-crew-tablet.jpg";
 import bgDesktop from "../../assets/crew/background-crew-desktop.jpg";
+import crewDouglasHPng from "../../assets/crew/image-douglas-hurley.png";
+import crewDouglasHWebp from "../../assets/crew/image-douglas-hurley.webp";
+import crewMarkSPng from "../../assets/crew/image-mark-shuttleworth.png";
+import crewMarkSWebp from "../../assets/crew/image-mark-shuttleworth.webp";
+import crewVictorGPng from "../../assets/crew/image-victor-glover.png";
+import crewVictorGWebp from "../../assets/crew/image-victor-glover.webp";
+import crewAnoushehAPng from "../../assets/crew/image-anousheh-ansari.png";
+import crewAnoushehAWebp from "../../assets/crew/image-anousheh-ansari.webp";
 import data from "../../data/data.json";
 
 const GlobalCrewStyle = createGlobalStyle`
@@ -23,8 +31,22 @@ const GlobalCrewStyle = createGlobalStyle`
 `;
 
 const Container = styled.section`
+    padding-bottom: 79px;
+
     h1 {
-        margin: 0;
+        margin: 32px 0 0;
+    }
+`;
+
+const Image = styled.picture`
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 222px;
+
+    > * {
+        height: 100%;
     }
 `;
 
@@ -46,6 +68,11 @@ const CrewMemberName = styled.span`
     text-transform: uppercase;
 `;
 
+const Biography = styled.p`
+    text-align: center;
+    margin: 16px 0 0;
+`;
+
 /**
  * Takes a crew member object and returns markup describing that crew member.
  * @param {object} crewMember   Crew member object
@@ -58,10 +85,54 @@ export default function Crew({ crewMember }) {
         document.title = `Crew: ${crewMember.name} | Space Tourism`;
     }, [crewMember.name]);
 
+    /**
+     * Assigns image files based on the chosen crew member.
+     * @param {string} destination  Name of crew member
+     * @returns                     An object with file paths to a png file and
+     *                              webp file
+     */
+    function getImages(crewMember) {
+        let png = undefined;
+        let webp = undefined;
+
+        switch (crewMember) {
+            case "Mark Shuttleworth":
+                png = crewMarkSPng;
+                webp = crewMarkSWebp;
+                break;
+            case "Victor Glover":
+                png = crewVictorGPng;
+                webp = crewVictorGWebp;
+                break;
+            case "Anousheh Ansari":
+                png = crewAnoushehAPng;
+                webp = crewAnoushehAWebp;
+                break;
+            default:
+                png = crewDouglasHPng;
+                webp = crewDouglasHWebp;
+        }
+
+        console.log(png);
+
+        return { png, webp };
+    }
+
     return (
         <Container>
             <GlobalCrewStyle />
             <PagesHeading number="02" text="Meet your crew" />
+
+            <Image>
+                <source
+                    srcSet={getImages(crewMember.name).png}
+                    type="image/webp"
+                />
+                <img
+                    src={getImages(crewMember.name).webp}
+                    alt={crewMember.name}
+                />
+            </Image>
 
             <Slider
                 pathPrefix="crew"
@@ -74,7 +145,7 @@ export default function Crew({ crewMember }) {
                 <CrewMemberName>{crewMember.name}</CrewMemberName>
             </CrewMemberTitle>
 
-            <p>{crewMember.bio}</p>
+            <Biography>{crewMember.bio}</Biography>
         </Container>
     );
 }

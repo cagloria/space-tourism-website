@@ -252,8 +252,7 @@ export default function Destination({ destination }) {
     /**
      * Assigns image files based on the chosen destination.
      * @param {string} destination  Name of destination
-     * @returns                     An object with file paths to a png file and webp
-     *                              file
+     * @returns                     An object with file paths to a png file and *                              webp file
      */
     function getImages(destination) {
         let png = undefined;

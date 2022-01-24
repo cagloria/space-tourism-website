@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
-import { colors } from "../Theme";
 
 const List = styled.ul`
     list-style-type: none;
@@ -12,24 +11,24 @@ const List = styled.ul`
 
     a {
         color: transparent;
-        background-color: ${colors.pageNav.default};
+        background-color: #464950;
         border-radius: 50%;
         display: block;
-        width: 15px;
-        height: 15px;
+        width: 10px;
+        height: 10px;
         overflow: hidden;
         transition: background-color 0.2s ease-in-out;
 
         &.slider__active-page {
-            background-color: ${colors.pageNav.active};
+            background-color: #ffffff;
         }
 
         &:hover {
-            background-color: ${colors.pageNav.hover};
+            background-color: #85868b;
         }
 
         &:active {
-            background-color: ${colors.pageNav.active};
+            background-color: #ffffff;
         }
     }
 `;
