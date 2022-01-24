@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
-import { colors, mediaQueryStrings } from "../Theme";
+import { colors, deviceMediaQueries } from "../Theme";
 
 const headerMediaQueries = { desktopNav: "530px" };
 
@@ -17,9 +17,25 @@ const Container = styled.header`
         transition: unset;
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         padding-left: 39px;
         padding-right: 48px;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+        padding: 64px 165px 64px 55px;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 75%;
+            height: 1px;
+            background-color: #51525a;
+            position: absolute;
+            top: 50%;
+            left: 166px;
+        }
     }
 `;
 
@@ -116,7 +132,7 @@ const NavLinks = styled.ol`
 
         li {
             a {
-                font-size: 0.875rem;
+                font-size: clamp(0.875rem, 5vw - 1rem, 1rem);
                 text-align: center;
                 padding: 0 0 37px;
                 border-right: unset;
@@ -130,12 +146,18 @@ const NavLinks = styled.ol`
         }
     }
 
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) and (max-width: ${mediaQueryStrings.minLargeLaptop}) {
+    @media screen and (min-width: ${headerMediaQueries.desktopNav}) and (max-width: ${deviceMediaQueries.minLargeLaptop}) {
         li a {
             &::before {
                 content: none;
             }
         }
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+        padding-right: 165px;
+        padding-left: 123px;
+        top: 40px;
     }
 `;
 

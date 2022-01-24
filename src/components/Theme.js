@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const mediaQueryStrings = {
+export const deviceMediaQueries = {
     minTablet: "376px",
     minLaptop: "769px",
     minLargeLaptop: "1025px",
@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     section {
-        @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
+        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             padding-top: 40px;
         }
     }

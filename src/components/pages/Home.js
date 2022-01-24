@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import LandingPageButton from "../links/LandingPageButton";
-import { mediaQueryStrings } from "../Theme";
+import { deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
@@ -10,11 +10,11 @@ const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
+        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: ${mediaQueryStrings.minLaptop}) {
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
             background-image: url(${bgDesktop});
         }
     }
@@ -33,11 +33,11 @@ const Container = styled.section`
         grid-area: l;
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         padding-top: 106px;
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minLargeLaptop}) {
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         padding-top: 387px;
         display: grid;
         grid-template-rows: 1fr;
@@ -60,11 +60,11 @@ const Heading = styled.h1`
     margin: 0;
     grid-area: h;
 
-    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         row-gap: 24px;
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minLargeLaptop}) {
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         text-align: left;
     }
 `;
@@ -75,12 +75,12 @@ const Body = styled.p`
     max-width: 50ch;
     grid-area: p;
 
-    @media screen and (min-width: ${mediaQueryStrings.minTablet}) {
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         margin-top: 24px;
         margin-bottom: 112px;
     }
 
-    @media screen and (min-width: ${mediaQueryStrings.minLargeLaptop}) {
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         max-width: 46ch;
         text-align: left;
         margin: 0;
