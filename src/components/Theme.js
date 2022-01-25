@@ -108,7 +108,7 @@ export const GlobalStyle = createGlobalStyle`
     p {
         color: ${colors.primary};
         font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
-        line-height: 167%;
+        line-height: 178%;
     }
 
     a {
