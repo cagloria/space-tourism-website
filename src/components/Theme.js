@@ -109,6 +109,10 @@ export const GlobalStyle = createGlobalStyle`
         color: ${colors.primary};
         font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
         line-height: 178%;
+
+        @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+            font-size: clamp(1.125rem, 1vw + 0.25rem, 1.25rem);
+        }
     }
 
     a {

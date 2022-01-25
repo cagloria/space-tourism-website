@@ -56,6 +56,11 @@ const Image = styled.picture`
         bottom: 0;
         left: 55%;
     }
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        height: clamp(43.75rem, 87vw, 129.75rem);
+        left: 60%;
+    }
 `;
 
 const HorizontalLine = styled.hr`
@@ -89,11 +94,19 @@ const CrewMemberRole = styled.span`
     font-size: clamp(1rem, 8vw - 2.35rem, 2rem);
     color: ${colors.gray};
     text-transform: uppercase;
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        font-size: clamp(2rem, 1vw + 1rem, 3rem);
+    }
 `;
 
 const CrewMemberName = styled.span`
     font-size: clamp(1.5rem, 8.3vw - 1.5rem, 3.5rem);
     text-transform: uppercase;
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        font-size: clamp(3.5rem, 1vw + 2.5rem, 4.5rem);
+    }
 `;
 
 const Biography = styled.p`
@@ -167,7 +180,7 @@ const Container = styled.section`
 
         .slider {
             position: fixed;
-            bottom: 94px;
+            bottom: 11.2vh;
 
             a {
                 width: 15px;
@@ -178,6 +191,17 @@ const Container = styled.section`
         h1,
         ${CrewMemberTitle}, ${Biography} {
             text-align: left;
+        }
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        .slider {
+            bottom: 30vh;
+
+            a {
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 `;
