@@ -153,12 +153,13 @@ const Container = styled.section`
         justify-items: start;
         column-gap: 81px;
         height: 65vh;
+        max-height: 750px;
         padding-bottom: 94px;
 
         h1 {
             grid-row: 1;
             grid-column: 1;
-            margin-bottom: 17vh;
+            margin-bottom: clamp(0px, 17vh, 154px);
         }
 
         ${Image} {
@@ -199,8 +200,6 @@ const Container = styled.section`
 
     @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
         .slider {
-            bottom: 30vh;
-
             a {
                 width: 20px;
                 height: 20px;
