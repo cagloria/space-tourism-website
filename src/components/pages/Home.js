@@ -20,37 +20,6 @@ const GlobalHomeStyle = createGlobalStyle`
     }
 `;
 
-const Container = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 15px;
-    padding-top: 24px;
-
-    .landing-page-button {
-        grid-area: l;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        padding-top: 106px;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
-        padding-top: 187px;
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            "h l"
-            "p l";
-
-        .landing-page-button {
-            margin-left: auto;
-            margin-top: 123px;
-        }
-    }
-`;
-
 const Heading = styled.h1`
     display: flex;
     flex-direction: column;
@@ -73,15 +42,49 @@ const Body = styled.p`
     max-width: 50ch;
     grid-area: p;
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        margin-top: 24px;
-        margin-bottom: 112px;
-    }
-
     @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
         max-width: 46ch;
         text-align: left;
-        margin: 0;
+    }
+`;
+
+const Container = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+    padding-top: 24px;
+
+    .landing-page-button {
+        grid-area: l;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        padding-top: 106px;
+
+        ${Body} {
+            margin-top: 24px;
+            margin-bottom: 112px;
+        }
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+        padding-top: 187px;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "h l"
+            "p l";
+
+        .landing-page-button {
+            margin-left: auto;
+            margin-top: 123px;
+        }
+
+        ${Body} {
+            margin: 0;
+        }
     }
 `;
 
