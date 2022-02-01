@@ -51,6 +51,10 @@ export const GlobalStyle = createGlobalStyle`
         @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             padding-top: 40px;
         }
+
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+            padding-top: 22px;
+        }
     }
 
     h1, h2, h3, h4 {
@@ -108,7 +112,11 @@ export const GlobalStyle = createGlobalStyle`
     p {
         color: ${colors.primary};
         font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
-        line-height: 167%;
+        line-height: 178%;
+
+        @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+            font-size: clamp(1.125rem, 1vw + 0.25rem, 1.25rem);
+        }
     }
 
     a {

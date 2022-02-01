@@ -6,7 +6,7 @@ import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
 import { colors, deviceMediaQueries } from "../Theme";
 
-const headerMediaQueries = { desktopNav: "530px" };
+const headerMediaQueries = { desktopNav: "570px" };
 
 const Container = styled.header`
     display: flex;
