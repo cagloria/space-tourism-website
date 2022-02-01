@@ -185,25 +185,11 @@ const Container = styled.section`
         .slider {
             grid-row: 4;
             grid-column: 1;
-
-            a {
-                width: 15px;
-                height: 15px;
-            }
         }
 
         h1,
         ${CrewMemberTitle}, ${Biography} {
             text-align: left;
-        }
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        .slider {
-            a {
-                width: 20px;
-                height: 20px;
-            }
         }
     }
 `;
