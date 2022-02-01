@@ -77,50 +77,6 @@ const GlobalDestinationStyle = createGlobalStyle`
     }
 `;
 
-const Container = styled.section`
-    padding-bottom: 58px;
-
-    h1 {
-        margin: 0 0 32px;
-        text-align: center;
-        grid-area: heading;
-    }
-
-    .tabs {
-        grid-area: tabs;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        h1 {
-            text-align: left;
-        }
-    }
-
-    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
-        padding-bottom: 62px;
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: repeat(3, auto) 1fr repeat(2, auto);
-        grid-template-areas:
-            "heading heading"
-            "img     tabs"
-            "img     name"
-            "img     body"
-            "img     line"
-            "img     stats";
-        column-gap: clamp(5rem, 20vw - 8rem, 9.813rem);
-
-        .tabs {
-            justify-content: flex-start;
-        }
-
-        h1 {
-            margin-top: 37px;
-            margin-bottom: 14px;
-        }
-    }
-`;
-
 const Image = styled.picture`
     margin: 32px 0 26px;
     display: flex;
@@ -234,6 +190,49 @@ const Stats = styled.div`
 
     @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
         text-align: left;
+    }
+`;
+
+const Container = styled.section`
+    padding-bottom: 58px;
+
+    h1 {
+        margin: 0 0 32px;
+        text-align: center;
+        grid-area: heading;
+    }
+
+    .tabs {
+        grid-area: tabs;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        h1 {
+            text-align: left;
+        }
+    }
+
+    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
+        padding-bottom: 62px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(3, auto) 1fr repeat(2, auto);
+        grid-template-areas:
+            "heading heading"
+            "img     tabs"
+            "img     name"
+            "img     body"
+            "img     line"
+            "img     stats";
+        column-gap: clamp(5rem, 20vw - 8rem, 9.813rem);
+
+        .tabs {
+            justify-content: flex-start;
+        }
+
+        h1 {
+            margin-bottom: 14px;
+        }
     }
 `;
 

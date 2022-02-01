@@ -51,6 +51,10 @@ export const GlobalStyle = createGlobalStyle`
         @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             padding-top: 40px;
         }
+
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+            padding-top: 22px;
+        }
     }
 
     h1, h2, h3, h4 {

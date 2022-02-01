@@ -36,7 +36,7 @@ const Container = styled.section`
     }
 
     @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
-        padding-top: 387px;
+        padding-top: 187px;
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr 1fr;

@@ -116,6 +116,7 @@ const Biography = styled.p`
 
     @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
         max-width: 45ch;
+        align-self: start;
         margin-top: 27px;
     }
 `;
@@ -147,15 +148,17 @@ const Container = styled.section`
 
     @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
         display: grid;
-        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-rows: auto auto 1fr auto;
         grid-template-columns: 56% 1fr;
+        justify-items: start;
         column-gap: 81px;
-        padding-top: 22px;
+        height: 65vh;
+        padding-bottom: 94px;
 
         h1 {
             grid-row: 1;
             grid-column: 1;
-            margin-bottom: 124px;
+            margin-bottom: 17vh;
         }
 
         ${Image} {
@@ -179,8 +182,8 @@ const Container = styled.section`
         }
 
         .slider {
-            position: fixed;
-            bottom: 11.2vh;
+            grid-row: 4;
+            grid-column: 1;
 
             a {
                 width: 15px;
