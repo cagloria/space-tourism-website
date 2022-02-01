@@ -36,6 +36,22 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Barlow", sans-serif;
         font-weight: 400;
         margin: 0;
+
+        section.background-overlay {
+            /* Add an overlay to darken the background */
+            &::before {
+                content: "";
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: black;
+                width: 100vw;
+                height: 100vh;
+                opacity: 0.25;
+                z-index: -9;
+            }
+        }
     }
 
     main {

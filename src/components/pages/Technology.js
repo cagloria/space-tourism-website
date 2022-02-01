@@ -36,7 +36,7 @@ export default function Technology({ tech }) {
     }, [tech.name]);
 
     return (
-        <section>
+        <section className="background-overlay">
             <PagesHeading number="03" text="Space launch 101" />
 
             <NumberSlider

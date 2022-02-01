@@ -238,7 +238,7 @@ export default function Crew({ crewMember }) {
     }
 
     return (
-        <Container>
+        <Container className="background-overlay">
             <GlobalCrewStyle />
             <PagesHeading number="02" text="Meet your crew" />
 
