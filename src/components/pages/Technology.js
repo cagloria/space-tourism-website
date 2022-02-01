@@ -1,8 +1,26 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import { deviceMediaQueries } from "../Theme";
 import PagesHeading from "../PagesHeading";
 import NumberSlider from "../links/NumberSlider";
 import data from "../../data/data.json";
+import bgMobile from "../../assets/technology/background-technology-mobile.jpg";
+import bgTablet from "../../assets/technology/background-technology-tablet.jpg";
+import bgDesktop from "../../assets/technology/background-technology-desktop.jpg";
+
+const GlobalTechnologyStyle = createGlobalStyle`
+    body {
+        background-image: url(${bgMobile});
+
+        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+            background-image: url(${bgTablet});
+        }
+
+        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+            background-image: url(${bgDesktop});
+        }
+    }
+`;
 
 const TechTitle = styled.h2`
     display: flex;
@@ -23,6 +41,8 @@ const TechName = styled.span`
     text-transform: uppercase;
 `;
 
+const Container = styled.section``;
+
 /**
  * Takes a technology object and returns markup describing that technology.
  * @param {object} tech     Technology object
@@ -36,7 +56,8 @@ export default function Technology({ tech }) {
     }, [tech.name]);
 
     return (
-        <section className="background-overlay">
+        <Container className="background-overlay">
+            <GlobalTechnologyStyle />
             <PagesHeading number="03" text="Space launch 101" />
 
             <NumberSlider
@@ -53,7 +74,7 @@ export default function Technology({ tech }) {
             </TechTitle>
 
             <p>{tech.description}</p>
-        </section>
+        </Container>
     );
 }
 
