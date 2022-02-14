@@ -7,6 +7,12 @@ import data from "../../data/data.json";
 import bgMobile from "../../assets/technology/background-technology-mobile.jpg";
 import bgTablet from "../../assets/technology/background-technology-tablet.jpg";
 import bgDesktop from "../../assets/technology/background-technology-desktop.jpg";
+import launchVehicleLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg";
+import launchVehiclePortrait from "../../assets/technology/image-launch-vehicle-portrait.jpg";
+import spaceportLandscape from "../../assets/technology/image-spaceport-landscape.jpg";
+import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.jpg";
+import spaceCapsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
+import spaceCapsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 
 const GlobalTechnologyStyle = createGlobalStyle`
     body {
@@ -22,11 +28,27 @@ const GlobalTechnologyStyle = createGlobalStyle`
     }
 `;
 
+const Image = styled.picture`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 32px 0 34px;
+
+    > * {
+        width: 100vw;
+    }
+`;
+
 const TechTitle = styled.h2`
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    margin: 26px 0 16px;
+
+    span:first-child {
+        margin-bottom: 9px;
+    }
 `;
 
 const TechTerminology = styled.span`
@@ -41,7 +63,22 @@ const TechName = styled.span`
     text-transform: uppercase;
 `;
 
-const Container = styled.section``;
+const Description = styled.p`
+    text-align: center;
+    margin: 16px 0 0;
+`;
+
+const Container = styled.section`
+    padding-bottom: 40px;
+
+    h1 {
+        margin: 0;
+    }
+
+    .number-slider {
+        margin: 34px 0 26px;
+    }
+`;
 
 /**
  * Takes a technology object and returns markup describing that technology.
@@ -55,10 +92,39 @@ export default function Technology({ tech }) {
         document.title = `Technology: ${tech.name} | Space Tourism`;
     }, [tech.name]);
 
+    function getImages(tech) {
+        let portrait = undefined;
+        let landscape = undefined;
+
+        switch (tech) {
+            case "Spaceport":
+                portrait = spaceportPortrait;
+                landscape = spaceportLandscape;
+                break;
+            case "Space capsule":
+                portrait = spaceCapsulePortrait;
+                landscape = spaceCapsuleLandscape;
+                break;
+            default:
+                portrait = launchVehiclePortrait;
+                landscape = launchVehicleLandscape;
+        }
+
+        return { portrait, landscape };
+    }
+
     return (
         <Container className="background-overlay">
             <GlobalTechnologyStyle />
             <PagesHeading number="03" text="Space launch 101" />
+
+            <Image>
+                <source
+                    srcSet={getImages(tech.name).landscape}
+                    type="image/webp"
+                />
+                <img src={getImages(tech.name).landscape} alt={tech.name} />
+            </Image>
 
             <NumberSlider
                 pathPrefix="technology"
@@ -73,7 +139,7 @@ export default function Technology({ tech }) {
                 <TechName>{tech.name}</TechName>
             </TechTitle>
 
-            <p>{tech.description}</p>
+            <Description>{tech.description}</Description>
         </Container>
     );
 }

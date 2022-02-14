@@ -84,5 +84,5 @@ export default function NumberSlider({ pathPrefix, links, currentPageName }) {
         );
     });
 
-    return <List>{list}</List>;
+    return <List className="number-slider">{list}</List>;
 }
