@@ -32,6 +32,7 @@ const Image = styled.picture`
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* height: 170px; */
     margin: 32px 0 34px;
 
     > * {
@@ -49,6 +50,12 @@ const TechTitle = styled.h2`
     span:first-child {
         margin-bottom: 9px;
     }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        span:first-child {
+            margin-bottom: 16px;
+        }
+    }
 `;
 
 const TechTerminology = styled.span`
@@ -64,19 +71,46 @@ const TechName = styled.span`
 `;
 
 const Description = styled.p`
+    max-width: 49ch;
     text-align: center;
-    margin: 16px 0 0;
+    margin: 16px auto 0;
 `;
 
 const Container = styled.section`
     padding-bottom: 40px;
 
     h1 {
-        margin: 0;
+        margin: 0 0 32px;
     }
 
     .number-slider {
         margin: 34px 0 26px;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        h1 {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        ${Image} {
+            margin-top: 60px;
+            margin-bottom: 56px;
+        }
+
+        .number-slider {
+            margin-top: 56px;
+            margin-bottom: 44px;
+        }
+
+        ${TechTitle} {
+            margin-top: 44px;
+            margin-bottom: 16px;
+        }
+
+        ${Description} {
+            margin-top: 16px;
+        }
     }
 `;
 
