@@ -62,6 +62,7 @@ const List = styled.ol`
 
     @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         a {
+            font-size: 1.5rem;
             width: 60px;
             height: 60px;
         }

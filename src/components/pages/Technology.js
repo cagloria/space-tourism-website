@@ -28,15 +28,27 @@ const GlobalTechnologyStyle = createGlobalStyle`
     }
 `;
 
-const Image = styled.picture`
+const ImageContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* height: 170px; */
+    justify-content: center;
     margin: 32px 0 34px;
 
-    > * {
+    img {
+        height: 170px;
         width: 100vw;
+        object-fit: cover;
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        img {
+            height: 310px;
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        img {
+            height: 430px;
+        }
     }
 `;
 
@@ -53,7 +65,12 @@ const TechTitle = styled.h2`
 
     @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
         span:first-child {
+            font-size: 1rem;
             margin-bottom: 16px;
+        }
+
+        span:last-child {
+            font-size: 2.5rem;
         }
     }
 `;
@@ -93,7 +110,7 @@ const Container = styled.section`
             margin-bottom: 60px;
         }
 
-        ${Image} {
+        ${ImageContainer} {
             margin-top: 60px;
             margin-bottom: 56px;
         }
@@ -152,13 +169,9 @@ export default function Technology({ tech }) {
             <GlobalTechnologyStyle />
             <PagesHeading number="03" text="Space launch 101" />
 
-            <Image>
-                <source
-                    srcSet={getImages(tech.name).landscape}
-                    type="image/webp"
-                />
+            <ImageContainer>
                 <img src={getImages(tech.name).landscape} alt={tech.name} />
-            </Image>
+            </ImageContainer>
 
             <NumberSlider
                 pathPrefix="technology"
