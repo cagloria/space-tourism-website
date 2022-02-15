@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { deviceMediaQueries } from "../Theme";
 import PagesHeading from "../PagesHeading";
@@ -36,8 +36,8 @@ const ImageContainer = styled.div`
     margin: 32px 0 34px;
 
     img {
-        height: 170px;
         width: 100vw;
+        height: 170px;
         object-fit: cover;
     }
 
@@ -54,11 +54,13 @@ const ImageContainer = styled.div`
     }
 
     @media screen and (min-width: ${techMediaQueries.threeColumn}) {
-        width: clamp(18.75rem, 56vw - 18rem, 32.188rem);
-        height: 527px;
-        overflow: hidden;
         position: absolute;
         right: 0;
+
+        img {
+            width: clamp(18.75rem, 56vw - 18rem, 32.188rem);
+            height: 527px;
+        }
     }
 `;
 
@@ -199,11 +201,30 @@ const Container = styled.section`
  * @returns                 Technology Route page
  */
 export default function Technology({ tech }) {
+    const [onDesktop, setOnDesktop] = useState(false);
     const { technology } = data;
+    const mediaQueryMinDesktop = window.matchMedia("(min-width: 1025px)");
+
+    mediaQueryMinDesktop.addListener(handleDeviceChange); // Handle screen width change
 
     useEffect(() => {
         document.title = `Technology: ${tech.name} | Space Tourism`;
     }, [tech.name]);
+
+    useEffect(() => {
+        handleDeviceChange(mediaQueryMinDesktop);
+    }, [mediaQueryMinDesktop]);
+
+    function handleDeviceChange(media) {
+        // Desktop
+        if (media.matches) {
+            setOnDesktop(true);
+        }
+        // Tablet
+        else {
+            setOnDesktop(false);
+        }
+    }
 
     function getImages(tech) {
         let portrait = undefined;
@@ -232,7 +253,14 @@ export default function Technology({ tech }) {
             <PagesHeading number="03" text="Space launch 101" />
 
             <ImageContainer>
-                <img src={getImages(tech.name).landscape} alt={tech.name} />
+                <img
+                    src={
+                        onDesktop
+                            ? getImages(tech.name).portrait
+                            : getImages(tech.name).landscape
+                    }
+                    alt={tech.name}
+                />
             </ImageContainer>
 
             <NumberSlider
