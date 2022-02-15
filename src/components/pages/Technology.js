@@ -14,6 +14,8 @@ import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.
 import spaceCapsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
 import spaceCapsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 
+const techMediaQueries = { threeColumn: "1025px" };
+
 const GlobalTechnologyStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
@@ -45,10 +47,18 @@ const ImageContainer = styled.div`
         }
     }
 
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
         img {
             height: 430px;
         }
+    }
+
+    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
+        width: clamp(18.75rem, 56vw - 18rem, 32.188rem);
+        height: 527px;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
     }
 `;
 
@@ -73,6 +83,14 @@ const TechTitle = styled.h2`
             font-size: 2.5rem;
         }
     }
+
+    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
+        text-align: left;
+
+        span:last-child {
+            font-size: 3.5rem;
+        }
+    }
 `;
 
 const TechTerminology = styled.span`
@@ -91,6 +109,11 @@ const Description = styled.p`
     max-width: 49ch;
     text-align: center;
     margin: 16px auto 0;
+
+    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
+        text-align: left;
+        max-width: 44ch;
+    }
 `;
 
 const Container = styled.section`
@@ -127,6 +150,45 @@ const Container = styled.section`
 
         ${Description} {
             margin-top: 16px;
+        }
+    }
+
+    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        grid-template-columns: auto 2fr 1fr;
+        column-gap: 80px;
+
+        h1 {
+            grid-row: 1;
+            grid-column: 1 / -1;
+            margin-bottom: 137px;
+        }
+
+        ${ImageContainer} {
+            grid-row: 2;
+            grid-column: 3;
+            margin-top: 60px;
+        }
+
+        .number-slider {
+            grid-row: 2 / -1;
+            grid-column: 1;
+            align-self: start;
+            margin: 0;
+        }
+
+        ${TechTitle} {
+            grid-row: 2;
+            grid-column: 2;
+            align-self: start;
+            margin: 0 0 17px;
+        }
+
+        ${Description} {
+            grid-row: 3;
+            grid-column: 2;
+            margin: 0;
         }
     }
 `;
@@ -193,7 +255,11 @@ export default function Technology({ tech }) {
 
 Technology.defaultProps = {
     tech: {
-        title: "Launch vehicle",
+        name: "Launch vehicle",
+        image: {
+            landscape: launchVehicleLandscape,
+            portrait: launchVehiclePortrait,
+        },
         description:
             "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
     },

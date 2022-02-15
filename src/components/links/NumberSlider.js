@@ -67,6 +67,17 @@ const List = styled.ol`
             height: 60px;
         }
     }
+
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+        flex-direction: column;
+        row-gap: 32px;
+
+        a {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+        }
+    }
 `;
 
 /**
