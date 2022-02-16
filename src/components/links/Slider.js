@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
 
-const Span = styled.span`
+const Text = styled.span`
     background-color: #464950;
     border-radius: 50%;
     display: block;
@@ -38,19 +38,19 @@ const List = styled.ul`
         height: 32px;
 
         &.slider__active-page {
-            ${Span} {
+            ${Text} {
                 background-color: #ffffff;
             }
         }
 
         &:hover {
-            ${Span} {
+            ${Text} {
                 background-color: #85868b;
             }
         }
 
         &:active {
-            ${Span} {
+            ${Text} {
                 background-color: #ffffff;
             }
         }
@@ -83,7 +83,7 @@ export default function Slider({ pathPrefix, links, currentPageName }) {
         return (
             <li key={item.name}>
                 <Link to={path} className={className}>
-                    <Span>{item.name}</Span>
+                    <Text>{item.name}</Text>
                 </Link>
             </li>
         );
