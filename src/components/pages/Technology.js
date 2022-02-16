@@ -101,7 +101,7 @@ const TechTitle = styled.h2`
 
 const TechTerminology = styled.span`
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.875rem;
+    font-size: clamp(0.875rem, 5vw - 1rem, 1rem);
     color: #d0d6f9;
     text-transform: uppercase;
 `;

@@ -91,7 +91,7 @@ const CrewMemberTitle = styled.h2`
 `;
 
 const CrewMemberRole = styled.span`
-    font-size: clamp(1rem, 8vw - 2.35rem, 2rem);
+    font-size: clamp(1rem, 5.2vw - 1rem, 2rem);
     color: ${colors.gray};
     text-transform: uppercase;
 

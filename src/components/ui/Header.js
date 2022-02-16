@@ -101,6 +101,7 @@ const NavLinks = styled.ol`
         counter-increment: nav-counter;
 
         a {
+            font-size: 1rem;
             text-decoration: none;
             text-transform: uppercase;
             display: flex;
@@ -126,6 +127,12 @@ const NavLinks = styled.ol`
         transition: unset;
     }
 
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        li a {
+            font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
+        }
+    }
+
     @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
         flex-direction: row;
         justify-content: center;
@@ -141,7 +148,6 @@ const NavLinks = styled.ol`
 
         li {
             a {
-                font-size: clamp(0.875rem, 5vw - 1rem, 1rem);
                 text-align: center;
                 padding: 0 0 37px;
                 border-right: unset;
