@@ -62,6 +62,10 @@ const ImageContainer = styled.div`
             height: 527px;
         }
     }
+
+    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+        right: clamp(1.875rem, 45vw - 39rem, 31.25rem);
+    }
 `;
 
 const TechTitle = styled.h2`
