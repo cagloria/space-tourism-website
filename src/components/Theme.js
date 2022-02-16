@@ -36,6 +36,22 @@ export const GlobalStyle = createGlobalStyle`
         font-family: "Barlow", sans-serif;
         font-weight: 400;
         margin: 0;
+
+        section.background-overlay {
+            /* Add an overlay to darken the background */
+            &::before {
+                content: "";
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: black;
+                width: 100vw;
+                height: 100vh;
+                opacity: 0.25;
+                z-index: -9;
+            }
+        }
     }
 
     main {
@@ -111,12 +127,8 @@ export const GlobalStyle = createGlobalStyle`
 
     p {
         color: ${colors.primary};
-        font-size: clamp(0.9375rem, 1vw + 0.5rem, 1.125rem);
+        font-size: clamp(0.938rem, 4.2vw - 1rem, 1.125rem);
         line-height: 178%;
-
-        @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-            font-size: clamp(1.125rem, 1vw + 0.25rem, 1.25rem);
-        }
     }
 
     a {

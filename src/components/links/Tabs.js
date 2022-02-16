@@ -13,7 +13,7 @@ const List = styled.ul`
 
     a {
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
+        font-size: clamp(0.938rem, 5vw - 1rem, 1rem);
         letter-spacing: 2.7px;
         text-decoration: none;
         text-transform: uppercase;
@@ -56,7 +56,7 @@ const List = styled.ul`
  * @param {object} links            Array of objects, each object having a name
  *                                  property
  * @param {string} currentPageName  Current page's name
- * @param {function} onLinkClick            Function to activate upon clicking a link
+ * @param {function} onLinkClick    Function to activate upon clicking a link
  * @returns                         Unordered list of links styled as a list of
  *                                  tabs
  */

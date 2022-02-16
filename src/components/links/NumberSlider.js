@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
-import { colors } from "../Theme";
+import { colors, deviceMediaQueries } from "../Theme";
 
 const List = styled.ol`
     list-style-type: none;
@@ -26,6 +26,7 @@ const List = styled.ol`
         align-items: center;
         width: 40px;
         height: 40px;
+        box-sizing: border-box;
         overflow: hidden;
         text-decoration: none;
         font-size: 1rem;
@@ -58,6 +59,25 @@ const List = styled.ol`
             color: ${colors.black};
         }
     }
+
+    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        a {
+            font-size: 1.5rem;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+        flex-direction: column;
+        row-gap: 32px;
+
+        a {
+            width: 80px;
+            height: 80px;
+            font-size: 2rem;
+        }
+    }
 `;
 
 /**
@@ -84,5 +104,5 @@ export default function NumberSlider({ pathPrefix, links, currentPageName }) {
         );
     });
 
-    return <List>{list}</List>;
+    return <List className="number-slider">{list}</List>;
 }

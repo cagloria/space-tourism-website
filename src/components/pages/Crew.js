@@ -91,7 +91,7 @@ const CrewMemberTitle = styled.h2`
 `;
 
 const CrewMemberRole = styled.span`
-    font-size: clamp(1rem, 8vw - 2.35rem, 2rem);
+    font-size: clamp(1rem, 5.2vw - 1rem, 2rem);
     color: ${colors.gray};
     text-transform: uppercase;
 
@@ -153,12 +153,13 @@ const Container = styled.section`
         justify-items: start;
         column-gap: 81px;
         height: 65vh;
+        max-height: 750px;
         padding-bottom: 94px;
 
         h1 {
             grid-row: 1;
             grid-column: 1;
-            margin-bottom: 17vh;
+            margin-bottom: clamp(0px, 17vh, 154px);
         }
 
         ${Image} {
@@ -184,27 +185,11 @@ const Container = styled.section`
         .slider {
             grid-row: 4;
             grid-column: 1;
-
-            a {
-                width: 15px;
-                height: 15px;
-            }
         }
 
         h1,
         ${CrewMemberTitle}, ${Biography} {
             text-align: left;
-        }
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        .slider {
-            bottom: 30vh;
-
-            a {
-                width: 20px;
-                height: 20px;
-            }
         }
     }
 `;
@@ -253,7 +238,7 @@ export default function Crew({ crewMember }) {
     }
 
     return (
-        <Container>
+        <Container className="background-overlay">
             <GlobalCrewStyle />
             <PagesHeading number="02" text="Meet your crew" />
 
@@ -292,10 +277,4 @@ Crew.defaultProps = {
         name: "Douglas Hurley",
         bio: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
     },
-    allCrewMembers: [
-        { name: "Douglas Hurley" },
-        { name: "Mark Shuttleworth" },
-        { name: "Victor Glover" },
-        { name: "Anousheh Ansari" },
-    ],
 };

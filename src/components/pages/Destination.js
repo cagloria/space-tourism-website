@@ -23,7 +23,7 @@ const destinationMediaQueries = {
 const GlobalDestinationStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
-        
+
         @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
             background-image: url(${bgTablet});
         }
@@ -89,6 +89,7 @@ const Image = styled.picture`
 `;
 
 const NameHeading = styled.h2`
+    font-size: clamp(3.5rem, 8.3vw + 1rem, 6.25rem);
     margin: 20px auto 1px;
     text-align: center;
     text-transform: uppercase;
@@ -263,7 +264,8 @@ export default function Destination({ destination }) {
     /**
      * Assigns image files based on the chosen destination.
      * @param {string} destination  Name of destination
-     * @returns                     An object with file paths to a png file and *                              webp file
+     * @returns                     An object with file paths to a png file and 
+     *                              webp file
      */
     function getImages(destination) {
         let png = undefined;
@@ -357,8 +359,8 @@ Destination.defaultProps = {
     destination: {
         name: "Moon",
         images: {
-            png: "./assets/destination/image-moon.png",
-            webp: "./assets/destination/image-moon.webp",
+            png: moonPng,
+            webp: moonWebp,
         },
         description:
             "See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
