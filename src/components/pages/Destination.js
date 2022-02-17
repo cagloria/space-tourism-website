@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import PagesHeading from "../PagesHeading";
+import PagesHeading from "../elements/PagesHeading";
 import Tabs from "../links/Tabs";
 import { colors, deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/destinations/background-destination-mobile.jpg";
@@ -264,7 +264,7 @@ export default function Destination({ destination }) {
     /**
      * Assigns image files based on the chosen destination.
      * @param {string} destination  Name of destination
-     * @returns                     An object with file paths to a png file and 
+     * @returns                     An object with file paths to a png file and
      *                              webp file
      */
     function getImages(destination) {

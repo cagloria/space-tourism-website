@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { deviceMediaQueries } from "../Theme";
-import PagesHeading from "../PagesHeading";
+import PagesHeading from "../elements/PagesHeading";
 import NumberSlider from "../links/NumberSlider";
 import data from "../../data/data.json";
 import bgMobile from "../../assets/technology/background-technology-mobile.jpg";

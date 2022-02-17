@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import PagesHeading from "../PagesHeading";
+import PagesHeading from "../elements/PagesHeading";
 import Slider from "../links/Slider";
 import { colors, deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
