@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import Tabs from "../links/Tabs";
-import { colors, deviceMediaQueries } from "../Theme";
+import { colors } from "../Theme";
 import bgMobile from "../../assets/destinations/background-destination-mobile.jpg";
 import bgTablet from "../../assets/destinations/background-destination-tablet.jpg";
 import bgDesktop from "../../assets/destinations/background-destination-desktop.jpg";
@@ -16,19 +16,15 @@ import titanPng from "../../assets/destinations/image-titan.png";
 import titanWebp from "../../assets/destinations/image-titan.webp";
 import data from "../../data/data.json";
 
-const destinationMediaQueries = {
-    twoColumn: deviceMediaQueries.minLargeLaptop,
-};
-
 const GlobalDestinationStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        @media screen and (min-width: 376px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+        @media screen and (min-width: 769px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -93,20 +89,12 @@ const NameHeading = styled.h2`
     margin: 20px auto 1px;
     text-align: center;
     text-transform: uppercase;
-
-    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
-        text-align: left;
-    }
 `;
 
 const Description = styled.p`
     text-align: center;
     max-width: 64ch;
     margin: 1px auto 32px;
-
-    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
-        text-align: left;
-    }
 `;
 
 const HorizontalLine = styled.hr`
@@ -118,18 +106,6 @@ const StatsContainer = styled.div`
     flex-direction: column;
     row-gap: 32px;
     margin: 32px 0 0;
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        flex-direction: row;
-        column-gap: 14.5vw;
-        justify-content: center;
-    }
-
-    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
-        flex-direction: row;
-        justify-content: flex-start;
-        column-gap: 5.5vw;
-    }
 `;
 
 const Stats = styled.div`
@@ -151,10 +127,6 @@ const Stats = styled.div`
         margin: 0;
         line-height: 120%;
     }
-
-    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
-        text-align: left;
-    }
 `;
 
 const Container = styled.section`
@@ -170,7 +142,7 @@ const Container = styled.section`
         grid-area: tabs;
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    @media screen and (min-width: 376px) {
         h1 {
             text-align: left;
         }
@@ -196,10 +168,13 @@ const Container = styled.section`
 
         ${StatsContainer} {
             margin-top: 28px;
+            flex-direction: row;
+            column-gap: 14.5vw;
+            justify-content: center;
         }
     }
 
-    @media screen and (min-width: ${destinationMediaQueries.twoColumn}) {
+    @media screen and (min-width: 1025px) {
         padding-bottom: 62px;
         display: grid;
         grid-template-columns: auto 1fr;
@@ -229,11 +204,13 @@ const Container = styled.section`
         ${NameHeading} {
             grid-area: name;
             margin: 37px 0 14px;
+            text-align: left;
         }
 
         ${Description} {
             grid-area: body;
             margin: 0;
+            text-align: left;
         }
 
         ${HorizontalLine} {
@@ -245,6 +222,24 @@ const Container = styled.section`
         ${StatsContainer} {
             grid-area: stats;
             margin: 0;
+            flex-direction: row;
+            justify-content: flex-start;
+            column-gap: 5.5vw;
+        }
+
+        ${Stats} {
+            text-align: left;
+        }
+    }
+
+    @media screen and (min-width: 1025px) and (max-height: 800px) {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        ${Image} {
+            > * {
+                width: 350px;
+            }
         }
     }
 `;

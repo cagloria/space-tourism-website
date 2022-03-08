@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import LandingPageButton from "../links/LandingPageButton";
-import { deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
@@ -10,11 +9,11 @@ const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        @media screen and (min-width: 376px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+        @media screen and (min-width: 1025px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -27,11 +26,11 @@ const Heading = styled.h1`
     margin: 0;
     grid-area: h;
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    @media screen and (min-width: 376px) {
         row-gap: 24px;
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+    @media screen and (min-width: 1025px) {
         text-align: left;
     }
 `;
@@ -42,7 +41,7 @@ const Body = styled.p`
     max-width: 50ch;
     grid-area: p;
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+    @media screen and (min-width: 1025px) {
         max-width: 46ch;
         text-align: left;
     }
@@ -59,7 +58,7 @@ const Container = styled.section`
         grid-area: l;
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    @media screen and (min-width: 376px) {
         padding-top: 106px;
 
         ${Body} {
@@ -68,7 +67,7 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+    @media screen and (min-width: 1025px) {
         padding-top: 187px;
         display: grid;
         grid-template-rows: 1fr;
@@ -85,6 +84,10 @@ const Container = styled.section`
         ${Body} {
             margin: 0;
         }
+    }
+
+    @media screen and (min-width: 1025px) and (max-height: 800px) {
+        padding-top: 13vh;
     }
 `;
 
