@@ -4,58 +4,11 @@ import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
-import { colors, deviceMediaQueries } from "../Theme";
-
-const headerMediaQueries = { desktopNav: "570px" };
-
-const Container = styled.header`
-    display: flex;
-    justify-content: space-between;
-    padding: 24px;
-
-    @media (prefers-reduced-motion) {
-        transition: unset;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        padding-left: 39px;
-        padding-right: 48px;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
-        padding: 64px 165px 64px 55px;
-        position: relative;
-
-        &::before {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 1px;
-            background-color: #51525a;
-            position: absolute;
-            top: 50%;
-            left: 166px;
-        }
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-        padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-
-        &::before {
-            left: calc(clamp(10.313rem, 53vw - 40rem, 43.75rem) + 166px);
-        }
-    }
-`;
+import { colors } from "../Theme";
 
 const LogoImg = styled.img`
     width: 40px;
     height: 40px;
-
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
-        width: 48px;
-        height: 48px;
-    }
 `;
 
 const NavButton = styled.button`
@@ -71,10 +24,6 @@ const NavButton = styled.button`
     background-color: transparent;
     background-image: ${(props) =>
         props.navIsOpen ? `url(${iconClose})` : `url(${iconHamburger})`};
-
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
-        right: 200vw;
-    }
 `;
 
 const NavLinks = styled.ol`
@@ -126,57 +75,112 @@ const NavLinks = styled.ol`
     @media (prefers-reduced-motion) {
         transition: unset;
     }
+`;
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        li a {
-            font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
+const Container = styled.header`
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+
+    @media (prefers-reduced-motion) {
+        transition: unset;
+    }
+
+    @media screen and (min-width: 376px) {
+        padding-left: 39px;
+        padding-right: 48px;
+
+        ${NavLinks} {
+            li a {
+                font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
+            }
         }
     }
 
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
-        flex-direction: row;
-        justify-content: center;
-        column-gap: clamp(1.563rem, 7.2vw - 1rem, 3.125rem);
-        backdrop-filter: blur(81.5485px);
-        box-sizing: content-box;
-        width: fit-content;
-        height: unset;
-        padding: 39px 48px 0 48px;
-        position: absolute;
-        right: 0;
-        transform: unset;
+    /* Tablet header */
+    @media screen and (min-width: 570px) {
+        ${LogoImg} {
+            width: 48px;
+            height: 48px;
+        }
 
-        li {
-            a {
-                text-align: center;
-                padding: 0 0 37px;
-                border-right: unset;
-                border-bottom: 4px solid transparent;
-                transition: border-bottom-color 0.4s ease-out;
+        ${NavButton} {
+            right: 200vw;
+        }
 
-                &:hover {
-                    border-bottom-color: ${colors.white};
+        ${NavLinks} {
+            flex-direction: row;
+            justify-content: center;
+            column-gap: clamp(1.563rem, 7.2vw - 1rem, 3.125rem);
+            backdrop-filter: blur(81.5485px);
+            box-sizing: content-box;
+            width: fit-content;
+            height: unset;
+            padding: 39px 48px 0 48px;
+            position: absolute;
+            right: 0;
+            transform: unset;
+
+            li {
+                a {
+                    text-align: center;
+                    padding: 0 0 37px;
+                    border-right: unset;
+                    border-bottom: 4px solid transparent;
+                    transition: border-bottom-color 0.4s ease-out;
+
+                    &:hover {
+                        border-bottom-color: ${colors.white};
+                    }
                 }
             }
         }
     }
 
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) and (max-width: ${deviceMediaQueries.minLargeLaptop}) {
-        li a {
-            &::before {
-                content: none;
+    @media screen and (min-width: 570px) and (max-width: 1024px) {
+        ${NavLinks} {
+            li a {
+                &::before {
+                    content: none;
+                }
             }
         }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
-        padding-right: 165px;
-        padding-left: 123px;
-        top: 40px;
+    /* Desktop header */
+    @media screen and (min-width: 1025px) {
+        padding: 64px 165px 64px 55px;
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 1px;
+            background-color: #51525a;
+            position: absolute;
+            top: 50%;
+            left: 166px;
+        }
+
+        ${NavLinks} {
+            padding-right: 167px;
+            padding-left: 123px;
+            top: 40px;
+        }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
+    @media screen and (min-width: 1441px) {
+        padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
         padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+
+        &::before {
+            left: calc(clamp(10.313rem, 53vw - 40rem, 43.75rem) + 166px);
+        }
+
+        ${NavLinks} {
+            padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+        }
     }
 `;
 

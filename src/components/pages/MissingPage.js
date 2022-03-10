@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { deviceMediaQueries } from "../Theme";
 import bgMobile from "../../assets/background-home-mobile.jpg";
 import bgTablet from "../../assets/background-home-tablet.jpg";
 import bgDesktop from "../../assets/background-home-desktop.jpg";
@@ -9,11 +8,11 @@ const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        @media screen and (min-width: 376px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+        @media screen and (min-width: 769px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -57,12 +56,16 @@ const Container = styled.section`
     row-gap: 24px;
     padding-top: 24px;
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    @media screen and (min-width: 376px) {
         padding-top: 106px;
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+    @media screen and (min-width: 1025px) {
         padding-top: 187px;
+    }
+
+    @media screen and (min-width: 1025px) and (max-height: 800px) {
+        padding-top: 100px;
     }
 `;
 
