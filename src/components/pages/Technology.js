@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { deviceMediaQueries } from "../Theme";
 import PagesHeading from "../elements/PagesHeading";
 import NumberSlider from "../links/NumberSlider";
 import data from "../../data/data.json";
@@ -14,17 +13,15 @@ import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.
 import spaceCapsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
 import spaceCapsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 
-const techMediaQueries = { threeColumn: "1025px" };
-
 const GlobalTechnologyStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        @media screen and (min-width: 376px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+        @media screen and (min-width: 769px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -40,32 +37,6 @@ const ImageContainer = styled.div`
         height: 170px;
         object-fit: cover;
     }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        img {
-            height: 310px;
-        }
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
-        img {
-            height: 430px;
-        }
-    }
-
-    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
-        position: absolute;
-        right: 0;
-
-        img {
-            width: clamp(18.75rem, 56vw - 18rem, 32.188rem);
-            height: 527px;
-        }
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        right: clamp(1.875rem, 45vw - 39rem, 31.25rem);
-    }
 `;
 
 const TechTitle = styled.h2`
@@ -77,25 +48,6 @@ const TechTitle = styled.h2`
 
     span:first-child {
         margin-bottom: 9px;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        span:first-child {
-            font-size: 1rem;
-            margin-bottom: 16px;
-        }
-
-        span:last-child {
-            font-size: 2.5rem;
-        }
-    }
-
-    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
-        text-align: left;
-
-        span:last-child {
-            font-size: 3.5rem;
-        }
     }
 `;
 
@@ -115,11 +67,6 @@ const Description = styled.p`
     max-width: 49ch;
     text-align: center;
     margin: 16px auto 0;
-
-    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
-        text-align: left;
-        max-width: 44ch;
-    }
 `;
 
 const Container = styled.section`
@@ -133,7 +80,7 @@ const Container = styled.section`
         margin: 34px 0 26px;
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    @media screen and (min-width: 376px) {
         h1 {
             text-align: left;
             margin-bottom: 60px;
@@ -142,6 +89,10 @@ const Container = styled.section`
         ${ImageContainer} {
             margin-top: 60px;
             margin-bottom: 56px;
+
+            img {
+                height: 310px;
+            }
         }
 
         .number-slider {
@@ -152,6 +103,15 @@ const Container = styled.section`
         ${TechTitle} {
             margin-top: 44px;
             margin-bottom: 16px;
+
+            span:first-child {
+                font-size: 1rem;
+                margin-bottom: 16px;
+            }
+
+            span:last-child {
+                font-size: 3.5rem;
+            }
         }
 
         ${Description} {
@@ -159,7 +119,15 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: ${techMediaQueries.threeColumn}) {
+    @media screen and (min-width: 769px) {
+        ${ImageContainer} {
+            img {
+                height: 430px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1025px) {
         display: grid;
         grid-template-rows: auto auto 1fr;
         grid-template-columns: auto 2fr 1fr;
@@ -175,6 +143,13 @@ const Container = styled.section`
             grid-row: 2;
             grid-column: 3;
             margin-top: 60px;
+            position: absolute;
+            right: 0;
+
+            img {
+                width: clamp(18.75rem, 56vw - 18rem, 32.188rem);
+                height: 527px;
+            }
         }
 
         .number-slider {
@@ -189,12 +164,34 @@ const Container = styled.section`
             grid-column: 2;
             align-self: start;
             margin: 0 0 17px;
+            text-align: left;
+
+            span:last-child {
+                font-size: 3.5rem;
+            }
         }
 
         ${Description} {
             grid-row: 3;
             grid-column: 2;
             margin: 0;
+            text-align: left;
+            max-width: 44ch;
+        }
+    }
+
+    @media screen and (min-width: 1025px) and (max-height: 800px) {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        ${ImageContainer} {
+            margin-top: 0;
+        }
+    }
+
+    @media screen and (min-width: 1441px) {
+        ${ImageContainer} {
+            right: clamp(1.875rem, 45vw - 39rem, 31.25rem);
         }
     }
 `;

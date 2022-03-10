@@ -167,6 +167,7 @@ const Container = styled.section`
     }
 
     @media screen and (min-width: 1025px) and (max-height: 820px) {
+        padding-top: 0;
         padding-bottom: 0;
 
         h1 {
