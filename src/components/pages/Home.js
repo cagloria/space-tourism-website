@@ -9,11 +9,11 @@ const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: 376px) {
+        @media screen and (min-width: 375px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: 1025px) {
+        @media screen and (min-width: 1024px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -25,14 +25,6 @@ const Heading = styled.h1`
     row-gap: 21px;
     margin: 0;
     grid-area: h;
-
-    @media screen and (min-width: 376px) {
-        row-gap: 24px;
-    }
-
-    @media screen and (min-width: 1025px) {
-        text-align: left;
-    }
 `;
 
 const Body = styled.p`
@@ -40,11 +32,6 @@ const Body = styled.p`
     text-align: center;
     max-width: 50ch;
     grid-area: p;
-
-    @media screen and (min-width: 1025px) {
-        max-width: 46ch;
-        text-align: left;
-    }
 `;
 
 const Container = styled.section`
@@ -58,8 +45,18 @@ const Container = styled.section`
         grid-area: l;
     }
 
-    @media screen and (min-width: 376px) {
+    /* Header switches to tablet */
+    @media screen and (min-width: 570px) {
+        padding-top: 80px;
+    }
+
+    /* Tablet */
+    @media screen and (min-width: 768px) {
         padding-top: 106px;
+
+        ${Heading} {
+            row-gap: 24px;
+        }
 
         ${Body} {
             margin-top: 24px;
@@ -67,7 +64,8 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: 1025px) {
+    /* Laptop */
+    @media screen and (min-width: 1024px) {
         padding-top: 187px;
         display: grid;
         grid-template-rows: 1fr;
@@ -76,6 +74,10 @@ const Container = styled.section`
             "h l"
             "p l";
 
+        ${Heading} {
+            text-align: left;
+        }
+
         .landing-page-button {
             margin-left: auto;
             margin-top: 123px;
@@ -83,10 +85,12 @@ const Container = styled.section`
 
         ${Body} {
             margin: 0;
+            max-width: 46ch;
+            text-align: left;
         }
     }
 
-    @media screen and (min-width: 1025px) and (max-height: 800px) {
+    @media screen and (min-width: 1024px) and (max-height: 800px) {
         padding-top: 13vh;
     }
 `;

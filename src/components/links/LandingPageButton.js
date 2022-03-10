@@ -27,12 +27,14 @@ const Button = styled.div`
             box-shadow: 0 0 0 44px #24262f80;
         }
 
-        @media screen and (min-width: 376px) {
+        /* Tablet */
+        @media screen and (min-width: 768px) {
             font-size: 2rem;
             width: 242px;
             height: 242px;
         }
 
+        /* Desktop */
         @media screen and (min-width: 1200px) {
             width: 274px;
             height: 274px;
