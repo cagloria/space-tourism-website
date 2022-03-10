@@ -95,8 +95,6 @@ const Container = styled.section`
         ${HorizontalLine} {
             order: 7;
             margin: 0;
-            position: absolute;
-            right: 200vw;
         }
 
         h1 {
@@ -137,8 +135,6 @@ const Container = styled.section`
         }
 
         ${HorizontalLine} {
-            grid-row: -1;
-            grid-column: 2;
             position: absolute;
             right: 100vw;
         }
@@ -160,11 +156,29 @@ const Container = styled.section`
         .slider {
             grid-row: 4;
             grid-column: 1;
+            position: absolute;
+            bottom: 94px;
         }
 
         h1,
         ${CrewMemberTitle}, ${Biography} {
             text-align: left;
+        }
+    }
+
+    @media screen and (min-width: 1025px) and (max-height: 820px) {
+        padding-bottom: 0;
+
+        h1 {
+            margin-bottom: 50px;
+        }
+
+        .slider {
+            bottom: 50px;
+        }
+
+        ${Image} {
+            max-height: 550px;
         }
     }
 
@@ -180,6 +194,16 @@ const Container = styled.section`
 
         ${CrewMemberName} {
             font-size: clamp(3.5rem, 1vw + 2.5rem, 4.5rem);
+        }
+
+        .slider {
+            bottom: 10vh;
+        }
+    }
+
+    @media screen and (min-width: 1921px) {
+        .slider {
+            bottom: 40vh;
         }
     }
 `;
