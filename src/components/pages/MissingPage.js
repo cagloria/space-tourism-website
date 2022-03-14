@@ -56,15 +56,15 @@ const Container = styled.section`
     row-gap: 24px;
     padding-top: 24px;
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: 375px) {
         padding-top: 106px;
     }
 
-    @media screen and (min-width: 1025px) {
+    @media screen and (min-width: 1024px) {
         padding-top: 187px;
     }
 
-    @media screen and (min-width: 1025px) and (max-height: 800px) {
+    @media screen and (min-width: 1024px) and (max-height: 800px) {
         padding-top: 100px;
     }
 `;

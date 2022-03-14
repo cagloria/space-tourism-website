@@ -142,7 +142,7 @@ const Container = styled.section`
         grid-area: tabs;
     }
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: 768px) {
         h1 {
             text-align: left;
         }
@@ -174,7 +174,7 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: 1025px) {
+    @media screen and (min-width: 1024px) {
         padding-bottom: 62px;
         display: grid;
         grid-template-columns: auto 1fr;
@@ -232,7 +232,7 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: 1025px) and (max-height: 800px) {
+    @media screen and (min-width: 1024px) and (max-height: 800px) {
         padding-top: 0;
         padding-bottom: 0;
 

@@ -9,11 +9,11 @@ const GlobalHomeStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: 375px) {
+        @media screen and (min-width: 376px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width: 769px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -22,35 +22,29 @@ const GlobalHomeStyle = createGlobalStyle`
 const Heading = styled.h1`
     display: flex;
     flex-direction: column;
-    row-gap: 21px;
+    row-gap: 16px;
     margin: 0;
-    grid-area: h;
 `;
 
 const Body = styled.p`
-    margin: 6px auto 64px;
+    margin: 16px auto 81px;
     text-align: center;
     max-width: 50ch;
-    grid-area: p;
 `;
 
 const Container = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 15px;
     padding-top: 24px;
 
     .landing-page-button {
-        grid-area: l;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    /* Header switches to tablet */
+    /* Tablet layout */
     @media screen and (min-width: 570px) {
         padding-top: 80px;
     }
 
-    /* Tablet */
     @media screen and (min-width: 768px) {
         padding-top: 106px;
 
@@ -60,32 +54,33 @@ const Container = styled.section`
 
         ${Body} {
             margin-top: 24px;
-            margin-bottom: 112px;
+            margin-bottom: 156px;
         }
     }
 
-    /* Laptop */
+    /* Desktop layout */
     @media screen and (min-width: 1024px) {
         padding-top: 187px;
         display: grid;
         grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 49ch 1fr auto;
         grid-template-areas:
-            "h l"
-            "p l";
+            "h . l"
+            "p . l";
 
         ${Heading} {
+            grid-area: h;
             text-align: left;
         }
 
         .landing-page-button {
-            margin-left: auto;
-            margin-top: 123px;
+            grid-area: l;
+            align-self: end;
         }
 
         ${Body} {
+            grid-area: p;
             margin: 0;
-            max-width: 46ch;
             text-align: left;
         }
     }

@@ -60,7 +60,7 @@ const List = styled.ol`
         }
     }
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: 768px) {
         a {
             font-size: 1.5rem;
             width: 60px;
@@ -68,7 +68,7 @@ const List = styled.ol`
         }
     }
 
-    @media screen and (min-width: 1025px) {
+    @media screen and (min-width: 1024px) {
         flex-direction: column;
         row-gap: 32px;
 

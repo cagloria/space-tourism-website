@@ -83,7 +83,13 @@ const Container = styled.section`
         margin: 0;
     }
 
-    @media screen and (min-width: 376px) {
+    @media screen and (min-width: 425px) {
+        ${Image} {
+            height: clamp(222px, 57vw, 400px);
+        }
+    }
+
+    @media screen and (min-width: 768px) {
         padding-bottom: 0;
 
         ${Image} {

@@ -41,7 +41,7 @@ const NavLinks = styled.ol`
     backdrop-filter: blur(45.5485px);
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 19px;
     list-style-type: none;
     counter-reset: nav-counter -1; /* Sets starting number to be 0 */
     transition: right 0.4s ease-in-out;
@@ -156,12 +156,13 @@ const Container = styled.header`
         &::before {
             content: "";
             display: block;
-            width: 50%;
+            width: 20.7%;
             height: 1px;
             background-color: #51525a;
             position: absolute;
             top: 50%;
             left: 166px;
+            z-index: 20;
         }
 
         ${NavLinks} {
