@@ -8,19 +8,20 @@ const List = styled.ul`
     margin: 0;
     padding-left: 0;
     display: flex;
-    column-gap: 35px;
+    column-gap: 26px;
     justify-content: center;
 
     a {
+        color: #d0d6f9;
         font-family: "Barlow Condensed", sans-serif;
-        font-size: clamp(0.938rem, 5vw - 1rem, 1rem);
+        font-size: clamp(0.875rem, 5vw - 1rem, 1rem);
         letter-spacing: 2.7px;
         text-decoration: none;
         text-transform: uppercase;
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: 12px;
+        row-gap: 8px;
 
         &::after {
             content: "";
@@ -31,22 +32,29 @@ const List = styled.ul`
         }
 
         &.tabs__active-page {
+            color: #ffffff;
             &::after {
                 background-color: ${colors.pageNav.active};
             }
         }
 
         &:hover {
+            color: #ffffff;
             &::after {
                 background-color: ${colors.pageNav.hover};
             }
         }
 
         &:active {
+            color: #ffffff;
             &::after {
                 background-color: ${colors.pageNav.active};
             }
         }
+    }
+
+    @media screen and (min-width: 768px) {
+        column-gap: 32px;
     }
 `;
 

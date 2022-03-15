@@ -74,7 +74,7 @@ const GlobalDestinationStyle = createGlobalStyle`
 `;
 
 const Image = styled.picture`
-    margin: 32px 0 26px;
+    margin: 35px 0 26px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,10 +130,11 @@ const Stats = styled.div`
 `;
 
 const Container = styled.section`
+    padding-top: 0;
     padding-bottom: 58px;
 
     h1 {
-        margin: 0 0 32px;
+        margin: 0 0 35px;
         text-align: center;
         grid-area: heading;
     }
@@ -143,8 +144,11 @@ const Container = styled.section`
     }
 
     @media screen and (min-width: 768px) {
+        padding-top: 40px;
+
         h1 {
             text-align: left;
+            margin-bottom: 60px;
         }
 
         ${Image} {
@@ -193,12 +197,13 @@ const Container = styled.section`
         }
 
         h1 {
-            margin-bottom: 14px;
+            margin-bottom: 60px;
         }
 
         ${Image} {
             grid-area: img;
             margin-left: 42px;
+            margin-bottom: 0;
         }
 
         ${NameHeading} {
