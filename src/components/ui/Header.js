@@ -38,7 +38,7 @@ const NavLinks = styled.ol`
     height: 100%;
     padding: 113px 0 0 32px;
     background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(45.5485px);
+    backdrop-filter: blur(81.5485px);
     display: flex;
     flex-direction: column;
     row-gap: 19px;
@@ -86,20 +86,12 @@ const Container = styled.header`
         transition: unset;
     }
 
-    /* Medium mobile */
-    @media screen and (min-width: 375px) {
-        padding-left: 39px;
-        padding-right: 48px;
-
-        ${NavLinks} {
-            li a {
-                font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
-            }
-        }
-    }
-
     /* Tablet */
     @media screen and (min-width: 570px) {
+        padding-top: 24px;
+        padding-left: 39px;
+        padding-right: 0;
+
         ${LogoImg} {
             width: 48px;
             height: 48px;
@@ -112,18 +104,19 @@ const Container = styled.header`
         ${NavLinks} {
             flex-direction: row;
             justify-content: center;
-            column-gap: clamp(1.563rem, 7.2vw - 1rem, 3.125rem);
+            column-gap: clamp(37px, 7vw, 42px);
             backdrop-filter: blur(81.5485px);
             box-sizing: content-box;
             width: fit-content;
             height: unset;
-            padding: 39px 48px 0 48px;
+            padding: 39px 48px 0;
             position: absolute;
             right: 0;
             transform: unset;
 
             li {
                 a {
+                    font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
                     text-align: center;
                     padding: 0 0 37px;
                     border-right: unset;
@@ -138,6 +131,7 @@ const Container = styled.header`
         }
     }
 
+    /* Only tablet layout removes numbering for nav links */
     @media screen and (min-width: 570px) and (max-width: 1023px) {
         ${NavLinks} {
             li a {
@@ -150,18 +144,21 @@ const Container = styled.header`
 
     /* Desktop */
     @media screen and (min-width: 1024px) {
-        padding: 64px 165px 64px 55px;
+        padding-top: 64px;
+        padding-bottom: 65px;
+        padding-left: 55px;
         position: relative;
 
+        /* Horizontal line */
         &::before {
             content: "";
             display: block;
-            width: 20.7%;
             height: 1px;
             background-color: #51525a;
             position: absolute;
             top: 50%;
             left: 166px;
+            right: clamp(780px, 60vw, 790px);
             z-index: 20;
         }
 
@@ -172,16 +169,17 @@ const Container = styled.header`
         }
     }
 
-    @media screen and (min-width: 1440px) {
-        padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-        padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+    @media screen and (min-width: 1920px) {
+        padding-left: clamp(55px, 11vw, 240px);
 
         &::before {
-            left: calc(clamp(10.313rem, 53vw - 40rem, 43.75rem) + 166px);
+            left: 21vw;
+            right: clamp(790px, 435vw, 900px);
         }
 
         ${NavLinks} {
-            padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+            padding-right: 15vw;
+            padding-right: clamp(167px, 15vw, 300px);
         }
     }
 `;
