@@ -24,8 +24,8 @@ const List = styled.ul`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
 
         &.slider__active-page {
             ${Text} {

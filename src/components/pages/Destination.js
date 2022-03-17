@@ -130,7 +130,6 @@ const Stats = styled.div`
 `;
 
 const Container = styled.section`
-    padding-top: 0;
     padding-bottom: 58px;
 
     h1 {
@@ -144,8 +143,6 @@ const Container = styled.section`
     }
 
     @media screen and (min-width: 768px) {
-        padding-top: 40px;
-
         h1 {
             text-align: left;
             margin-bottom: 60px;

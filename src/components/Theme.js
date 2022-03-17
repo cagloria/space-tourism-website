@@ -57,12 +57,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     section {
-        @media screen and (min-width: 375px) {
+        @media screen and (min-width: 570px) {
             padding-top: 40px;
-        }
-
-        @media screen and (min-width: 768px) {
-            padding-top: 22px;
         }
     }
 

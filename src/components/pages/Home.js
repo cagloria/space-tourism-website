@@ -42,12 +42,10 @@ const Container = styled.section`
 
     /* Tablet layout */
     @media screen and (min-width: 570px) {
-        padding-top: 80px;
+        padding-top: 106px;
     }
 
     @media screen and (min-width: 768px) {
-        padding-top: 106px;
-
         ${Heading} {
             row-gap: 24px;
         }

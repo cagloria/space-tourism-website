@@ -43,7 +43,7 @@ const Image = styled.picture`
 `;
 
 const HorizontalLine = styled.hr`
-    margin: 0 0 32px;
+    margin: 0;
 `;
 
 const CrewMemberTitle = styled.h2`
@@ -52,7 +52,7 @@ const CrewMemberTitle = styled.h2`
     justify-content: center;
     row-gap: 8px;
     text-align: center;
-    margin: 32px 0 0;
+    margin: 28px 0 0;
 `;
 
 const CrewMemberRole = styled.span`
@@ -73,14 +73,18 @@ const Biography = styled.p`
 `;
 
 const Container = styled.section`
-    padding-bottom: 79px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 54px;
 
     h1 {
         width: 100%;
         margin: 0;
+    }
+
+    .slider {
+        margin-top: 24px;
     }
 
     @media screen and (min-width: 425px) {
@@ -111,6 +115,10 @@ const Container = styled.section`
         .slider {
             order: 5;
             margin: 40px 0 0;
+        }
+
+        ${Biography} {
+            max-width: 66ch;
         }
     }
 
