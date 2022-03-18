@@ -30,7 +30,7 @@ const Body = styled.p`
 `;
 
 const GoBackButton = styled.button`
-    font-size: clamp(1.25rem, 5vw - 1rem, 1.5rem);
+    font-size: clamp(0.938rem, 6vw - 1.75rem, 1.25rem);
     color: white;
     text-transform: uppercase;
     background-color: transparent;
@@ -56,7 +56,7 @@ const Container = styled.section`
     row-gap: 24px;
     padding-top: 24px;
 
-    @media screen and (min-width: 375px) {
+    @media screen and (min-width: 570px) {
         padding-top: 106px;
     }
 
