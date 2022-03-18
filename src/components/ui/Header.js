@@ -169,11 +169,16 @@ const Container = styled.header`
         }
     }
 
+    @media screen and (min-width: 1440px) {
+        &::before {
+            left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+        }
+    }
+
     @media screen and (min-width: 1920px) {
-        padding-left: clamp(55px, 11vw, 240px);
+        padding-left: clamp(167px, 15vw, 300px);
 
         &::before {
-            left: 21vw;
             right: clamp(790px, 435vw, 900px);
         }
 

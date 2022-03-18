@@ -197,7 +197,7 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: 1441px) {
+    @media screen and (min-width: 1440px) {
         ${Image} {
             height: clamp(43.75rem, 87vw, 129.75rem);
             left: 60%;
