@@ -44,11 +44,8 @@ const TechTitle = styled.h2`
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    row-gap: 9px;
     margin: 26px 0 16px;
-
-    span:first-child {
-        margin-bottom: 9px;
-    }
 `;
 
 const TechTerminology = styled.span`
@@ -70,14 +67,22 @@ const Description = styled.p`
 `;
 
 const Container = styled.section`
-    padding-bottom: 40px;
+    padding-bottom: 81px;
 
     h1 {
         margin: 0 0 32px;
     }
 
     .number-slider {
-        margin: 34px 0 26px;
+        margin: 34px 0 24px;
+    }
+
+    @media screen and (min-width: 425px) {
+        ${ImageContainer} {
+            img {
+                height: 44vw;
+            }
+        }
     }
 
     @media screen and (min-width: 768px) {
@@ -91,7 +96,7 @@ const Container = styled.section`
             margin-bottom: 56px;
 
             img {
-                height: 310px;
+                height: clamp(310px, 44vw, 415px);
             }
         }
 
@@ -101,12 +106,12 @@ const Container = styled.section`
         }
 
         ${TechTitle} {
+            row-gap: 16px;
             margin-top: 44px;
             margin-bottom: 16px;
 
             span:first-child {
                 font-size: 1rem;
-                margin-bottom: 16px;
             }
 
             span:last-child {
@@ -116,14 +121,6 @@ const Container = styled.section`
 
         ${Description} {
             margin-top: 16px;
-        }
-    }
-
-    @media screen and (min-width: 768px) {
-        ${ImageContainer} {
-            img {
-                height: 430px;
-            }
         }
     }
 
@@ -160,11 +157,12 @@ const Container = styled.section`
         }
 
         ${TechTitle} {
+            text-align: left;
+            row-gap: 11px;
+            margin: 0 0 17px;
             grid-row: 2;
             grid-column: 2;
             align-self: start;
-            margin: 0 0 17px;
-            text-align: left;
 
             span:last-child {
                 font-size: 3.5rem;
