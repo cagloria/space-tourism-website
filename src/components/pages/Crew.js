@@ -35,7 +35,7 @@ const Image = styled.picture`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 222px;
+    height: 223px;
 
     > * {
         height: 100%;
@@ -89,7 +89,7 @@ const Container = styled.section`
 
     @media screen and (min-width: 425px) {
         ${Image} {
-            height: clamp(222px, 57vw, 400px);
+            height: clamp(223px, 57vw, 400px);
         }
     }
 
@@ -97,7 +97,7 @@ const Container = styled.section`
         padding-bottom: 0;
 
         ${Image} {
-            height: clamp(13.875rem, 80vw - 5rem, 33.25rem);
+            height: 532px;
             margin-top: 40px;
             order: 6;
         }
@@ -115,10 +115,6 @@ const Container = styled.section`
         .slider {
             order: 5;
             margin: 40px 0 0;
-        }
-
-        ${Biography} {
-            max-width: 66ch;
         }
     }
 
@@ -142,7 +138,7 @@ const Container = styled.section`
             grid-row: 1 / -2;
             grid-column: 2;
             max-width: 615px;
-            height: clamp(33.25rem, 45vw + 4rem, 43.75rem);
+            height: clamp(532px, 45vw + 4rem, 700px);
             position: fixed;
             bottom: 0;
             left: 55%;
@@ -199,7 +195,6 @@ const Container = styled.section`
 
     @media screen and (min-width: 1440px) {
         ${Image} {
-            height: clamp(43.75rem, 87vw, 129.75rem);
             left: 60%;
         }
 
@@ -216,9 +211,28 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: 1921px) {
+    @media screen and (min-width: 2000px) {
+        grid-template-columns: 80% 1fr;
+
+        ${Image} {
+            position: absolute;
+            bottom: 20vh;
+        }
+
+        ${HorizontalLine} {
+            right: unset;
+            bottom: 20vh;
+            width: 70vw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        ${Biography} {
+            max-width: 66ch;
+        }
+
         .slider {
-            bottom: 40vh;
+            bottom: 30vh;
         }
     }
 `;

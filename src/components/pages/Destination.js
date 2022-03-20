@@ -80,7 +80,7 @@ const Image = styled.picture`
     align-items: center;
 
     > * {
-        width: clamp(10.625rem, 37vw + 1rem, 27.813rem);
+        width: clamp(170px, 39vw, 445px);
     }
 `;
 
@@ -175,7 +175,7 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1200px) {
         padding-bottom: 62px;
         display: grid;
         grid-template-columns: auto 1fr;
@@ -187,7 +187,7 @@ const Container = styled.section`
             "img     body"
             "img     line"
             "img     stats";
-        column-gap: clamp(5rem, 20vw - 8rem, 9.813rem);
+        column-gap: clamp(135px, 11vw, 157px);
 
         .tabs {
             justify-content: flex-start;
