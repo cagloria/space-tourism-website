@@ -96,7 +96,7 @@ const Container = styled.section`
             margin-bottom: 56px;
 
             img {
-                height: clamp(310px, 44vw, 415px);
+                height: 315px;
             }
         }
 
@@ -144,7 +144,7 @@ const Container = styled.section`
             right: 0;
 
             img {
-                width: clamp(18.75rem, 56vw - 18rem, 32.188rem);
+                width: clamp(300px, 32vw, 515px);
                 height: 527px;
             }
         }
@@ -180,16 +180,30 @@ const Container = styled.section`
 
     @media screen and (min-width: 1024px) and (max-height: 800px) {
         padding-top: 0;
-        padding-bottom: 0;
+        padding-bottom: 40px;
 
         ${ImageContainer} {
-            margin-top: 0;
+            margin-top: 10vh;
+
+            img {
+                height: 400px;
+            }
         }
     }
 
     @media screen and (min-width: 1440px) {
         ${ImageContainer} {
-            right: clamp(1.875rem, 45vw - 39rem, 31.25rem);
+            right: 0;
+
+            img {
+                width: 515px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        ${ImageContainer} {
+            right: 13vw;
         }
     }
 `;

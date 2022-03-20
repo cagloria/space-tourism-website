@@ -138,7 +138,7 @@ const Container = styled.section`
             grid-row: 1 / -2;
             grid-column: 2;
             max-width: 615px;
-            height: clamp(532px, 45vw + 4rem, 700px);
+            height: clamp(532px, 45vw, 700px);
             position: fixed;
             bottom: 0;
             left: 55%;
