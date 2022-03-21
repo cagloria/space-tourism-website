@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
 import Technology from "./pages/Technology";
-import MissingPage from "./MissingPage";
+import MissingPage from "./pages/MissingPage";
 import { convertForURL } from "../utilities/strings";
 import data from "../data/data.json";
 

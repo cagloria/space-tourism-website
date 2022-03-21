@@ -4,58 +4,11 @@ import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
-import { colors, deviceMediaQueries } from "../Theme";
-
-const headerMediaQueries = { desktopNav: "570px" };
-
-const Container = styled.header`
-    display: flex;
-    justify-content: space-between;
-    padding: 24px;
-
-    @media (prefers-reduced-motion) {
-        transition: unset;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        padding-left: 39px;
-        padding-right: 48px;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
-        padding: 64px 165px 64px 55px;
-        position: relative;
-
-        &::before {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 1px;
-            background-color: #51525a;
-            position: absolute;
-            top: 50%;
-            left: 166px;
-        }
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-        padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-
-        &::before {
-            left: calc(clamp(10.313rem, 53vw - 40rem, 43.75rem) + 166px);
-        }
-    }
-`;
+import { colors } from "../Theme";
 
 const LogoImg = styled.img`
     width: 40px;
     height: 40px;
-
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
-        width: 48px;
-        height: 48px;
-    }
 `;
 
 const NavButton = styled.button`
@@ -71,10 +24,6 @@ const NavButton = styled.button`
     background-color: transparent;
     background-image: ${(props) =>
         props.navIsOpen ? `url(${iconClose})` : `url(${iconHamburger})`};
-
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
-        right: 200vw;
-    }
 `;
 
 const NavLinks = styled.ol`
@@ -89,10 +38,10 @@ const NavLinks = styled.ol`
     height: 100%;
     padding: 113px 0 0 32px;
     background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(45.5485px);
+    backdrop-filter: blur(81.5485px);
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 19px;
     list-style-type: none;
     counter-reset: nav-counter -1; /* Sets starting number to be 0 */
     transition: right 0.4s ease-in-out;
@@ -126,57 +75,118 @@ const NavLinks = styled.ol`
     @media (prefers-reduced-motion) {
         transition: unset;
     }
+`;
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        li a {
-            font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
-        }
+const Container = styled.header`
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+
+    @media (prefers-reduced-motion) {
+        transition: unset;
     }
 
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) {
-        flex-direction: row;
-        justify-content: center;
-        column-gap: clamp(1.563rem, 7.2vw - 1rem, 3.125rem);
-        backdrop-filter: blur(81.5485px);
-        box-sizing: content-box;
-        width: fit-content;
-        height: unset;
-        padding: 39px 48px 0 48px;
-        position: absolute;
-        right: 0;
-        transform: unset;
+    /* Tablet */
+    @media screen and (min-width: 570px) {
+        padding-top: 24px;
+        padding-left: 39px;
+        padding-right: 0;
 
-        li {
-            a {
-                text-align: center;
-                padding: 0 0 37px;
-                border-right: unset;
-                border-bottom: 4px solid transparent;
-                transition: border-bottom-color 0.4s ease-out;
+        ${LogoImg} {
+            width: 48px;
+            height: 48px;
+        }
 
-                &:hover {
-                    border-bottom-color: ${colors.white};
+        ${NavButton} {
+            right: 200vw;
+        }
+
+        ${NavLinks} {
+            flex-direction: row;
+            justify-content: center;
+            column-gap: clamp(37px, 7vw, 42px);
+            backdrop-filter: blur(81.5485px);
+            box-sizing: content-box;
+            width: fit-content;
+            height: unset;
+            padding: 39px 48px 0;
+            position: absolute;
+            right: 0;
+            transform: unset;
+
+            li {
+                a {
+                    font-size: clamp(0.875rem, 3vw - 1rem, 1rem);
+                    text-align: center;
+                    padding: 0 0 37px;
+                    border-right: unset;
+                    border-bottom: 4px solid transparent;
+                    transition: border-bottom-color 0.4s ease-out;
+
+                    &:hover {
+                        border-bottom-color: ${colors.white};
+                    }
                 }
             }
         }
     }
 
-    @media screen and (min-width: ${headerMediaQueries.desktopNav}) and (max-width: ${deviceMediaQueries.minLargeLaptop}) {
-        li a {
-            &::before {
-                content: none;
+    /* Only tablet layout removes numbering for nav links */
+    @media screen and (min-width: 570px) and (max-width: 1023px) {
+        ${NavLinks} {
+            li a {
+                &::before {
+                    content: none;
+                }
             }
         }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
-        padding-right: 165px;
-        padding-left: 123px;
-        top: 40px;
+    /* Desktop */
+    @media screen and (min-width: 1024px) {
+        padding-top: 64px;
+        padding-bottom: 65px;
+        padding-left: 55px;
+        position: relative;
+
+        /* Horizontal line */
+        &::before {
+            content: "";
+            display: block;
+            height: 1px;
+            background-color: #51525a;
+            position: absolute;
+            top: 50%;
+            left: 12vw;
+            right: clamp(780px, 60vw, 790px);
+            z-index: 20;
+        }
+
+        ${NavLinks} {
+            padding-right: 167px;
+            padding-left: 123px;
+            top: 40px;
+        }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+    @media screen and (min-width: 1440px) {
+        &::before {
+            left: 11.5vw;
+        }
+    }
+
+    @media screen and (min-width: 1920px) {
+        padding-left: clamp(167px, 15vw, 300px);
+
+        &::before {
+            left: 21.5vw;
+            right: clamp(790px, 435vw, 900px);
+        }
+
+        ${NavLinks} {
+            padding-right: 15vw;
+            padding-right: clamp(167px, 15vw, 300px);
+        }
     }
 `;
 

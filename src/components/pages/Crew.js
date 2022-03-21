@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import PagesHeading from "../PagesHeading";
+import PagesHeading from "../elements/PagesHeading";
 import Slider from "../links/Slider";
-import { colors, deviceMediaQueries } from "../Theme";
+import { colors } from "../Theme";
 import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
 import bgTablet from "../../assets/crew/background-crew-tablet.jpg";
 import bgDesktop from "../../assets/crew/background-crew-desktop.jpg";
@@ -16,17 +16,15 @@ import crewAnoushehAPng from "../../assets/crew/image-anousheh-ansari.png";
 import crewAnoushehAWebp from "../../assets/crew/image-anousheh-ansari.webp";
 import data from "../../data/data.json";
 
-const crewMediaQueries = { twoColumn: "1025px" };
-
 const GlobalCrewStyle = createGlobalStyle`
     body {
         background-image: url(${bgMobile});
 
-        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        @media screen and (min-width: 376px) {
             background-image: url(${bgTablet});
         }
 
-        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
+        @media screen and (min-width: 769px) {
             background-image: url(${bgDesktop});
         }
     }
@@ -37,44 +35,15 @@ const Image = styled.picture`
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 222px;
+    height: 223px;
 
     > * {
         height: 100%;
     }
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        height: clamp(13.875rem, 80vw - 5rem, 33.25rem);
-        margin-top: 40px;
-        order: 6;
-    }
-
-    @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
-        max-width: 615px;
-        height: clamp(33.25rem, 45vw + 4rem, 43.75rem);
-        position: fixed;
-        bottom: 0;
-        left: 55%;
-    }
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        height: clamp(43.75rem, 87vw, 129.75rem);
-        left: 60%;
-    }
 `;
 
 const HorizontalLine = styled.hr`
-    margin: 0 0 32px;
-
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
-        order: 7;
-        margin: 0;
-    }
-
-    @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
-        position: absolute;
-        right: 100vw;
-    }
+    margin: 0;
 `;
 
 const CrewMemberTitle = styled.h2`
@@ -83,57 +52,60 @@ const CrewMemberTitle = styled.h2`
     justify-content: center;
     row-gap: 8px;
     text-align: center;
-    margin: 32px 0 0;
-
-    @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
-        row-gap: 15px;
-    }
+    margin: 28px 0 0;
 `;
 
 const CrewMemberRole = styled.span`
     font-size: clamp(1rem, 5.2vw - 1rem, 2rem);
     color: ${colors.gray};
     text-transform: uppercase;
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        font-size: clamp(2rem, 1vw + 1rem, 3rem);
-    }
 `;
 
 const CrewMemberName = styled.span`
     font-size: clamp(1.5rem, 8.3vw - 1.5rem, 3.5rem);
     text-transform: uppercase;
-
-    @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-        font-size: clamp(3.5rem, 1vw + 2.5rem, 4.5rem);
-    }
 `;
 
 const Biography = styled.p`
     text-align: center;
-    max-width: 51ch;
+    max-width: 66ch;
     margin: 16px 0 0;
-
-    @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
-        max-width: 45ch;
-        align-self: start;
-        margin-top: 27px;
-    }
 `;
 
 const Container = styled.section`
-    padding-bottom: 79px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 54px;
 
     h1 {
         width: 100%;
         margin: 0;
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    .slider {
+        margin-top: 24px;
+    }
+
+    @media screen and (min-width: 425px) {
+        ${Image} {
+            height: clamp(223px, 57vw, 400px);
+        }
+    }
+
+    @media screen and (min-width: 768px) {
         padding-bottom: 0;
+
+        ${Image} {
+            height: 532px;
+            margin-top: 40px;
+            order: 6;
+        }
+
+        ${HorizontalLine} {
+            order: 7;
+            margin: 0;
+        }
 
         h1 {
             text-align: left;
@@ -146,7 +118,7 @@ const Container = styled.section`
         }
     }
 
-    @media screen and (min-width: ${crewMediaQueries.twoColumn}) {
+    @media screen and (min-width: 1025px) {
         display: grid;
         grid-template-rows: auto auto 1fr auto;
         grid-template-columns: 56% 1fr;
@@ -165,31 +137,102 @@ const Container = styled.section`
         ${Image} {
             grid-row: 1 / -2;
             grid-column: 2;
+            max-width: 615px;
+            height: clamp(532px, 45vw, 700px);
+            position: fixed;
+            bottom: 0;
+            left: 55%;
         }
 
         ${HorizontalLine} {
-            grid-row: -1;
-            grid-column: 2;
+            position: absolute;
+            right: 100vw;
         }
 
         ${CrewMemberTitle} {
             grid-row: 2;
             grid-column: 1;
+            row-gap: 15px;
         }
 
         ${Biography} {
             grid-row: 3;
             grid-column: 1;
+            max-width: 45ch;
+            align-self: start;
+            margin-top: 27px;
         }
 
         .slider {
             grid-row: 4;
             grid-column: 1;
+            position: absolute;
+            bottom: 94px;
         }
 
         h1,
         ${CrewMemberTitle}, ${Biography} {
             text-align: left;
+        }
+    }
+
+    @media screen and (min-width: 1025px) and (max-height: 820px) {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        h1 {
+            margin-bottom: 50px;
+        }
+
+        .slider {
+            bottom: 50px;
+        }
+
+        ${Image} {
+            max-height: 550px;
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        ${Image} {
+            left: 60%;
+        }
+
+        ${CrewMemberRole} {
+            font-size: clamp(2rem, 1vw + 1rem, 3rem);
+        }
+
+        ${CrewMemberName} {
+            font-size: clamp(3.5rem, 1vw + 2.5rem, 4.5rem);
+        }
+
+        .slider {
+            bottom: 10vh;
+        }
+    }
+
+    @media screen and (min-width: 2000px) {
+        grid-template-columns: 80% 1fr;
+
+        ${Image} {
+            position: absolute;
+            bottom: 20vh;
+        }
+
+        ${HorizontalLine} {
+            right: unset;
+            bottom: 20vh;
+            width: 70vw;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        ${Biography} {
+            max-width: 66ch;
+        }
+
+        .slider {
+            bottom: 30vh;
         }
     }
 `;

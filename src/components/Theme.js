@@ -1,12 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-export const deviceMediaQueries = {
-    minTablet: "376px",
-    minLaptop: "769px",
-    minLargeLaptop: "1025px",
-    minDesktop: "1441px",
-};
-
 export const colors = {
     black: "#0B0D17",
     primary: "#D0D6F9",
@@ -55,21 +48,32 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     main {
-        padding: 0 clamp(1.5rem, 21vw - 7.7rem, 10.313rem) 0;
+        padding: 0 6.4vw 0;
 
-        @media screen and (min-width: ${deviceMediaQueries.minDesktop}) {
-            padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-            padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+        @media screen and (min-width: 768px) {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-left: 12vw;
+            padding-right: 9vw;
+        }
+
+        @media screen and (min-width: 1440px) {
+            padding-left: 11.5vw;
+            padding-right: 11.5vw;
+        }
+
+        @media screen and (min-width: 1920px) {
+            padding-left: 21.5vw;
+            padding-right: 21.5vw;
         }
     }
 
     section {
-        @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+        @media screen and (min-width: 570px) {
             padding-top: 40px;
-        }
-
-        @media screen and (min-width: ${deviceMediaQueries.minLaptop}) {
-            padding-top: 22px;
         }
     }
 

@@ -10,16 +10,6 @@ const Text = styled.span`
     height: 10px;
     overflow: hidden;
     transition: background-color 0.2s ease-in-out;
-
-    @media screen and (min-width: 1025px) {
-        width: 15px;
-        height: 15px;
-    }
-
-    @media screen and (min-width: 1441px) {
-        width: 20px;
-        height: 20px;
-    }
 `;
 
 const List = styled.ul`
@@ -34,8 +24,8 @@ const List = styled.ul`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
 
         &.slider__active-page {
             ${Text} {
@@ -56,12 +46,25 @@ const List = styled.ul`
         }
     }
 
-    @media screen and (min-width: 1025px) {
+    @media screen and (min-width: 1024px) {
         column-gap: 8px;
+
+        ${Text} {
+            width: 15px;
+            height: 15px;
+        }
+
         a {
             &:first-child {
                 margin-left: -25%;
             }
+        }
+    }
+
+    @media screen and (min-width: 1440) {
+        ${Text} {
+            width: 20px;
+            height: 20px;
         }
     }
 `;

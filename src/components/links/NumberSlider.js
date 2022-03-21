@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
-import { colors, deviceMediaQueries } from "../Theme";
+import { colors } from "../Theme";
 
 const List = styled.ol`
     list-style-type: none;
@@ -60,7 +60,7 @@ const List = styled.ol`
         }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minTablet}) {
+    @media screen and (min-width: 768px) {
         a {
             font-size: 1.5rem;
             width: 60px;
@@ -68,7 +68,7 @@ const List = styled.ol`
         }
     }
 
-    @media screen and (min-width: ${deviceMediaQueries.minLargeLaptop}) {
+    @media screen and (min-width: 1024px) {
         flex-direction: column;
         row-gap: 32px;
 
