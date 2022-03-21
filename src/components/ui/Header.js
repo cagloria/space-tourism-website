@@ -157,7 +157,7 @@ const Container = styled.header`
             background-color: #51525a;
             position: absolute;
             top: 50%;
-            left: 166px;
+            left: 12vw;
             right: clamp(780px, 60vw, 790px);
             z-index: 20;
         }
@@ -171,7 +171,7 @@ const Container = styled.header`
 
     @media screen and (min-width: 1440px) {
         &::before {
-            left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+            left: 11.5vw;
         }
     }
 
@@ -179,6 +179,7 @@ const Container = styled.header`
         padding-left: clamp(167px, 15vw, 300px);
 
         &::before {
+            left: 21.5vw;
             right: clamp(790px, 435vw, 900px);
         }
 

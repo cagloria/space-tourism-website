@@ -48,11 +48,26 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     main {
-        padding: 0 clamp(1.5rem, 21vw - 7.7rem, 10.313rem) 0;
+        padding: 0 6.4vw 0;
+
+        @media screen and (min-width: 768px) {
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-left: 12vw;
+            padding-right: 9vw;
+        }
 
         @media screen and (min-width: 1440px) {
-            padding-left: clamp(10.313rem, 53vw - 40rem, 43.75rem);
-            padding-right: clamp(10.313rem, 53vw - 40rem, 43.75rem);
+            padding-left: 11.5vw;
+            padding-right: 11.5vw;
+        }
+
+        @media screen and (min-width: 1920px) {
+            padding-left: 21.5vw;
+            padding-right: 21.5vw;
         }
     }
 
