@@ -335,7 +335,7 @@ export default function Destination({ destination }) {
 
             <Description>{destination.description}</Description>
 
-            <HorizontalLine />
+            <HorizontalLine aria-hidden="true" />
 
             <StatsContainer>
                 <Stats>

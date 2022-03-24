@@ -192,11 +192,9 @@ const Container = styled.header`
 
 export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
-    const [atScrollTop, setAtScrollTop] = useState(true);
-    const [onDesktop, setOnDesktop] = useState(false);
-    const mediaQueryMin768px = window.matchMedia("(min-width: 768px)");
+    const [onDesktopLayout, setOnDesktopLayout] = useState(false);
+    const mediaQueryMin768px = window.matchMedia("(min-width: 570px)");
 
-    window.addEventListener("scroll", checkScrollHeight);
     mediaQueryMin768px.addListener(handleDeviceChange); // Handle screen width change
 
     useEffect(() => {
@@ -219,24 +217,13 @@ export default function Header() {
      * @param {MediaQueryList} media  Media query
      */
     function handleDeviceChange(media) {
-        // Laptop/Desktop
+        // Tablet/Desktop
         if (media.matches) {
-            setOnDesktop(true);
+            setOnDesktopLayout(true);
         }
-        // Tablet
+        // Mobile
         else {
-            setOnDesktop(false);
-        }
-    }
-
-    /**
-     * Check if the user is scrolled to the top.
-     */
-    function checkScrollHeight() {
-        if (window.scrollY > 0) {
-            setAtScrollTop(false);
-        } else {
-            setAtScrollTop(true);
+            setOnDesktopLayout(false);
         }
     }
 
@@ -249,9 +236,10 @@ export default function Header() {
     }
 
     return (
-        <Container atScrollTop={atScrollTop} navIsOpen={navIsOpen}>
+        <Container navIsOpen={navIsOpen}>
             <LogoImg src={logo} alt="Space tourism logo" />
             <nav>
+                {/* FIXME: Button is read as "blank" by screenreader */}
                 <NavButton
                     navIsOpen={navIsOpen}
                     aria-label={
@@ -260,8 +248,8 @@ export default function Header() {
                     aria-haspopup="true"
                     aria-controls="IDREF"
                     aria-expanded={navIsOpen}
-                    aria-hidden={onDesktop ? "true" : "false"}
-                    tabIndex={onDesktop ? "-1" : "0"}
+                    aria-hidden={onDesktopLayout ? "true" : "false"}
+                    tabIndex={onDesktopLayout ? "-1" : "0"}
                     onClick={toggleNav}
                 />
                 <NavLinks
@@ -269,12 +257,15 @@ export default function Header() {
                     aria-labelledby="IDREF"
                     className="nav-heading-small"
                     navIsOpen={navIsOpen}
+                    aria-hidden={
+                        navIsOpen || onDesktopLayout ? "false" : "true"
+                    }
                 >
                     <li role="none">
                         <Link
                             to="/"
                             role="menuitem"
-                            tabIndex={navIsOpen || onDesktop ? "0" : "-1"}
+                            tabIndex={navIsOpen || onDesktopLayout ? "0" : "-1"}
                             onClick={closeNav}
                         >
                             Home
@@ -284,7 +275,7 @@ export default function Header() {
                         <Link
                             to="/destination-moon"
                             role="menuitem"
-                            tabIndex={navIsOpen || onDesktop ? "0" : "-1"}
+                            tabIndex={navIsOpen || onDesktopLayout ? "0" : "-1"}
                             onClick={closeNav}
                         >
                             Destination
@@ -294,7 +285,7 @@ export default function Header() {
                         <Link
                             to="/crew-douglas-hurley"
                             role="menuitem"
-                            tabIndex={navIsOpen || onDesktop ? "0" : "-1"}
+                            tabIndex={navIsOpen || onDesktopLayout ? "0" : "-1"}
                             onClick={closeNav}
                         >
                             Crew
@@ -304,7 +295,7 @@ export default function Header() {
                         <Link
                             to="/technology-launch-vehicle"
                             role="menuitem"
-                            tabIndex={navIsOpen || onDesktop ? "0" : "-1"}
+                            tabIndex={navIsOpen || onDesktopLayout ? "0" : "-1"}
                             onClick={closeNav}
                         >
                             Technology
