@@ -79,14 +79,18 @@ const List = styled.ul`
  */
 export default function Slider({ pathPrefix, links, currentPageName }) {
     const list = links.map((item) => {
+        const isCurrentPage = currentPageName === item.name;
         const path = `/${pathPrefix}-${convertForURL(item.name)}`;
-        const className =
-            currentPageName === item.name ? "slider__active-page" : null;
+        const className = isCurrentPage ? "slider__active-page" : null;
 
         return (
             <li key={item.name}>
                 <Link to={path} className={className}>
-                    <Text>{item.name}</Text>
+                    <Text>
+                        {isCurrentPage
+                            ? item.name + " (current page)"
+                            : item.name}
+                    </Text>
                 </Link>
             </li>
         );

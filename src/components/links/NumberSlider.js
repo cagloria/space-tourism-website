@@ -34,7 +34,7 @@ const List = styled.ol`
             border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
         &::after {
-            content: counter(nav-counter);
+            content: counter(nav-counter) / "";
             font-family: "Bellefair", sans-serif;
             position: absolute;
             left: 50%;
@@ -91,14 +91,18 @@ const List = styled.ol`
  */
 export default function NumberSlider({ pathPrefix, links, currentPageName }) {
     const list = links.map((item) => {
+        const isCurrentPage = currentPageName === item.name;
         const path = `/${pathPrefix}-${convertForURL(item.name)}`;
-        const className =
-            currentPageName === item.name ? "number-slider__active-page" : null;
+        const className = isCurrentPage ? "number-slider__active-page" : null;
 
         return (
             <li key={item.name}>
                 <Link to={path} className={className}>
-                    <span>{item.name}</span>
+                    <span>
+                        {isCurrentPage
+                            ? item.name + " (current page)"
+                            : item.name}
+                    </span>
                 </Link>
             </li>
         );
