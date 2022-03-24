@@ -5,6 +5,7 @@ const Link = styled.a`
     color: #d0d6f9;
     text-decoration: none;
     background-color: #0b0d17;
+    padding: 4px;
     position: fixed;
     z-index: 99;
     top: -25px;
