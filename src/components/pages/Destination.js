@@ -332,14 +332,11 @@ export default function Destination({ destination }) {
                 onLinkClick={restartAnimation}
             />
 
-            <NameHeading className="destination__heading destination__animated destination__animated--fadein">
+            <NameHeading className="destination__heading">
                 {destination.name}
             </NameHeading>
 
-            <Image
-                id="planet-image"
-                className="destination__animated destination__animated--slidein"
-            >
+            <Image id="planet-image">
                 <source
                     srcSet={getImages(destination.name).png}
                     type="image/webp"
