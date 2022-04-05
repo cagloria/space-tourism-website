@@ -81,10 +81,28 @@ const Container = styled.section`
     h1 {
         width: 100%;
         margin: 0;
+        order: 1;
+    }
+
+    ${Image} {
+        order: 2;
+    }
+
+    ${HorizontalLine} {
+        order: 3;
     }
 
     .slider {
-        margin-top: 24px;
+        margin-top: 28px;
+        order: 4;
+    }
+
+    ${CrewMemberTitle} {
+        order: 5;
+    }
+
+    ${Biography} {
+        order: 6;
     }
 
     @media screen and (min-width: 425px) {
@@ -96,25 +114,34 @@ const Container = styled.section`
     @media screen and (min-width: 768px) {
         padding-bottom: 0;
 
-        ${Image} {
-            height: 532px;
-            margin-top: 40px;
-            order: 6;
-        }
-
-        ${HorizontalLine} {
-            order: 7;
-            margin: 0;
-        }
-
         h1 {
             text-align: left;
             margin-bottom: 60px;
         }
 
+        ${CrewMemberTitle} {
+            margin-top: 0;
+            order: 2;
+        }
+
+        ${Biography} {
+            order: 3;
+        }
+
         .slider {
+            order: 4;
+            margin: 36px 0 0;
+        }
+
+        ${Image} {
+            height: 532px;
+            margin-top: 40px;
             order: 5;
-            margin: 40px 0 0;
+        }
+
+        ${HorizontalLine} {
+            order: 6;
+            margin: 0;
         }
     }
 
@@ -285,6 +312,17 @@ export default function Crew({ crewMember }) {
             <GlobalCrewStyle />
             <PagesHeading number="02" text="Meet your crew" />
 
+            <Slider
+                pathPrefix="crew"
+                links={crew}
+                currentPageName={crewMember.name}
+            />
+
+            <CrewMemberTitle>
+                <CrewMemberRole>{crewMember.role}</CrewMemberRole>{" "}
+                <CrewMemberName>{crewMember.name}</CrewMemberName>
+            </CrewMemberTitle>
+
             <Image>
                 <source
                     srcSet={getImages(crewMember.name).png}
@@ -297,17 +335,6 @@ export default function Crew({ crewMember }) {
             </Image>
 
             <HorizontalLine aria-hidden="true" />
-
-            <Slider
-                pathPrefix="crew"
-                links={crew}
-                currentPageName={crewMember.name}
-            />
-
-            <CrewMemberTitle>
-                <CrewMemberRole>{crewMember.role}</CrewMemberRole>{" "}
-                <CrewMemberName>{crewMember.name}</CrewMemberName>
-            </CrewMemberTitle>
 
             <Biography>{crewMember.bio}</Biography>
         </Container>
