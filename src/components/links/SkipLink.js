@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { zIndex } from "../Theme";
 
 const Link = styled.a`
     color: #d0d6f9;
@@ -7,7 +8,7 @@ const Link = styled.a`
     background-color: #0b0d17;
     padding: 4px;
     position: fixed;
-    z-index: 99;
+    z-index: ${zIndex.foreground + zIndex.forwardIncrement};
     top: -25px;
     left: 0;
     transition: transform 0.3s ease-out;

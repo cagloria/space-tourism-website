@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from "../../assets/logo.svg";
 import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconClose from "../../assets/icon-close.svg";
-import { colors } from "../Theme";
+import { colors, zIndex } from "../Theme";
 
 const LogoImg = styled.img`
     width: 40px;
@@ -15,7 +15,7 @@ const NavButton = styled.button`
     position: absolute;
     top: 24px;
     right: 24px;
-    z-index: 11;
+    z-index: ${zIndex.foreground + zIndex.forwardIncrement};
     width: 40px;
     height: 40px;
     border: 0;
@@ -28,7 +28,7 @@ const NavButton = styled.button`
 
 const NavLinks = styled.ol`
     position: fixed;
-    z-index: 10;
+    z-index: ${zIndex.foreground};
     top: 0;
     transform: translateX(100vw);
     right: ${(props) => (props.navIsOpen ? "100vw" : "0")};
@@ -160,7 +160,7 @@ const Container = styled.header`
             top: 50%;
             left: 12vw;
             right: clamp(780px, 60vw, 790px);
-            z-index: 20;
+            z-index: ${zIndex.foreground + zIndex.forwardIncrement};
         }
 
         ${NavLinks} {

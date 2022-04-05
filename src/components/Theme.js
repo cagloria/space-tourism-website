@@ -13,6 +13,17 @@ export const colors = {
     },
 };
 
+// The value of z-index is "zIndex.foreground" or "z-index.background", with 
+// background being behind the base content
+// To change z-index of an element to be relative to sibling elements, add
+// backgroundIncrement or forwardIncrement to the value
+export const zIndex = {
+    background: -100,
+    foreground: 100,
+    backgroundIncrement: -10,
+    forwardIncrement: 10,
+};
+
 export const GlobalStyle = createGlobalStyle`
     :root {
         --font-heading: 'Barlow Condensed', sans-serif;
@@ -42,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
                 width: 100vw;
                 height: 100vh;
                 opacity: 0.25;
-                z-index: -9;
+                z-index: ${zIndex.background};
             }
         }
     }
