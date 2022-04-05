@@ -330,7 +330,7 @@ export default function Crew({ crewMember }) {
                 />
                 <img
                     src={getImages(crewMember.name).webp}
-                    alt={crewMember.name}
+                    alt={crewMember.imgAlt}
                 />
             </Image>
 

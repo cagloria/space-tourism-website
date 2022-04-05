@@ -294,7 +294,7 @@ export default function Technology({ tech }) {
                             ? getImages(tech.name).portrait
                             : getImages(tech.name).landscape
                     }
-                    alt={tech.name}
+                    alt={tech.imgAlt}
                 />
             </ImageContainer>
 

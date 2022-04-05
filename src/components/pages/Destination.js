@@ -346,7 +346,7 @@ export default function Destination({ destination }) {
                 />
                 <img
                     src={getImages(destination.name).webp}
-                    alt={destination.name}
+                    alt={destination.imgAlt}
                 />
             </Image>
 
