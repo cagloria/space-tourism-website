@@ -30,7 +30,7 @@ const GlobalTechnologyStyle = createGlobalStyle`
 const ImageContainer = styled.div`
     display: flex;
     justify-content: center;
-    margin: 32px 0 34px;
+    margin-bottom: 34px;
 
     img {
         width: 100vw;
@@ -45,7 +45,7 @@ const TechTitle = styled.h2`
     justify-content: center;
     text-align: center;
     row-gap: 9px;
-    margin: 26px 0 16px;
+    margin: 0 0 16px;
 `;
 
 const TechTerminology = styled.span`
@@ -63,18 +63,34 @@ const TechName = styled.span`
 const Description = styled.p`
     max-width: 49ch;
     text-align: center;
-    margin: 16px auto 0;
+    margin: 0 auto 0;
 `;
 
 const Container = styled.section`
+    display: flex;
+    flex-direction: column;
     padding-bottom: 81px;
 
     h1 {
         margin: 0 0 32px;
+        order: 1;
+    }
+
+    ${ImageContainer} {
+        order: 2;
     }
 
     .number-slider {
-        margin: 34px 0 24px;
+        margin: 0 0 24px;
+        order: 3;
+    }
+
+    ${TechTitle} {
+        order: 4;
+    }
+
+    ${Description} {
+        order: 5;
     }
 
     @media screen and (min-width: 425px) {
@@ -92,7 +108,6 @@ const Container = styled.section`
         }
 
         ${ImageContainer} {
-            margin-top: 60px;
             margin-bottom: 56px;
 
             img {
@@ -101,13 +116,11 @@ const Container = styled.section`
         }
 
         .number-slider {
-            margin-top: 56px;
             margin-bottom: 44px;
         }
 
         ${TechTitle} {
             row-gap: 16px;
-            margin-top: 44px;
             margin-bottom: 16px;
 
             span:first-child {
@@ -117,10 +130,6 @@ const Container = styled.section`
             span:last-child {
                 font-size: 3.5rem;
             }
-        }
-
-        ${Description} {
-            margin-top: 16px;
         }
     }
 
@@ -265,17 +274,6 @@ export default function Technology({ tech }) {
             <GlobalTechnologyStyle />
             <PagesHeading number="03" text="Space launch 101" />
 
-            <ImageContainer>
-                <img
-                    src={
-                        onDesktop
-                            ? getImages(tech.name).portrait
-                            : getImages(tech.name).landscape
-                    }
-                    alt={tech.name}
-                />
-            </ImageContainer>
-
             <NumberSlider
                 pathPrefix="technology"
                 links={technology}
@@ -288,6 +286,17 @@ export default function Technology({ tech }) {
                 </TechTerminology>{" "}
                 <TechName>{tech.name}</TechName>
             </TechTitle>
+
+            <ImageContainer>
+                <img
+                    src={
+                        onDesktop
+                            ? getImages(tech.name).portrait
+                            : getImages(tech.name).landscape
+                    }
+                    alt={tech.name}
+                />
+            </ImageContainer>
 
             <Description>{tech.description}</Description>
         </Container>
