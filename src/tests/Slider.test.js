@@ -11,9 +11,15 @@ describe("Slider", () => {
         </BrowserRouter>
     );
 
-    const linkNode1 = screen.getByText("Link 1").parentElement;
-    const linkNode2 = screen.getByText("Link 2").parentElement;
-    const linkNode3 = screen.getByText("Link 3").parentElement;
+    const linkNode1 = screen.getByText("Link 1", {
+        exact: false, // subtring match
+    }).parentElement;
+    const linkNode2 = screen.getByText("Link 2", {
+        exact: false,
+    }).parentElement;
+    const linkNode3 = screen.getByText("Link 3", {
+        exact: false,
+    }).parentElement;
 
     test("renders a list of links for all items in the array", () => {
         expect(linkNode1).toBeInTheDocument();

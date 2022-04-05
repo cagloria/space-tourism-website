@@ -74,7 +74,7 @@ const GlobalDestinationStyle = createGlobalStyle`
 `;
 
 const Image = styled.picture`
-    margin: 35px 0 26px;
+    margin-bottom: 26px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,7 +94,7 @@ const NameHeading = styled.h2`
 const Description = styled.p`
     text-align: center;
     max-width: 64ch;
-    margin: 1px auto 32px;
+    margin: 0 auto;
 `;
 
 const HorizontalLine = styled.hr`
@@ -105,7 +105,6 @@ const StatsContainer = styled.div`
     display: flex;
     flex-direction: column;
     row-gap: 32px;
-    margin: 32px 0 0;
 `;
 
 const Stats = styled.div`
@@ -131,15 +130,39 @@ const Stats = styled.div`
 
 const Container = styled.section`
     padding-bottom: 58px;
+    display: flex;
+    flex-direction: column;
 
     h1 {
         margin: 0 0 35px;
         text-align: center;
         grid-area: heading;
+        order: 1;
+    }
+
+    ${Image} {
+        order: 2;
     }
 
     .tabs {
         grid-area: tabs;
+        order: 3;
+    }
+
+    ${NameHeading} {
+        order: 4;
+    }
+
+    ${Description} {
+        order: 5;
+    }
+
+    ${HorizontalLine} {
+        order: 6;
+    }
+
+    ${StatsContainer} {
+        order: 7;
     }
 
     @media screen and (min-width: 768px) {
@@ -149,17 +172,12 @@ const Container = styled.section`
         }
 
         ${Image} {
-            margin: 60px 0 53px;
+            margin-bottom: 53px;
         }
 
         ${NameHeading} {
             margin-top: 32px;
             margin-bottom: 8px;
-        }
-
-        ${Description} {
-            margin-top: 8px;
-            margin-bottom: 49px;
         }
 
         ${HorizontalLine} {
@@ -168,7 +186,6 @@ const Container = styled.section`
         }
 
         ${StatsContainer} {
-            margin-top: 28px;
             flex-direction: row;
             column-gap: 14.5vw;
             justify-content: center;
@@ -194,7 +211,7 @@ const Container = styled.section`
         }
 
         h1 {
-            margin-bottom: 60px;
+            margin-bottom: 64px;
         }
 
         ${Image} {
@@ -308,20 +325,6 @@ export default function Destination({ destination }) {
             <GlobalDestinationStyle />
             <PagesHeading number="01" text="Pick your destination" />
 
-            <Image
-                id="planet-image"
-                className="destination__animated destination__animated--slidein"
-            >
-                <source
-                    srcSet={getImages(destination.name).png}
-                    type="image/webp"
-                />
-                <img
-                    src={getImages(destination.name).webp}
-                    alt={destination.name}
-                />
-            </Image>
-
             <Tabs
                 pathPrefix="destination"
                 links={destinations}
@@ -329,13 +332,24 @@ export default function Destination({ destination }) {
                 onLinkClick={restartAnimation}
             />
 
-            <NameHeading className="destination__heading destination__animated destination__animated--fadein">
+            <NameHeading className="destination__heading">
                 {destination.name}
             </NameHeading>
 
+            <Image id="planet-image">
+                <source
+                    srcSet={getImages(destination.name).png}
+                    type="image/webp"
+                />
+                <img
+                    src={getImages(destination.name).webp}
+                    alt={destination.imgAlt}
+                />
+            </Image>
+
             <Description>{destination.description}</Description>
 
-            <HorizontalLine />
+            <HorizontalLine aria-hidden="true" />
 
             <StatsContainer>
                 <Stats>

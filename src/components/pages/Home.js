@@ -33,16 +33,9 @@ const Body = styled.p`
 `;
 
 const Container = styled.section`
-    padding-top: 24px;
-
     .landing-page-button {
         margin-left: auto;
         margin-right: auto;
-    }
-
-    /* Tablet layout */
-    @media screen and (min-width: 570px) {
-        padding-top: 106px;
     }
 
     @media screen and (min-width: 768px) {
@@ -58,7 +51,6 @@ const Container = styled.section`
 
     /* Desktop layout */
     @media screen and (min-width: 1024px) {
-        padding-top: 187px;
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 49ch 1fr auto;
@@ -82,10 +74,6 @@ const Container = styled.section`
             text-align: left;
         }
     }
-
-    @media screen and (min-width: 1024px) and (max-height: 800px) {
-        padding-top: 13vh;
-    }
 `;
 
 export default function Home() {
@@ -94,7 +82,7 @@ export default function Home() {
     }, []);
 
     return (
-        <Container>
+        <Container className="adjusted-top-padding">
             <GlobalHomeStyle />
             <Heading>
                 <span className="nav-heading-small color-primary">

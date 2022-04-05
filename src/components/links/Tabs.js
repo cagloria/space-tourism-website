@@ -80,13 +80,20 @@ export default function Tabs({
     }
 
     const list = links.map((item) => {
+        const isCurrentPage = currentPageName === item.name;
         const path = `/${pathPrefix}-${convertForURL(item.name)}`;
-        const className =
-            currentPageName === item.name ? "tabs__active-page" : null;
+        const className = isCurrentPage ? "tabs__active-page" : null;
 
         return (
             <li key={item.name}>
-                <Link to={path} className={className} onClick={handleLinkClick}>
+                <Link
+                    to={path}
+                    className={className}
+                    onClick={handleLinkClick}
+                    aria-label={
+                        isCurrentPage ? item.name + " (current page)" : ""
+                    }
+                >
                     {item.name}
                 </Link>
             </li>

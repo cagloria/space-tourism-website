@@ -11,9 +11,9 @@ describe("Tabs", () => {
         </BrowserRouter>
     );
 
-    const linkNode1 = screen.getByText("Link 1");
-    const linkNode2 = screen.getByText("Link 2");
-    const linkNode3 = screen.getByText("Link 3");
+    const linkNode1 = screen.getByText("Link 1", { exact: false });
+    const linkNode2 = screen.getByText("Link 2", { exact: false });
+    const linkNode3 = screen.getByText("Link 3", { exact: false });
 
     test("renders a list of links for all items in the array", () => {
         expect(linkNode1).toBeInTheDocument();

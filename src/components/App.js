@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GlobalStyle } from "./Theme";
 import Header from "./ui/Header";
+import SkipLink from "./links/SkipLink";
 import Home from "./pages/Home";
 import Destination from "./pages/Destination";
 import Crew from "./pages/Crew";
@@ -44,9 +45,10 @@ export default function App() {
     return (
         <>
             <GlobalStyle />
+            <SkipLink />
             <BrowserRouter>
                 <Header />
-                <main>
+                <main id="main">
                     <Routes>
                         <Route exact path="/" element={<Home />} />
                         {destinationRoutes}
