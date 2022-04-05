@@ -62,7 +62,7 @@ const NavLinks = styled.ol`
             transition: border-right-color 0.4s ease-out;
 
             &::before {
-                content: "0" counter(nav-counter) " " / "";
+                content: "0" counter(nav-counter) " " / ""; /* Adds alternative content for accessibility software */
                 font-weight: bold;
             }
 
@@ -73,7 +73,8 @@ const NavLinks = styled.ol`
     }
 
     @media (prefers-reduced-motion) {
-        transition: unset;
+        opacity: ${(props) => (props.navIsOpen ? "1" : "0")};
+        transition: opacity 0.5s ease-in-out;
     }
 `;
 
@@ -81,10 +82,6 @@ const Container = styled.header`
     display: flex;
     justify-content: space-between;
     padding: 24px;
-
-    @media (prefers-reduced-motion) {
-        transition: unset;
-    }
 
     /* Tablet */
     @media screen and (min-width: 600px) {
@@ -126,6 +123,11 @@ const Container = styled.header`
                         border-bottom-color: ${colors.white};
                     }
                 }
+            }
+
+            @media (prefers-reduced-motion) {
+                transition: unset;
+                opacity: 1;
             }
         }
     }
@@ -238,7 +240,6 @@ export default function Header() {
         <Container navIsOpen={navIsOpen}>
             <LogoImg src={logo} alt="Space tourism logo" />
             <nav>
-                {/* FIXME: Button is read as "blank" by screenreader */}
                 <NavButton
                     navIsOpen={navIsOpen}
                     aria-label={

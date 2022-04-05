@@ -34,7 +34,7 @@ const List = styled.ol`
             border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
         &::after {
-            content: counter(nav-counter) / "";
+            content: counter(nav-counter) / ""; /* Adds alternative content for accessibility software */
             font-family: "Bellefair", sans-serif;
             position: absolute;
             left: 50%;
