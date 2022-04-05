@@ -72,8 +72,25 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     section {
-        @media screen and (min-width: 570px) {
+        @media screen and (min-width: 600px) {
             padding-top: 40px;
+        }
+
+        /* For Home page and Missing page */
+        &.adjusted-top-padding {
+            padding-top: 24px;
+
+            @media screen and (min-width: 600px) {
+                padding-top: 106px;
+            }
+
+            @media screen and (min-width: 1024px) {
+                padding-top: 187px;
+            }
+
+            @media screen and (min-width: 1024px) and (max-height: 800px) {
+                padding-top: 8vh;
+            }
         }
     }
 

@@ -87,8 +87,7 @@ const Container = styled.header`
     }
 
     /* Tablet */
-    @media screen and (min-width: 570px) {
-        padding-top: 24px;
+    @media screen and (min-width: 600px) {
         padding-left: 39px;
         padding-right: 0;
 
@@ -132,7 +131,7 @@ const Container = styled.header`
     }
 
     /* Only tablet layout removes numbering for nav links */
-    @media screen and (min-width: 570px) and (max-width: 1023px) {
+    @media screen and (min-width: 600px) and (max-width: 1023px) {
         ${NavLinks} {
             li a {
                 &::before {
@@ -193,7 +192,7 @@ const Container = styled.header`
 export default function Header() {
     const [navIsOpen, setNavIsOpen] = useState(false);
     const [onDesktopLayout, setOnDesktopLayout] = useState(false);
-    const mediaQueryMin768px = window.matchMedia("(min-width: 570px)");
+    const mediaQueryMin768px = window.matchMedia("(min-width: 600px)");
 
     mediaQueryMin768px.addListener(handleDeviceChange); // Handle screen width change
 

@@ -54,19 +54,6 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     row-gap: 24px;
-    padding-top: 24px;
-
-    @media screen and (min-width: 570px) {
-        padding-top: 106px;
-    }
-
-    @media screen and (min-width: 1024px) {
-        padding-top: 187px;
-    }
-
-    @media screen and (min-width: 1024px) and (max-height: 800px) {
-        padding-top: 100px;
-    }
 `;
 
 export default function MissingPage() {
@@ -79,7 +66,7 @@ export default function MissingPage() {
     }
 
     return (
-        <Container className="background-overlay">
+        <Container className="background-overlay adjusted-top-padding">
             <GlobalHomeStyle />
             <Heading>404 Error</Heading>
             <Body>The page you're looking for doesn't exist!</Body>
