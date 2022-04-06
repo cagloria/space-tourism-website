@@ -34,21 +34,21 @@ const List = styled.ul`
         &.tabs__active-page {
             color: #ffffff;
             &::after {
-                background-color: ${colors.pageNav.active};
+                background-color: ${colors.interactive.active};
             }
         }
 
         &:hover {
             color: #ffffff;
             &::after {
-                background-color: ${colors.pageNav.hover};
+                background-color: ${colors.interactive.hover};
             }
         }
 
         &:active {
             color: #ffffff;
             &::after {
-                background-color: ${colors.pageNav.active};
+                background-color: ${colors.interactive.active};
             }
         }
     }

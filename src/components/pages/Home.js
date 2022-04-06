@@ -85,10 +85,10 @@ export default function Home() {
         <Container className="adjusted-top-padding">
             <GlobalHomeStyle />
             <Heading>
-                <span className="nav-heading-small color-primary">
+                <span className="nav-heading-small">
                     So, you want to travel to
                 </span>{" "}
-                <span>Space</span>
+                <span className="color-primary-white">Space</span>
             </Heading>
 
             <Body>

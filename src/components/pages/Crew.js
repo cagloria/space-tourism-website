@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import Slider from "../links/Slider";
-import { colors } from "../Theme";
 import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
 import bgTablet from "../../assets/crew/background-crew-tablet.jpg";
 import bgDesktop from "../../assets/crew/background-crew-desktop.jpg";
@@ -57,7 +56,7 @@ const CrewMemberTitle = styled.h2`
 
 const CrewMemberRole = styled.span`
     font-size: clamp(1rem, 5.2vw - 1rem, 2rem);
-    color: ${colors.gray};
+    color: #8e8f93;
     text-transform: uppercase;
 `;
 
@@ -320,7 +319,9 @@ export default function Crew({ crewMember }) {
 
             <CrewMemberTitle>
                 <CrewMemberRole>{crewMember.role}</CrewMemberRole>{" "}
-                <CrewMemberName>{crewMember.name}</CrewMemberName>
+                <CrewMemberName className="color-primary-white">
+                    {crewMember.name}
+                </CrewMemberName>
             </CrewMemberTitle>
 
             <Image>

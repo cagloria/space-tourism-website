@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { zIndex } from "../Theme";
+import { zIndex, colors } from "../Theme";
 
 const Link = styled.a`
     color: #d0d6f9;
     text-decoration: none;
-    background-color: #0b0d17;
+    background-color: ${colors.primary.dark};
     padding: 4px;
     position: fixed;
     z-index: ${zIndex.foreground + zIndex.forwardIncrement};

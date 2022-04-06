@@ -67,7 +67,11 @@ const NavLinks = styled.ol`
             }
 
             &:hover {
-                border-right-color: ${colors.white};
+                border-right-color: ${colors.interactive.hover};
+            }
+
+            &:active {
+                border-right-color: ${colors.interactive.active};
             }
         }
     }
@@ -120,7 +124,11 @@ const Container = styled.header`
                     transition: border-bottom-color 0.4s ease-out;
 
                     &:hover {
-                        border-bottom-color: ${colors.white};
+                        border-bottom-color: ${colors.interactive.hover};
+                    }
+
+                    &:active {
+                        border-bottom-color: ${colors.interactive.active};
                     }
                 }
             }

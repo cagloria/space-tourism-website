@@ -8,12 +8,12 @@ const Button = styled.div`
     a {
         width: 150px;
         height: 150px;
-        background-color: ${colors.white};
+        background-color: ${colors.primary.white};
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: ${colors.black};
+        color: ${colors.primary.dark};
         letter-spacing: 1.25px;
         font-family: "Bellefair", sans-serif;
         font-size: 1.25rem;

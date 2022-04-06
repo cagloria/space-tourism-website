@@ -284,7 +284,7 @@ export default function Technology({ tech }) {
                 <TechTerminology className="nav-heading-small">
                     The terminology...
                 </TechTerminology>{" "}
-                <TechName>{tech.name}</TechName>
+                <TechName className="color-primary-white">{tech.name}</TechName>
             </TechTitle>
 
             <ImageContainer>

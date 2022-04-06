@@ -115,12 +115,12 @@ const Stats = styled.div`
     text-transform: uppercase;
 
     h3 {
-        color: ${colors.primary};
         font-size: 14px;
         margin: 0;
     }
 
     p {
+        color: ${colors.primary.white};
         font-family: var(--font-body);
         font-size: 28px;
         margin: 0;
@@ -332,7 +332,7 @@ export default function Destination({ destination }) {
                 onLinkClick={restartAnimation}
             />
 
-            <NameHeading className="destination__heading">
+            <NameHeading className="destination__heading color-primary-white">
                 {destination.name}
             </NameHeading>
 
