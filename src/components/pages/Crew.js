@@ -326,11 +326,11 @@ export default function Crew({ crewMember }) {
 
             <Image>
                 <source
-                    srcSet={getImages(crewMember.name).png}
+                    srcSet={getImages(crewMember.name).webp}
                     type="image/webp"
                 />
                 <img
-                    src={getImages(crewMember.name).webp}
+                    src={getImages(crewMember.name).png}
                     alt={crewMember.imgAlt}
                 />
             </Image>
