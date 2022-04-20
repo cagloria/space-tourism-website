@@ -3,15 +3,10 @@ import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import NumberSlider from "../links/NumberSlider";
 import data from "../../data/data.json";
+import { getImageByOrientation } from "../../utilities/assets";
 import bgMobile from "../../assets/technology/background-technology-mobile.jpg";
 import bgTablet from "../../assets/technology/background-technology-tablet.jpg";
 import bgDesktop from "../../assets/technology/background-technology-desktop.jpg";
-import launchVehicleLandscape from "../../assets/technology/image-launch-vehicle-landscape.jpg";
-import launchVehiclePortrait from "../../assets/technology/image-launch-vehicle-portrait.jpg";
-import spaceportLandscape from "../../assets/technology/image-spaceport-landscape.jpg";
-import spaceportPortrait from "../../assets/technology/image-spaceport-portrait.jpg";
-import spaceCapsuleLandscape from "../../assets/technology/image-space-capsule-landscape.jpg";
-import spaceCapsulePortrait from "../../assets/technology/image-space-capsule-portrait.jpg";
 
 const GlobalTechnologyStyle = createGlobalStyle`
     body {
@@ -248,27 +243,6 @@ export default function Technology({ tech }) {
         }
     }
 
-    function getImages(tech) {
-        let portrait = undefined;
-        let landscape = undefined;
-
-        switch (tech) {
-            case "Spaceport":
-                portrait = spaceportPortrait;
-                landscape = spaceportLandscape;
-                break;
-            case "Space capsule":
-                portrait = spaceCapsulePortrait;
-                landscape = spaceCapsuleLandscape;
-                break;
-            default:
-                portrait = launchVehiclePortrait;
-                landscape = launchVehicleLandscape;
-        }
-
-        return { portrait, landscape };
-    }
-
     return (
         <Container className="background-overlay">
             <GlobalTechnologyStyle />
@@ -291,8 +265,16 @@ export default function Technology({ tech }) {
                 <img
                     src={
                         onDesktop
-                            ? getImages(tech.name).portrait
-                            : getImages(tech.name).landscape
+                            ? getImageByOrientation(
+                                  technology,
+                                  tech.name,
+                                  "portrait"
+                              )
+                            : getImageByOrientation(
+                                  technology,
+                                  tech.name,
+                                  "landscape"
+                              )
                     }
                     alt={tech.imgAlt}
                 />
@@ -307,8 +289,8 @@ Technology.defaultProps = {
     tech: {
         name: "Launch vehicle",
         image: {
-            landscape: launchVehicleLandscape,
-            portrait: launchVehiclePortrait,
+            portrait: "./assets/technology/image-launch-vehicle-portrait.jpg",
+            landscape: "./assets/technology/image-launch-vehicle-landscape.jpg",
         },
         description:
             "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
