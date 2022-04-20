@@ -2,18 +2,10 @@ import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import Slider from "../links/Slider";
-import { colors } from "../Theme";
+import { getImageByFormat } from "../../utilities/assets";
 import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
 import bgTablet from "../../assets/crew/background-crew-tablet.jpg";
 import bgDesktop from "../../assets/crew/background-crew-desktop.jpg";
-import crewDouglasHPng from "../../assets/crew/image-douglas-hurley.png";
-import crewDouglasHWebp from "../../assets/crew/image-douglas-hurley.webp";
-import crewMarkSPng from "../../assets/crew/image-mark-shuttleworth.png";
-import crewMarkSWebp from "../../assets/crew/image-mark-shuttleworth.webp";
-import crewVictorGPng from "../../assets/crew/image-victor-glover.png";
-import crewVictorGWebp from "../../assets/crew/image-victor-glover.webp";
-import crewAnoushehAPng from "../../assets/crew/image-anousheh-ansari.png";
-import crewAnoushehAWebp from "../../assets/crew/image-anousheh-ansari.webp";
 import data from "../../data/data.json";
 
 const GlobalCrewStyle = createGlobalStyle`
@@ -57,7 +49,7 @@ const CrewMemberTitle = styled.h2`
 
 const CrewMemberRole = styled.span`
     font-size: clamp(1rem, 5.2vw - 1rem, 2rem);
-    color: ${colors.gray};
+    color: #8e8f93;
     text-transform: uppercase;
 `;
 
@@ -276,37 +268,6 @@ export default function Crew({ crewMember }) {
         document.title = `Crew: ${crewMember.name} | Space Tourism`;
     }, [crewMember.name]);
 
-    /**
-     * Assigns image files based on the chosen crew member.
-     * @param {string} destination  Name of crew member
-     * @returns                     An object with file paths to a png file and
-     *                              webp file
-     */
-    function getImages(crewMember) {
-        let png = undefined;
-        let webp = undefined;
-
-        switch (crewMember) {
-            case "Mark Shuttleworth":
-                png = crewMarkSPng;
-                webp = crewMarkSWebp;
-                break;
-            case "Victor Glover":
-                png = crewVictorGPng;
-                webp = crewVictorGWebp;
-                break;
-            case "Anousheh Ansari":
-                png = crewAnoushehAPng;
-                webp = crewAnoushehAWebp;
-                break;
-            default:
-                png = crewDouglasHPng;
-                webp = crewDouglasHWebp;
-        }
-
-        return { png, webp };
-    }
-
     return (
         <Container className="background-overlay">
             <GlobalCrewStyle />
@@ -320,16 +281,18 @@ export default function Crew({ crewMember }) {
 
             <CrewMemberTitle>
                 <CrewMemberRole>{crewMember.role}</CrewMemberRole>{" "}
-                <CrewMemberName>{crewMember.name}</CrewMemberName>
+                <CrewMemberName className="color-primary-white">
+                    {crewMember.name}
+                </CrewMemberName>
             </CrewMemberTitle>
 
             <Image>
                 <source
-                    srcSet={getImages(crewMember.name).png}
+                    srcSet={getImageByFormat(crew, crewMember.name, "webp")}
                     type="image/webp"
                 />
                 <img
-                    src={getImages(crewMember.name).webp}
+                    srcSet={getImageByFormat(crew, crewMember.name, "png")}
                     alt={crewMember.imgAlt}
                 />
             </Image>
@@ -343,8 +306,13 @@ export default function Crew({ crewMember }) {
 
 Crew.defaultProps = {
     crewMember: {
-        role: "Commander",
         name: "Douglas Hurley",
+        role: "Commander",
+        images: {
+            png: "./assets/crew/image-douglas-hurley.png",
+            webp: "./assets/crew/image-douglas-hurley.webp",
+        },
+        imgAlt: "Douglas Hurley pumping his fist into the air",
         bio: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
     },
 };

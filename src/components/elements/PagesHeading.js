@@ -15,7 +15,7 @@ const HeadingNumber = styled.span`
  */
 export default function PagesHeading({ number, text }) {
     return (
-        <h1 className="nav-heading-small">
+        <h1 className="nav-heading-small color-primary-white">
             <HeadingNumber aria-hidden="true">{number}</HeadingNumber>
             {text}
         </h1>

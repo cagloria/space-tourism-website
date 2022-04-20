@@ -34,21 +34,21 @@ const List = styled.ul`
         &.tabs__active-page {
             color: #ffffff;
             &::after {
-                background-color: ${colors.pageNav.active};
+                background-color: ${colors.interactive.active};
             }
         }
 
         &:hover {
             color: #ffffff;
             &::after {
-                background-color: ${colors.pageNav.hover};
+                background-color: ${colors.interactive.hover};
             }
         }
 
         &:active {
             color: #ffffff;
             &::after {
-                background-color: ${colors.pageNav.active};
+                background-color: ${colors.interactive.active};
             }
         }
     }
@@ -68,17 +68,7 @@ const List = styled.ul`
  * @returns                         Unordered list of links styled as a list of
  *                                  tabs
  */
-export default function Tabs({
-    pathPrefix,
-    links,
-    currentPageName,
-    onLinkClick,
-}) {
-    function handleLinkClick() {
-        onLinkClick("destination__animated--slidein");
-        onLinkClick("destination__animated--fadein");
-    }
-
+export default function Tabs({ pathPrefix, links, currentPageName }) {
     const list = links.map((item) => {
         const isCurrentPage = currentPageName === item.name;
         const path = `/${pathPrefix}-${convertForURL(item.name)}`;
@@ -89,7 +79,6 @@ export default function Tabs({
                 <Link
                     to={path}
                     className={className}
-                    onClick={handleLinkClick}
                     aria-label={
                         isCurrentPage ? item.name + " (current page)" : ""
                     }

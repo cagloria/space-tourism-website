@@ -3,17 +3,10 @@ import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import Tabs from "../links/Tabs";
 import { colors } from "../Theme";
-import bgMobile from "../../assets/destinations/background-destination-mobile.jpg";
-import bgTablet from "../../assets/destinations/background-destination-tablet.jpg";
-import bgDesktop from "../../assets/destinations/background-destination-desktop.jpg";
-import moonPng from "../../assets/destinations/image-moon.png";
-import moonWebp from "../../assets/destinations/image-moon.webp";
-import marsPng from "../../assets/destinations/image-mars.png";
-import marsWebp from "../../assets/destinations/image-mars.webp";
-import europaPng from "../../assets/destinations/image-europa.png";
-import europaWebp from "../../assets/destinations/image-europa.webp";
-import titanPng from "../../assets/destinations/image-titan.png";
-import titanWebp from "../../assets/destinations/image-titan.webp";
+import { getImageByFormat } from "../../utilities/assets";
+import bgMobile from "../../assets/destination/background-destination-mobile.jpg";
+import bgTablet from "../../assets/destination/background-destination-tablet.jpg";
+import bgDesktop from "../../assets/destination/background-destination-desktop.jpg";
 import data from "../../data/data.json";
 
 const GlobalDestinationStyle = createGlobalStyle`
@@ -115,12 +108,12 @@ const Stats = styled.div`
     text-transform: uppercase;
 
     h3 {
-        color: ${colors.primary};
         font-size: 14px;
         margin: 0;
     }
 
     p {
+        color: ${colors.primary.white};
         font-family: var(--font-body);
         font-size: 28px;
         margin: 0;
@@ -275,51 +268,6 @@ export default function Destination({ destination }) {
         document.title = `Destination: ${destination.name} | Space Tourism`;
     }, [destination.name]);
 
-    /**
-     * Assigns image files based on the chosen destination.
-     * @param {string} destination  Name of destination
-     * @returns                     An object with file paths to a png file and
-     *                              webp file
-     */
-    function getImages(destination) {
-        let png = undefined;
-        let webp = undefined;
-
-        switch (destination) {
-            case "Mars":
-                png = marsPng;
-                webp = marsWebp;
-                break;
-            case "Europa":
-                png = europaPng;
-                webp = europaWebp;
-                break;
-            case "Titan":
-                png = titanPng;
-                webp = titanWebp;
-                break;
-            default:
-                png = moonPng;
-                webp = moonWebp;
-                break;
-        }
-
-        return { png, webp };
-    }
-
-    /**
-     * Restarts the animation of the destination image.
-     * @param animatedClass Name of class to restart animation
-     */
-    function restartAnimation(animatedClass) {
-        const animatedElements = document.querySelectorAll("." + animatedClass);
-        animatedElements.forEach((element) => {
-            element.classList.remove(animatedClass);
-            void element.offsetWidth;
-            element.classList.add(animatedClass);
-        });
-    }
-
     return (
         <Container>
             <GlobalDestinationStyle />
@@ -329,20 +277,27 @@ export default function Destination({ destination }) {
                 pathPrefix="destination"
                 links={destinations}
                 currentPageName={destination.name}
-                onLinkClick={restartAnimation}
             />
 
-            <NameHeading className="destination__heading">
+            <NameHeading className="destination__heading color-primary-white">
                 {destination.name}
             </NameHeading>
 
             <Image id="planet-image">
                 <source
-                    srcSet={getImages(destination.name).png}
+                    srcSet={getImageByFormat(
+                        destinations,
+                        destination.name,
+                        "webp"
+                    )}
                     type="image/webp"
                 />
                 <img
-                    src={getImages(destination.name).webp}
+                    srcSet={getImageByFormat(
+                        destinations,
+                        destination.name,
+                        "png"
+                    )}
                     alt={destination.imgAlt}
                 />
             </Image>
@@ -370,9 +325,10 @@ Destination.defaultProps = {
     destination: {
         name: "Moon",
         images: {
-            png: moonPng,
-            webp: moonWebp,
+            png: "./assets/destination/image-moon.png",
+            webp: "./assets/destination/image-moon.webp",
         },
+        imgAlt: "Earth's moon",
         description:
             "See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
         distance: "384,400 km",

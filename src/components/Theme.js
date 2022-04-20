@@ -1,16 +1,27 @@
 import { createGlobalStyle } from "styled-components";
 
 export const colors = {
-    black: "#0B0D17",
-    primary: "#D0D6F9",
-    white: "#FFFFFF",
-    darkGray: "#24262F",
-    gray: "#979797",
-    pageNav: {
-        default: "#36373f",
+    primary: {
+        black: "#000000",
+        dark: "#0b0d17",
+        light: "#d0d6f9",
+        white: "#ffffff",
+    },
+    interactive: {
         hover: "#85868b",
         active: "#ffffff",
     },
+};
+
+// The value of z-index is "zIndex.foreground" or "z-index.background", with
+// background being behind the base content
+// To change z-index of an element to be relative to sibling elements, add
+// backgroundIncrement or forwardIncrement to the value
+export const zIndex = {
+    background: -100,
+    foreground: 100,
+    backgroundIncrement: -10,
+    forwardIncrement: 10,
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -21,11 +32,11 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background-attachment: fixed;
-        background-color: ${colors.black};
+        background-color: ${colors.primary.dark};
         background-position: center top;
         background-repeat: no-repeat;
         background-size: cover;
-        color: ${colors.white};
+        color: ${colors.primary.light};
         font-family: "Barlow", sans-serif;
         font-weight: 400;
         margin: 0;
@@ -42,7 +53,7 @@ export const GlobalStyle = createGlobalStyle`
                 width: 100vw;
                 height: 100vh;
                 opacity: 0.25;
-                z-index: -9;
+                z-index: ${zIndex.background};
             }
         }
     }
@@ -147,13 +158,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     p {
-        color: ${colors.primary};
+        color: ${colors.primary.light};
         font-size: clamp(0.938rem, 4.2vw - 1rem, 1.125rem);
         line-height: 178%;
     }
 
     a {
-        color: ${colors.white};
+        color: ${colors.primary.white};
     }
 
     button {
@@ -167,7 +178,7 @@ export const GlobalStyle = createGlobalStyle`
         background-color: #383B4B;
     }
 
-    .color-primary {
-        color: ${colors.primary};
+    .color-primary-white {
+        color: ${colors.primary.white};
     }
 `;

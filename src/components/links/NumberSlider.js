@@ -3,6 +3,13 @@ import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
 import { colors } from "../Theme";
 
+const sliderColors = {
+    interactive: {
+        hover: colors.interactive.active,
+        active: colors.interactive.active,
+    },
+};
+
 const List = styled.ol`
     list-style-type: none;
     padding-left: 0;
@@ -50,13 +57,13 @@ const List = styled.ol`
         }
 
         &:hover {
-            border-color: ${colors.pageNav.active};
+            border-color: ${sliderColors.interactive.hover};
         }
 
         &.number-slider__active-page,
         &:active {
-            background-color: ${colors.pageNav.active};
-            color: ${colors.black};
+            background-color: ${sliderColors.interactive.active};
+            color: ${colors.primary.dark};
         }
     }
 

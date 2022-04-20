@@ -68,7 +68,7 @@ export default function MissingPage() {
     return (
         <Container className="background-overlay adjusted-top-padding">
             <GlobalHomeStyle />
-            <Heading>404 Error</Heading>
+            <Heading className="color-primary-white">404 Error</Heading>
             <Body>The page you're looking for doesn't exist!</Body>
             <GoBackButton onClick={goBack} className="nav-heading-small">
                 Go back
