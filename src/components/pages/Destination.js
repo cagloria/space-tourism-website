@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import Tabs from "../links/Tabs";
 import { colors } from "../Theme";
-import { getPngWebpFromObject } from "../../utilities/assets";
+import { getImageByFormat } from "../../utilities/assets";
 import bgMobile from "../../assets/destination/background-destination-mobile.jpg";
 import bgTablet from "../../assets/destination/background-destination-tablet.jpg";
 import bgDesktop from "../../assets/destination/background-destination-desktop.jpg";
@@ -285,16 +285,19 @@ export default function Destination({ destination }) {
 
             <Image id="planet-image">
                 <source
-                    srcSet={
-                        getPngWebpFromObject(destinations, destination.name)
-                            .webp
-                    }
+                    srcSet={getImageByFormat(
+                        destinations,
+                        destination.name,
+                        "webp"
+                    )}
                     type="image/webp"
                 />
                 <img
-                    srcSet={
-                        getPngWebpFromObject(destinations, destination.name).png
-                    }
+                    srcSet={getImageByFormat(
+                        destinations,
+                        destination.name,
+                        "png"
+                    )}
                     alt={destination.imgAlt}
                 />
             </Image>

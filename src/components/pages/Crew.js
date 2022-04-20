@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import PagesHeading from "../elements/PagesHeading";
 import Slider from "../links/Slider";
-import { getPngWebpFromObject } from "../../utilities/assets";
+import { getImageByFormat } from "../../utilities/assets";
 import bgMobile from "../../assets/crew/background-crew-mobile.jpg";
 import bgTablet from "../../assets/crew/background-crew-tablet.jpg";
 import bgDesktop from "../../assets/crew/background-crew-desktop.jpg";
@@ -288,11 +288,11 @@ export default function Crew({ crewMember }) {
 
             <Image>
                 <source
-                    srcSet={getPngWebpFromObject(crew, crewMember.name).webp}
+                    srcSet={getImageByFormat(crew, crewMember.name, "webp")}
                     type="image/webp"
                 />
                 <img
-                    srcSet={getPngWebpFromObject(crew, crewMember.name).png}
+                    srcSet={getImageByFormat(crew, crewMember.name, "png")}
                     alt={crewMember.imgAlt}
                 />
             </Image>
