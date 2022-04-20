@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import NumberSlider from "../components/links/NumberSlider";
+import NumberSlider from "../components/links/NumberSlider.js";
 
 describe("NumberSlider", () => {
     const data = [{ name: "Link 1" }, { name: "Link 2" }, { name: "Link 3" }];

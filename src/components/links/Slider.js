@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { convertForURL } from "../../utilities/strings";
+import { convertForURL } from "../../utilities/strings.js";
 import styled from "styled-components";
 
 const Text = styled.span`

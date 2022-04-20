@@ -1,4 +1,4 @@
-import { convertForURL } from "../utilities/strings";
+import { convertForURL } from "../utilities/strings.js";
 
 describe("convertForURL", () => {
     it("changes a string to lowercase and replaces spaces with dashes", () => {
