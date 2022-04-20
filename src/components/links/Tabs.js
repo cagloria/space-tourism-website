@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { convertForURL } from "../../utilities/strings";
 import styled from "styled-components";
-import { colors } from "../Theme";
+import { convertForURL } from "../../utilities/strings.js";
+import { colors } from "../Theme.js";
 
 const List = styled.ul`
     list-style-type: none;

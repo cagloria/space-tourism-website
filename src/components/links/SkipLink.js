@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { zIndex, colors } from "../Theme";
+import { zIndex, colors } from "../Theme.js";
 
 const Link = styled.a`
     color: #d0d6f9;

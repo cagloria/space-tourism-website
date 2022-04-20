@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import Slider from "../components/links/Slider";
+import Slider from "../components/links/Slider.js";
 
 describe("Slider", () => {
     const data = [{ name: "Link 1" }, { name: "Link 2" }, { name: "Link 3" }];
