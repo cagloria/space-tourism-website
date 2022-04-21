@@ -5,6 +5,7 @@
 <p align="center">
     <img alt="Build status badge" src="https://img.shields.io/github/workflow/status/cagloria/space-tourism-website/Node.js CI" />
     <img alt="Repo size badge" src="https://img.shields.io/github/repo-size/cagloria/space-tourism-website" />
+    <a href="https://app.netlify.com/sites/cagloria-space-tourism/deploys"><img alt="Netlify status" src="https://api.netlify.com/api/v1/badges/9a22f7f8-126e-44b9-ab6c-3882d18228c5/deploy-status"></a>
 </p>
 
 This is a solution to the [Space tourism website challenge provided by Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3).
