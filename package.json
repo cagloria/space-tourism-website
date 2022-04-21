@@ -1,5 +1,6 @@
 {
   "name": "space-tourism-website",
+  "homepage": "http://cagloria.github.io/space-tourism-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
