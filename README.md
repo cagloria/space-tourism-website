@@ -20,6 +20,10 @@ Users should be able to:
 -   See hover states for all interactive elements on the page
 -   View each page and be able to toggle between the tabs to see new information
 
+## Demo
+
+This project has been deployed to Netlify: https://cagloria-space-tourism.netlify.app/
+
 ## Technologies Used
 
 -   [React](https://reactjs.org/) - JavaScript library
