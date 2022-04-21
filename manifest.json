@@ -1,0 +1,31 @@
+{
+    "short_name": "Space Tourism Website",
+    "name": "Frontend Mentor | Space tourism website",
+    "description": "A solution by C.A. Gloria for the Space tourism website challenge on Frontend Mentor.",
+    "icons": [
+        {
+            "src": "icon16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        },
+        {
+            "src": "icon32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "icon192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#FFFFFF",
+    "background_color": "#0B0D17"
+}
