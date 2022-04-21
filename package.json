@@ -1,6 +1,6 @@
 {
   "name": "space-tourism-website",
-  "homepage": "http://cagloria.github.io/space-tourism-website",
+  "homepage": "https://cagloria-space-tourism.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
